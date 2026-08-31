@@ -232,7 +232,7 @@ p {
 /* Main setting to adjust */
 .header-logo {
     width: auto;
-    height: 68px;
+    height: 84px;
 
     object-fit: contain;
 }
