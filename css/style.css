@@ -237,7 +237,21 @@ p {
     object-fit: contain;
 }
 
+.main-nav {
+    display: flex;
+    align-items: center;
 
+    gap: 4px;
+
+    flex: 1;
+
+    /*
+     * This controls where the navigation sits.
+     * Center the menu in all remaining space
+     * after the logo.
+     */
+    justify-content: center;
+}
 
 /* =========================================================
    6. TEXT LOGO
