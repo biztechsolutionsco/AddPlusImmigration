@@ -95,11 +95,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const folderDepth = folderParts.length;
 
-    const rootPrefix =
-        folderDepth === 0
-            ? ""
-            : "../".repeat(folderDepth);
+    const is404Page =
+    document.body.classList.contains("error-page");
 
+    const rootPrefix =
+        is404Page
+            ? "/"
+            : (
+                folderDepth === 0
+                    ? ""
+                    : "../".repeat(folderDepth)
+            );
 
     /*
     ==========================================================

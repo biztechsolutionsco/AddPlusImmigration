@@ -60,6 +60,22 @@
 
     function getRootPrefix() {
 
+        /*
+        404 pages can be displayed at any URL depth.
+        Always use the domain root.
+        */
+
+        if (
+            document.body.classList.contains(
+                "error-page"
+            )
+        ) {
+
+            return "/";
+
+        }
+
+
         const depth =
             getFolderDepth();
 
