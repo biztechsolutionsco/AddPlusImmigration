@@ -1,6 +1,7 @@
 {
   "name": "addplusimmigration",
   "main": "src/index.js",
+  "compatibility_date": "2026-08-28",
 
   "d1_databases": [
     {
