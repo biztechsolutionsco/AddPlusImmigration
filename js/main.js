@@ -1,12 +1,80 @@
 (function () {
 
     let navigationInitialized = false;
-
     let contactFormInitialized = false;
-
     let qrModalInitialized = false;
-
     let serviceTabsInitialized = false;
+
+
+    /*
+    ==========================================================
+    SITE PATH / ROOT HELPERS
+    ==========================================================
+    */
+
+    function getPathParts() {
+
+        return window.location.pathname
+            .split("/")
+            .filter(Boolean);
+
+    }
+
+
+    function getFolderDepth() {
+
+        const pathParts = getPathParts();
+
+        /*
+        Remove current file name.
+
+        Examples:
+
+        /index.html
+        -> []
+
+        /family/index.html
+        -> ["family"]
+
+        /immigrate/express-entry/CEC.html
+        -> ["immigrate", "express-entry"]
+
+        /work/work-permits/open-work-permits/pgwp.html
+        -> ["work", "work-permits", "open-work-permits"]
+        */
+
+        if (
+            pathParts.length > 0 &&
+            pathParts[pathParts.length - 1].includes(".")
+        ) {
+
+            pathParts.pop();
+
+        }
+
+
+        return pathParts.length;
+
+    }
+
+
+    function getRootPrefix() {
+
+        const depth =
+            getFolderDepth();
+
+
+        if (depth === 0) {
+
+            return "";
+
+        }
+
+
+        return "../".repeat(depth);
+
+    }
+
 
 
     /*
@@ -40,11 +108,19 @@
             );
 
 
+        /*
+        header.html may not yet be loaded.
+        Do NOT set navigationInitialized until
+        the required elements actually exist.
+        */
+
         if (
             !mobileMenuButton ||
             !mainNav
         ) {
+
             return;
+
         }
 
 
@@ -73,6 +149,18 @@
                     String(isOpen)
                 );
 
+
+                /*
+                If closing the entire mobile menu,
+                also close all open dropdowns.
+                */
+
+                if (!isOpen) {
+
+                    closeAllDropdowns();
+
+                }
+
             }
         );
 
@@ -80,12 +168,20 @@
 
         /*
         ======================================================
-        MOBILE DROPDOWNS
+        FIRST-LEVEL MOBILE DROPDOWNS
+        ======================================================
+
+        IMMIGRATE
+        FAMILY
+        WORK
+        STUDY
+        VISIT
+        STATUS & CITIZENSHIP
         ======================================================
         */
 
         const dropdownToggles =
-            document.querySelectorAll(
+            mainNav.querySelectorAll(
                 ".dropdown-toggle"
             );
 
@@ -98,9 +194,12 @@
                     function (event) {
 
                         if (
-                            window.innerWidth > 800
+                            window.innerWidth >
+                            800
                         ) {
+
                             return;
+
                         }
 
 
@@ -118,7 +217,18 @@
                         }
 
 
-                        document
+                        const isAlreadyOpen =
+                            dropdown.classList
+                                .contains(
+                                    "open"
+                                );
+
+
+                        /*
+                        Close other first-level dropdowns.
+                        */
+
+                        mainNav
                             .querySelectorAll(
                                 ".dropdown"
                             )
@@ -138,6 +248,25 @@
                                                 "open"
                                             );
 
+
+                                        otherDropdown
+                                            .querySelectorAll(
+                                                ".dropdown-submenu"
+                                            )
+                                            .forEach(
+                                                function (
+                                                    submenu
+                                                ) {
+
+                                                    submenu
+                                                        .classList
+                                                        .remove(
+                                                            "open"
+                                                        );
+
+                                                }
+                                            );
+
                                     }
 
                                 }
@@ -147,7 +276,8 @@
                         dropdown
                             .classList
                             .toggle(
-                                "open"
+                                "open",
+                                !isAlreadyOpen
                             );
 
                     }
@@ -160,7 +290,234 @@
 
         /*
         ======================================================
-        CLOSE MOBILE MENU AFTER LINK CLICK
+        SECOND-LEVEL / NESTED MOBILE SUBMENUS
+        ======================================================
+
+        Examples:
+
+        FAMILY
+            Spouse & Partner Sponsorship >
+
+        IMMIGRATE
+            Express Entry >
+
+        WORK
+            Open Work Permits >
+        ======================================================
+        */
+
+        const submenuItems =
+            mainNav.querySelectorAll(
+                ".dropdown-submenu"
+            );
+
+
+        submenuItems.forEach(
+            function (submenu) {
+
+                const submenuLabel =
+                    submenu.querySelector(
+                        ":scope > .submenu-label"
+                    );
+
+
+                const submenuTrigger =
+                    submenu.querySelector(
+                        ":scope > .submenu-trigger"
+                    );
+
+
+                /*
+                ------------------------------------------------
+                NON-LINK SUBMENU LABEL
+                ------------------------------------------------
+
+                Example:
+
+                <div class="submenu-label">
+                    Spouse & Partner Sponsorship
+                </div>
+
+                Clicking it only opens the nested menu.
+                */
+
+                if (submenuLabel) {
+
+                    submenuLabel.addEventListener(
+                        "click",
+                        function (event) {
+
+                            if (
+                                window.innerWidth >
+                                800
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            event.preventDefault();
+
+                            event.stopPropagation();
+
+
+                            toggleMobileSubmenu(
+                                submenu
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                /*
+                ------------------------------------------------
+                LINKED SUBMENU TRIGGER
+                ------------------------------------------------
+
+                Example:
+
+                <a class="submenu-trigger"
+                   href="...express-entry...">
+
+                    Express Entry >
+
+                </a>
+
+                On desktop:
+                behaves like a normal link.
+
+                On mobile:
+                first tap opens submenu.
+                second tap follows the link.
+                */
+
+                if (submenuTrigger) {
+
+                    submenuTrigger.addEventListener(
+                        "click",
+                        function (event) {
+
+                            if (
+                                window.innerWidth >
+                                800
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            /*
+                            First tap:
+                            open submenu instead of navigating.
+                            */
+
+                            if (
+                                !submenu.classList
+                                    .contains(
+                                        "open"
+                                    )
+                            ) {
+
+                                event.preventDefault();
+
+                                event.stopPropagation();
+
+
+                                toggleMobileSubmenu(
+                                    submenu
+                                );
+
+                            }
+
+                            /*
+                            If already open,
+                            allow the normal link navigation.
+                            */
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /*
+        ======================================================
+        MOBILE SUBMENU HELPER
+        ======================================================
+        */
+
+        function toggleMobileSubmenu(
+            selectedSubmenu
+        ) {
+
+            const parentDropdown =
+                selectedSubmenu.closest(
+                    ".dropdown"
+                );
+
+
+            /*
+            Close sibling submenus at the same level.
+            */
+
+            if (parentDropdown) {
+
+                parentDropdown
+                    .querySelectorAll(
+                        ".dropdown-submenu"
+                    )
+                    .forEach(
+                        function (
+                            otherSubmenu
+                        ) {
+
+                            if (
+                                otherSubmenu !==
+                                selectedSubmenu &&
+                                !otherSubmenu.contains(
+                                    selectedSubmenu
+                                )
+                            ) {
+
+                                otherSubmenu
+                                    .classList
+                                    .remove(
+                                        "open"
+                                    );
+
+                            }
+
+                        }
+                    );
+
+            }
+
+
+            selectedSubmenu
+                .classList
+                .toggle(
+                    "open"
+                );
+
+        }
+
+
+
+        /*
+        ======================================================
+        CLOSE MOBILE MENU AFTER FINAL LINK CLICK
+        ======================================================
+
+        Do not close when the user merely opens
+        a linked submenu on first tap.
         ======================================================
         */
 
@@ -174,49 +531,161 @@
                         function () {
 
                             if (
-                                window.innerWidth <=
+                                window.innerWidth >
                                 800
                             ) {
 
-                                mainNav
-                                    .classList
-                                    .remove(
-                                        "open"
-                                    );
-
-
-                                mobileMenuButton
-                                    .setAttribute(
-                                        "aria-expanded",
-                                        "false"
-                                    );
-
-
-                                document
-                                    .querySelectorAll(
-                                        ".dropdown"
-                                    )
-                                    .forEach(
-                                        function (
-                                            dropdown
-                                        ) {
-
-                                            dropdown
-                                                .classList
-                                                .remove(
-                                                    "open"
-                                                );
-
-                                        }
-                                    );
+                                return;
 
                             }
+
+
+                            /*
+                            If this is a submenu trigger and
+                            its submenu has just been opened,
+                            keep the mobile menu open.
+                            */
+
+                            const parentSubmenu =
+                                link.closest(
+                                    ".dropdown-submenu"
+                                );
+
+
+                            if (
+                                link.classList.contains(
+                                    "submenu-trigger"
+                                ) &&
+                                parentSubmenu &&
+                                parentSubmenu.classList
+                                    .contains(
+                                        "open"
+                                    )
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            closeMobileMenu();
 
                         }
                     );
 
                 }
             );
+
+
+
+        /*
+        ======================================================
+        CLOSE MOBILE MENU HELPER
+        ======================================================
+        */
+
+        function closeMobileMenu() {
+
+            mainNav
+                .classList
+                .remove(
+                    "open"
+                );
+
+
+            mobileMenuButton
+                .setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+            closeAllDropdowns();
+
+        }
+
+
+
+        /*
+        ======================================================
+        CLOSE ALL DROPDOWNS
+        ======================================================
+        */
+
+        function closeAllDropdowns() {
+
+            mainNav
+                .querySelectorAll(
+                    ".dropdown"
+                )
+                .forEach(
+                    function (
+                        dropdown
+                    ) {
+
+                        dropdown
+                            .classList
+                            .remove(
+                                "open"
+                            );
+
+                    }
+                );
+
+
+            mainNav
+                .querySelectorAll(
+                    ".dropdown-submenu"
+                )
+                .forEach(
+                    function (
+                        submenu
+                    ) {
+
+                        submenu
+                            .classList
+                            .remove(
+                                "open"
+                            );
+
+                    }
+                );
+
+        }
+
+
+
+        /*
+        ======================================================
+        ESCAPE KEY
+        ======================================================
+        */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key !==
+                    "Escape"
+                ) {
+
+                    return;
+
+                }
+
+
+                if (
+                    window.innerWidth <=
+                    800
+                ) {
+
+                    closeMobileMenu();
+
+                }
+
+            }
+        );
 
 
 
@@ -249,23 +718,7 @@
                         );
 
 
-                    document
-                        .querySelectorAll(
-                            ".dropdown"
-                        )
-                        .forEach(
-                            function (
-                                dropdown
-                            ) {
-
-                                dropdown
-                                    .classList
-                                    .remove(
-                                        "open"
-                                    );
-
-                            }
-                        );
+                    closeAllDropdowns();
 
                 }
 
@@ -281,12 +734,11 @@
     CONTACT FORM
     ==========================================================
 
-    This is still the temporary form handler.
+    Temporary contact-form handler.
 
-    Later, when the live Cloudflare form backend,
-    Turnstile, and notification system are connected,
-    this function will be replaced with the real
-    submission process.
+    Replace this later when the live Cloudflare
+    backend / Turnstile / notification system
+    is connected.
     ==========================================================
     */
 
@@ -295,7 +747,9 @@
         if (
             contactFormInitialized
         ) {
+
             return;
+
         }
 
 
@@ -306,7 +760,9 @@
 
 
         if (!contactForm) {
+
             return;
+
         }
 
 
@@ -344,7 +800,9 @@
         if (
             qrModalInitialized
         ) {
+
             return;
+
         }
 
 
@@ -355,7 +813,9 @@
 
 
         if (!modal) {
+
             return;
+
         }
 
 
@@ -396,7 +856,9 @@
             !closeButton ||
             qrButtons.length === 0
         ) {
+
             return;
+
         }
 
 
@@ -410,73 +872,7 @@
 
         /*
         ======================================================
-        DETERMINE ROOT PREFIX
-        ======================================================
-        */
-
-        function getRootPrefix() {
-
-            const serviceFolders = [
-
-                "immigrate",
-
-                "immigration",
-
-                "sponsor",
-
-                "work",
-
-                "visit",
-
-                "study",
-
-                "others"
-
-            ];
-
-
-            const pathParts =
-                window.location.pathname
-                    .split("/")
-                    .filter(Boolean);
-
-
-            let currentFolder = "";
-
-
-            if (
-                pathParts.length >= 2
-            ) {
-
-                currentFolder =
-                    pathParts[
-                        pathParts.length -
-                        2
-                    ];
-
-            }
-
-
-            if (
-                serviceFolders.includes(
-                    currentFolder
-                )
-            ) {
-
-                return "../";
-
-            }
-
-
-            return "";
-
-        }
-
-
-
-        /*
-        ======================================================
-        OPEN MODAL
+        OPEN QR MODAL
         ======================================================
         */
 
@@ -549,7 +945,7 @@
 
         /*
         ======================================================
-        CLOSE MODAL
+        CLOSE QR MODAL
         ======================================================
         */
 
@@ -573,17 +969,12 @@
                 );
 
 
-            /*
-            Clear the image after closing so
-            the previous QR code does not
-            briefly appear the next time the
-            modal is opened.
-            */
-
-            modalImage.src = "";
+            modalImage.src =
+                "";
 
 
-            modalImage.alt = "";
+            modalImage.alt =
+                "";
 
 
             if (
@@ -643,7 +1034,7 @@
 
         /*
         ======================================================
-        BACKDROP CLICK
+        BACKDROP / OTHER CLOSE CONTROLS
         ======================================================
         */
 
@@ -652,7 +1043,9 @@
                 "[data-qr-close]"
             )
             .forEach(
-                function (element) {
+                function (
+                    element
+                ) {
 
                     element.addEventListener(
                         "click",
@@ -692,16 +1085,42 @@
 
     }
 
+
+
     /*
     ==========================================================
     HOMEPAGE SERVICE TABS
+    ==========================================================
+
+    Completely generic.
+
+    It does NOT care whether your categories are:
+
+    immigration
+    family
+    work
+    study
+    visit
+    status-citizenship
+
+    It simply matches:
+
+    data-service-tab="xxxxx"
+
+    with
+
+    data-service-panel="xxxxx"
     ==========================================================
     */
 
     function initializeServiceTabs() {
 
-        if (serviceTabsInitialized) {
+        if (
+            serviceTabsInitialized
+        ) {
+
             return;
+
         }
 
 
@@ -712,23 +1131,27 @@
 
 
         if (!tabContainer) {
+
             return;
+
         }
 
 
         const tabs =
             Array.from(
-                tabContainer.querySelectorAll(
-                    "[data-service-tab]"
-                )
+                tabContainer
+                    .querySelectorAll(
+                        "[data-service-tab]"
+                    )
             );
 
 
         const panels =
             Array.from(
-                document.querySelectorAll(
-                    "[data-service-panel]"
-                )
+                document
+                    .querySelectorAll(
+                        "[data-service-panel]"
+                    )
             );
 
 
@@ -736,11 +1159,14 @@
             tabs.length === 0 ||
             panels.length === 0
         ) {
+
             return;
+
         }
 
 
-        serviceTabsInitialized = true;
+        serviceTabsInitialized =
+            true;
 
 
 
@@ -755,15 +1181,21 @@
         ) {
 
             const target =
-                selectedTab.dataset
-                    .serviceTab;
+                selectedTab.getAttribute(
+                    "data-service-tab"
+                );
 
+
+            /*
+            Update every tab.
+            */
 
             tabs.forEach(
                 function (tab) {
 
                     const isActive =
-                        tab === selectedTab;
+                        tab ===
+                        selectedTab;
 
 
                     tab.classList.toggle(
@@ -777,16 +1209,34 @@
                         String(isActive)
                     );
 
+
+                    tab.setAttribute(
+                        "tabindex",
+                        isActive
+                            ? "0"
+                            : "-1"
+                    );
+
                 }
             );
 
 
+            /*
+            Show matching panel.
+            Hide every other panel.
+            */
+
             panels.forEach(
                 function (panel) {
 
+                    const panelTarget =
+                        panel.getAttribute(
+                            "data-service-panel"
+                        );
+
+
                     const isActive =
-                        panel.dataset
-                            .servicePanel ===
+                        panelTarget ===
                         target;
 
 
@@ -808,7 +1258,7 @@
 
         /*
         ======================================================
-        MOUSE / TOUCH
+        CLICK / TOUCH
         ======================================================
         */
 
@@ -843,12 +1293,18 @@
 
                 const currentIndex =
                     tabs.indexOf(
-                        document.activeElement
+                        document
+                            .activeElement
                     );
 
 
-                if (currentIndex === -1) {
+                if (
+                    currentIndex ===
+                    -1
+                ) {
+
                     return;
+
                 }
 
 
@@ -863,7 +1319,8 @@
 
                     nextIndex =
                         (
-                            currentIndex + 1
+                            currentIndex +
+                            1
                         ) %
                         tabs.length;
 
@@ -885,7 +1342,8 @@
                     "Home"
                 ) {
 
-                    nextIndex = 0;
+                    nextIndex =
+                        0;
 
                 } else if (
                     event.key ===
@@ -893,7 +1351,8 @@
                 ) {
 
                     nextIndex =
-                        tabs.length - 1;
+                        tabs.length -
+                        1;
 
                 } else {
 
@@ -905,18 +1364,53 @@
                 event.preventDefault();
 
 
-                tabs[nextIndex]
-                    .focus();
+                tabs[
+                    nextIndex
+                ].focus();
 
 
                 activateTab(
-                    tabs[nextIndex]
+                    tabs[
+                        nextIndex
+                    ]
                 );
 
             }
         );
 
-}
+
+
+        /*
+        ======================================================
+        INITIAL TAB
+        ======================================================
+
+        Find the tab already marked active.
+
+        If none exists, use the first tab.
+        ======================================================
+        */
+
+        const initialTab =
+            tabs.find(
+                function (tab) {
+
+                    return tab
+                        .classList
+                        .contains(
+                            "active"
+                        );
+
+                }
+            ) ||
+            tabs[0];
+
+
+        activateTab(
+            initialTab
+        );
+
+    }
 
 
 
@@ -967,11 +1461,15 @@
     /*
     ==========================================================
     SHARED INCLUDES READY
+    ==========================================================
 
-    header.html, footer.html and contact-form.html
+    header.html,
+    footer.html,
+    contact-form.html
+
     are loaded asynchronously through includes.js.
 
-    Run initialization again after they exist.
+    Run initialization again once they exist.
     ==========================================================
     */
 

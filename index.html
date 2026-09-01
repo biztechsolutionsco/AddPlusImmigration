@@ -93,15 +93,17 @@
         <div
             class="service-tabs"
             role="tablist"
-            aria-label="Immigration service categories"
+            aria-label="Immigration services"
         >
+
+            <!-- ALL SERVICES -->
             <button
-                type="button"
-                class="service-tab active"
-                role="tab"
-                aria-selected="true"
-                aria-controls="services-all"
+                class="service-tab"
                 id="tab-all"
+                type="button"
+                role="tab"
+                aria-controls="services-all"
+                aria-selected="false"
                 data-service-tab="all"
             >
                 <span
@@ -110,18 +112,19 @@
                 >
                     ✦
                 </span>
-                <span>
-                    All Services
-                </span>
+
+                <span>All Services</span>
             </button>
 
+
+            <!-- IMMIGRATE -->
             <button
-                type="button"
-                class="service-tab"
-                role="tab"
-                aria-selected="false"
-                aria-controls="services-immigration"
+                class="service-tab active"
                 id="tab-immigration"
+                type="button"
+                role="tab"
+                aria-controls="services-immigration"
+                aria-selected="true"
                 data-service-tab="immigration"
             >
                 <span
@@ -130,19 +133,20 @@
                 >
                     🛂
                 </span>
-                <span>
-                    Immigration
-                </span>
+
+                <span>Immigrate</span>
             </button>
 
+
+            <!-- FAMILY -->
             <button
-                type="button"
                 class="service-tab"
+                id="tab-family"
+                type="button"
                 role="tab"
+                aria-controls="services-family"
                 aria-selected="false"
-                aria-controls="services-sponsor"
-                id="tab-sponsor"
-                data-service-tab="sponsor"
+                data-service-tab="family"
             >
                 <span
                     class="service-tab-icon"
@@ -150,38 +154,61 @@
                 >
                     👥
                 </span>
-                <span>
-                    Sponsor
-                </span>
+
+                <span>Family</span>
             </button>
 
+
+            <!-- WORK -->
             <button
-                type="button"
                 class="service-tab"
-                role="tab"
-                aria-selected="false"
-                aria-controls="services-work"
                 id="tab-work"
+                type="button"
+                role="tab"
+                aria-controls="services-work"
+                aria-selected="false"
                 data-service-tab="work"
             >
                 <span
                     class="service-tab-icon"
                     aria-hidden="true"
                 >
-                    🧳
+                    💼
                 </span>
-                <span>
-                    Work
-                </span>
+
+                <span>Work</span>
             </button>
 
+
+            <!-- STUDY -->
             <button
-                type="button"
                 class="service-tab"
+                id="tab-study"
+                type="button"
                 role="tab"
+                aria-controls="services-study"
                 aria-selected="false"
-                aria-controls="services-visit"
+                data-service-tab="study"
+            >
+                <span
+                    class="service-tab-icon"
+                    aria-hidden="true"
+                >
+                    🎓
+                </span>
+
+                <span>Study</span>
+            </button>
+
+
+            <!-- VISIT -->
+            <button
+                class="service-tab"
                 id="tab-visit"
+                type="button"
+                role="tab"
+                aria-controls="services-visit"
+                aria-selected="false"
                 data-service-tab="visit"
             >
                 <span
@@ -190,50 +217,31 @@
                 >
                     ✈️
                 </span>
-                <span>
-                    Visit
-                </span>
+
+                <span>Visit</span>
             </button>
 
+
+            <!-- STATUS & CITIZENSHIP -->
             <button
-                type="button"
                 class="service-tab"
+                id="tab-status"
+                type="button"
                 role="tab"
+                aria-controls="services-status"
                 aria-selected="false"
-                aria-controls="services-study"
-                id="tab-study"
-                data-service-tab="study"
+                data-service-tab="status"
             >
                 <span
                     class="service-tab-icon"
                     aria-hidden="true"
                 >
-                    📚
+                    🍁
                 </span>
-                <span>
-                    Study
-                </span>
+
+                <span>Status &amp; Citizenship</span>
             </button>
 
-            <button
-                type="button"
-                class="service-tab"
-                role="tab"
-                aria-selected="false"
-                aria-controls="services-others"
-                id="tab-others"
-                data-service-tab="others"
-            >
-                <span
-                    class="service-tab-icon"
-                    aria-hidden="true"
-                >
-                    📄
-                </span>
-                <span>
-                    Others
-                </span>
-            </button>
         </div>
 
         <!-- ==================================================
@@ -265,31 +273,33 @@
                     </div>
 
                     <div class="all-services-links">
-                        <a href="immigrate/citizenship.html">
-                            Citizenship
-                        </a>
                         <a href="immigrate/permanent-residence.html">
                             Permanent Residence
                         </a>
-                        <a href="immigrate/express-entry.html">
-                            Express Entry
-                        </a>
-                        <a href="immigrate/canadian-experience-class.html">
+                    </div>
+                    <p>
+                        Express Entry
+                    </p>
+                    <div class="all-services-links">
+                        <a href="immigrate/express-entry/CEC.html">
                             Canadian Experience Class
                         </a>
-                        <a href="immigrate/federal-skilled-trades.html">
-                            Federal Skilled Trades Program
-                        </a>
-                        <a href="immigrate/federal-skilled-worker.html">
+                        <a href="immigrate/express-entry/FSWP.html">
                             Federal Skilled Worker Program
                         </a>
-                        <a href="immigrate/provincial-nominee.html">
+                        <a href="immigrate/express-entry/FSTP.html">
+                            Federal Skilled Trades Program
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div class="all-services-links">
+                        <a href="immigrate/PNP.html">
                             Provincial Nominee Program
                         </a>
                     </div>
                 </div>
 
-                <!-- SPONSOR -->
+                <!-- FAMILY -->
 
                 <div class="all-services-category">
                     <div class="all-services-category-heading">
@@ -300,31 +310,37 @@
                             👥
                         </span>
                         <h3>
-                            Sponsor
+                            Family
                         </h3>
                     </div>
 
+                    <p>
+                        Spouse &amp; Partner Sponsorship
+                    </p>
                     <div class="all-services-links">
-                        <a href="sponsor/spousal-sponsorship.html">
+                        <a href="family/spouse/spousal-sponsorship.html">
                             Spousal Sponsorship
                         </a>
-                        <a href="sponsor/same-sex-sponsorship.html">
-                            Same-Sex Relationship Sponsorship
-                        </a>
-                        <a href="sponsor/common-law-sponsorship.html">
+                        <a href="family/spouse/common-law-sponsorship.html">
                             Common-Law Partner Sponsorship
                         </a>
-                        <a href="sponsor/conjugal-partner-sponsorship.html">
+                        <a href="family/spouse/conjugal-partner-sponsorship.html">
                             Conjugal Partner Sponsorship
                         </a>
-                        <a href="sponsor/family-sponsorship.html">
-                            Family Sponsorship
+                        <a href="family/spouse/same-sex-sponsorship.html">
+                            Same-Sex Relationship Sponsorship
                         </a>
-                        <a href="sponsor/dependent-child-sponsorship.html">
+                    </div>
+                    &nbsp;
+                    <div class="all-services-links">
+                        <a href="family/dependent-child-sponsorship.html">
                             Dependent Child Sponsorship
                         </a>
-                        <a href="sponsor/parents-grandparents-sponsorship.html">
+                        <a href="family/parents-grandparents-sponsorship.html">
                             Parents and Grandparents Sponsorship
+                        </a>
+                        <a href="family/super-visa.html">
+                            Super Visa
                         </a>
                     </div>
                 </div>
@@ -340,47 +356,38 @@
                             🧳
                         </span>
                         <h3>
-                            Work &amp; LMIA
+                            Work
                         </h3>
                     </div>
-
+                    <p>
+                        Open Work Permit
+                    </p>
                     <div class="all-services-links">
-                        <a href="work/work-permit.html">
-                            Work Permit
+                        <a href="work/open/spousal-open-work-permit.html">
+                            Spousal Open Work Permit
                         </a>
-                        <a href="work/extend-work-permit.html">
+                        <a href="work/open/PGWP.html">
+                            Post Graduate Work Permit (PGWP)
+                        </a>
+                        <a href="work/open/bridging-open-work-permit.html">
+                             Bridging Open Work Permit
+                        </a>
+                        <a href="work/open/vulnerable-worker-work-permit.html">
+                            Vulnerable Worker Work Permit
+                        </a>
+                        <a href="work/open/extend-work-permit.html">
                             Extend Work Permit
                         </a>
-                        <a href="work/lmia.html">
-                            LMIA
-                        </a>
                     </div>
-                </div>
-
-                <!-- VISIT -->
-
-                <div class="all-services-category">
-                    <div class="all-services-category-heading">
-                        <span
-                            class="all-services-icon"
-                            aria-hidden="true"
-                        >
-                            ✈️
-                        </span>
-                        <h3>
-                            Visit
-                        </h3>
-                    </div>
-
+                    <p>
+                        Labour Market Impact Assessment (LMIA)
+                    </p>
                     <div class="all-services-links">
-                        <a href="visit/super-visa.html">
-                            Super Visa
+                        <a href="work/lmia/employer.html">
+                            LMIA Application for Employers
                         </a>
-                        <a href="visit/visitor-visa.html">
-                            Visitor Visa
-                        </a>
-                        <a href="visit/extend-your-stay.html">
-                            Extend Your Stay in Canada
+                        <a href="work/lmia/lmia-based-work-permit.html">
+                            LMIA-based Work Permit
                         </a>
                     </div>
                 </div>
@@ -404,13 +411,13 @@
                         <a href="study/study-permit.html">
                             Study Permit
                         </a>
-                        <a href="study/extend-study-permit.html">
-                            Extend Study Permit
+                        <a href="study/study-permit-extension.html">
+                            Study Permit Extension
                         </a>
                     </div>
                 </div>
 
-                <!-- OTHERS -->
+                <!-- VISIT -->
 
                 <div class="all-services-category">
                     <div class="all-services-category-heading">
@@ -418,19 +425,53 @@
                             class="all-services-icon"
                             aria-hidden="true"
                         >
-                            📄
+                            ✈️
                         </span>
                         <h3>
-                            Others
+                            Visit
                         </h3>
                     </div>
 
                     <div class="all-services-links">
-                        <a href="others/maintained-status.html">
+                        <a href="visit/visitor-visa.html">
+                            Visitor Visa
+                        </a>
+                        <a href="visit/extend-your-stay.html">
+                            Extend Your Stay
+                        </a>
+                    </div>
+                </div>
+
+                <!-- STATUS -->
+
+                <div class="all-services-category">
+                    <div class="all-services-category-heading">
+                        <span
+                            class="all-services-icon"
+                            aria-hidden="true"
+                        >
+                            🍁
+                        </span>
+                        <h3>
+                            Status &amp; Citizenship
+                        </h3>
+                    </div>
+
+                    <div class="all-services-links">
+                        <a href="status/maintained-status.html">
                             Maintained Status
                         </a>
-                        <a href="others/restoration.html">
-                            Restoration of Temporary Status
+                        <a href="status/restoration.html">
+                            Restoration of Status
+                        </a>
+                        <a href="status/PR-card.html">
+                            Permanent Residence Card (PR Card)
+                        </a>
+                        <a href="status/PRTD.html">
+                            Permanent Residence Travel Documents (PRTD)
+                        </a>
+                        <a href="status/citizenship.html">
+                            Canadian Citizenship
                         </a>
                     </div>
                 </div>
@@ -451,6 +492,7 @@
         >
 
             <div class="service-category-panel">
+
                 <div class="service-category-heading">
                     <span
                         class="service-category-icon"
@@ -458,13 +500,16 @@
                     >
                         🛂
                     </span>
+
                     <div>
                         <p class="section-label">
                             IMMIGRATE TO CANADA
                         </p>
+
                         <h3>
                             Immigration
                         </h3>
+
                         <p>
                             Explore pathways to Canadian permanent
                             residence and citizenship.
@@ -472,52 +517,57 @@
                     </div>
                 </div>
 
-                <div class="service-category-links">
-                    <a href="immigrate/citizenship.html">
-                        <span>Citizenship</span>
-                        <span>→</span>
-                    </a>
-                    <a href="immigrate/permanent-residence.html">
-                        <span>Permanent Residence</span>
-                        <span>→</span>
-                    </a>
-                    <a href="immigrate/express-entry.html">
-                        <span>Express Entry</span>
-                        <span>→</span>
-                    </a>
-                    <a href="immigrate/canadian-experience-class.html">
-                        <span>Canadian Experience Class</span>
-                        <span>→</span>
-                    </a>
-                    <a href="immigrate/federal-skilled-trades.html">
-                        <span>Federal Skilled Trades Program</span>
-                        <span>→</span>
-                    </a>
-                    <a href="immigrate/federal-skilled-worker.html">
-                        <span>Federal Skilled Worker Program</span>
-                        <span>→</span>
-                    </a>
-                    <a href="immigrate/provincial-nominee.html">
-                        <span>Provincial Nominee Program</span>
-                        <span>→</span>
-                    </a>
+
+                <div class="service-category-content">
+
+                    <div class="service-category-links">
+                        <a href="immigrate/permanent-residence.html">
+                            <span>Permanent Residence</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+
+                    <div class="service-category-links">
+                        <a href="immigrate/express-entry/CEC.html">
+                            <span>Canadian Experience Class</span>
+                            <span>→</span>
+                        </a>
+                        <a href="immigrate/express-entry/FSWP.html">
+                            <span>Federal Skilled Worker Program</span>
+                            <span>→</span>
+                        </a>
+                        <a href="immigrate/express-entry/FSTP.html">
+                            <span>Federal Skilled Trades Program</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <div class="service-category-links">
+                        <a href="immigrate/provincial-nominee.html">
+                            <span>Provincial Nominee Program</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
                 </div>
+
             </div>
         </div>
-
         <!-- ==================================================
-             SPONSOR PANEL
+             FAMILY PANEL
         ================================================== -->
 
         <div
             class="service-tab-panel"
-            id="services-sponsor"
+            id="services-family"
             role="tabpanel"
-            aria-labelledby="tab-sponsor"
-            data-service-panel="sponsor"
+            aria-labelledby="tab-family"
+            data-service-panel="family"
             hidden
         >
             <div class="service-category-panel">
+
                 <div class="service-category-heading">
                     <span
                         class="service-category-icon"
@@ -525,13 +575,16 @@
                     >
                         👥
                     </span>
+
                     <div>
                         <p class="section-label">
                             FAMILY REUNIFICATION
                         </p>
+
                         <h3>
-                            Sponsor
+                            Family
                         </h3>
+
                         <p>
                             Explore family sponsorship options for
                             spouses, partners, children, parents
@@ -540,36 +593,50 @@
                     </div>
                 </div>
 
-                <div class="service-category-links">
-                    <a href="sponsor/spousal-sponsorship.html">
-                        <span>Spousal Sponsorship</span>
-                        <span>→</span>
-                    </a>
-                    <a href="sponsor/same-sex-sponsorship.html">
-                        <span>Same-Sex Relationship Sponsorship</span>
-                        <span>→</span>
-                    </a>
-                    <a href="sponsor/common-law-sponsorship.html">
-                        <span>Common-Law Partner Sponsorship</span>
-                        <span>→</span>
-                    </a>
-                    <a href="sponsor/conjugal-partner-sponsorship.html">
-                        <span>Conjugal Partner Sponsorship</span>
-                        <span>→</span>
-                    </a>
-                    <a href="sponsor/family-sponsorship.html">
-                        <span>Family Sponsorship</span>
-                        <span>→</span>
-                    </a>
-                    <a href="sponsor/dependent-child-sponsorship.html">
-                        <span>Dependent Child Sponsorship</span>
-                        <span>→</span>
-                    </a>
-                    <a href="sponsor/parents-grandparents-sponsorship.html">
-                        <span>Parents and Grandparents Sponsorship</span>
-                        <span>→</span>
-                    </a>
+
+                <div class="service-category-content">
+
+                    <!-- Spouse & Partner Sponsorship -->
+                    <div class="service-category-links">
+
+                        <a href="family/spouse/spousal-sponsorship.html">
+                            <span>Spousal Sponsorship</span>
+                            <span>→</span>
+                        </a>
+                        <a href="family/spouse/common-law-sponsorship.html">
+                            <span>Common-Law Partner Sponsorship</span>
+                            <span>→</span>
+                        </a>
+
+                        <a href="family/spouse/conjugal-partner-sponsorship.html">
+                            <span>Conjugal Partner Sponsorship</span>
+                            <span>→</span>
+                        </a>
+                        <a href="family/spouse/same-sex-sponsorship.html">
+                            <span>Same-Sex Relationship Sponsorship</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <!-- Other Family Sponsorship -->
+                    <div class="service-category-links">
+                        <a href="family/dependent-child-sponsorship.html">
+                            <span>Dependent Child Sponsorship</span>
+                            <span>→</span>
+                        </a>
+                        <a href="family/parents-grandparents/sponsorship.html">
+                            <span>Parents and Grandparents Sponsorship</span>
+                            <span>→</span>
+                        </a>
+                        <a href="family/parents-grandparents/super-visa.html">
+                            <span>Super Visa</span>
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
                 </div>
+
             </div>
         </div>
 
@@ -608,19 +675,92 @@
                     </div>
                 </div>
 
-                <div class="service-category-links">
-                    <a href="work/work-permit.html">
-                        <span>Work Permit</span>
-                        <span>→</span>
-                    </a>
-                    <a href="work/extend-work-permit.html">
-                        <span>Extend Work Permit</span>
-                        <span>→</span>
-                    </a>
-                    <a href="work/lmia.html">
-                        <span>Labour Market Impact Assessment (LMIA)</span>
-                        <span>→</span>
-                    </a>
+                <div class="service-category-content">
+                    <!-- Open Work Permits-->
+                    <div class="service-category-links">
+                        <a href="work/Open/spousal-open-work-permit.html">
+                            <span>Spousal Open Work Permit</span>
+                            <span>→</span>
+                        </a>
+                        <a href="work/Open/PGWP.html">
+                            <span>Post Graduate Work Permit (PGWP)</span>
+                            <span>→</span>
+                        </a>
+                        <a href="work/Open/bridging-open-work-permit.html">
+                            <span>Bridging Open Work Permit</span>
+                            <span>→</span>
+                        </a>
+                        <a href="work/Open/vulnerable-worker-work-permit.html">
+                            <span>Vulnerable Worker Work Permit</span>
+                            <span>→</span>
+                        </a>
+                        <a href="work/Open/extend-work-permit.html">
+                            <span>Extend Work Permit</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <!--Labour Market Impact Assessment (LMIA)-->
+                    <div class="service-category-links">    
+                        <a href="work/lmia/employers.html">
+                            <span>LMIA Application for Employers</span>
+                            <span>→</span>
+                        </a>
+                        <a href="work/lmia/lmia-based-work-permit.html">
+                            <span>LMIA-based Work Permit</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- ==================================================
+             STUDY PANEL
+        ================================================== -->
+
+        <div
+            class="service-tab-panel"
+            id="services-study"
+            role="tabpanel"
+            aria-labelledby="tab-study"
+            data-service-panel="study"
+            hidden
+        >
+            <div class="service-category-panel">
+                <div class="service-category-heading">
+                    <span
+                        class="service-category-icon"
+                        aria-hidden="true"
+                    >
+                        📚
+                    </span>
+                    <div>
+                        <p class="section-label">
+                            STUDY IN CANADA
+                        </p>
+                        <h3>
+                            Study
+                        </h3>
+                        <p>
+                            Learn about Canadian study permits and
+                            extending your authorization to study.
+                        </p>
+                    </div>
+                </div>
+                <div class="service-category-content">
+                    <div class="service-category-links">
+                        <a href="study/study-permit.html">
+                            <span>Study Permit</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                    <div class="service-category-links">
+                        <a href="study/study-permit-extension.html">
+                            <span>Study Permit Extension</span>
+                            <span>→</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -659,81 +799,33 @@
                         </p>
                     </div>
                 </div>
-
-                <div class="service-category-links">
-                    <a href="visit/super-visa.html">
-                        <span>Super Visa</span>
-                        <span>→</span>
-                    </a>
-                    <a href="visit/visitor-visa.html">
-                        <span>Visitor Visa</span>
-                        <span>→</span>
-                    </a>
-                    <a href="visit/extend-your-stay.html">
-                        <span>Extend Your Stay in Canada</span>
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==================================================
-             STUDY PANEL
-        ================================================== -->
-
-        <div
-            class="service-tab-panel"
-            id="services-study"
-            role="tabpanel"
-            aria-labelledby="tab-study"
-            data-service-panel="study"
-            hidden
-        >
-            <div class="service-category-panel">
-                <div class="service-category-heading">
-                    <span
-                        class="service-category-icon"
-                        aria-hidden="true"
-                    >
-                        📚
-                    </span>
-                    <div>
-                        <p class="section-label">
-                            STUDY IN CANADA
-                        </p>
-                        <h3>
-                            Study
-                        </h3>
-                        <p>
-                            Learn about Canadian study permits and
-                            extending your authorization to study.
-                        </p>
+                <div class="service-category-content">
+                    <div class="service-category-links">
+                        <a href="visit/visitor-visa.html">
+                            <span>Visitor Visa</span>
+                            <span>→</span>
+                        </a>
                     </div>
-                </div>
-
-                <div class="service-category-links">
-                    <a href="study/study-permit.html">
-                        <span>Study Permit</span>
-                        <span>→</span>
-                    </a>
-                    <a href="study/extend-study-permit.html">
-                        <span>Extend Study Permit</span>
-                        <span>→</span>
-                    </a>
+                    <div class="service-category-links">
+                        <a href="visit/extend-your-stay.html">
+                            <span>Extend Your Stay</span>
+                            <span>→</span>
+                        </a>
+                    </div> 
                 </div>
             </div>
         </div>
 
         <!-- ==================================================
-             OTHERS PANEL
+             STATUS PANEL
         ================================================== -->
 
         <div
             class="service-tab-panel"
-            id="services-others"
+            id="services-status"
             role="tabpanel"
-            aria-labelledby="tab-others"
-            data-service-panel="others"
+            aria-labelledby="tab-status"
+            data-service-panel="status"
             hidden
         >
             <div class="service-category-panel">
@@ -742,14 +834,14 @@
                         class="service-category-icon"
                         aria-hidden="true"
                     >
-                        📄
+                        🍁
                     </span>
                     <div>
                         <p class="section-label">
-                            TEMPORARY STATUS
+                            STATUS
                         </p>
                         <h3>
-                            Others
+                            Status &amp; Citizenship
                         </h3>
                         <p>
                             Learn about maintained status and
@@ -766,6 +858,18 @@
                     </a>
                     <a href="others/restoration.html">
                         <span>Restoration of Temporary Status</span>
+                        <span>→</span>
+                    </a>
+                    <a href="status/PR-card.html">
+                        <span>Permanent Residence Card (PR Card)</span>
+                        <span>→</span>
+                    </a>
+                    <a href="status/PRTD">
+                        <span>Permanent Residence Travel Documents (PRTD)</span>
+                        <span>→</span>
+                    </a>
+                    <a href="status/citizenship.html">
+                        <span>Canadian Citizenship</span>
                         <span>→</span>
                     </a>
                 </div>
