@@ -1,0 +1,347 @@
+<form
+    id="contactForm"
+    class="contact-form"
+    method="post"
+    novalidate
+>
+    <!-- ==================================================
+         FORM SOURCE
+         This value will be updated automatically by JS.
+    ================================================== -->
+
+    <input
+        type="hidden"
+        name="form_source"
+        id="formSource"
+        value="website"
+    >
+
+    <!-- ==================================================
+         NAME
+    ================================================== -->
+
+    <div class="form-row">
+
+        <div class="form-group">
+            <label for="firstName">
+                First Name
+                <span aria-hidden="true">*</span>
+            </label>
+            <input
+                type="text"
+                id="firstName"
+                name="first_name"
+                autocomplete="given-name"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">
+                Last Name
+                <span aria-hidden="true">*</span>
+            </label>
+            <input
+                type="text"
+                id="lastName"
+                name="last_name"
+                autocomplete="family-name"
+                required
+            >
+        </div>
+
+    </div>
+
+    <!-- ==================================================
+         EMAIL / PHONE
+    ================================================== -->
+
+    <div class="form-row">
+
+        <div class="form-group">
+            <label for="email">
+                Email Address
+                <span aria-hidden="true">*</span>
+            </label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="phone">
+                Phone Number
+            </label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+            >
+        </div>
+
+    </div>
+
+    <!-- ==================================================
+         CITIZENSHIP / RESIDENCE
+    ================================================== -->
+
+    <div class="form-row">
+
+        <div class="form-group">
+            <label for="citizenship">
+                Country of Citizenship
+            </label>
+            <input
+                type="text"
+                id="citizenship"
+                name="citizenship"
+                autocomplete="country-name"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="residence">
+                Current Country of Residence
+            </label>
+            <input
+                type="text"
+                id="residence"
+                name="residence"
+                autocomplete="country-name"
+            >
+        </div>
+
+    </div>
+
+    <!-- ==================================================
+         SERVICE
+    ================================================== -->
+
+    <div class="form-group">
+        <label for="service">
+            Which service are you interested in?
+            <span aria-hidden="true">*</span>
+        </label>
+        <select
+            id="service"
+            name="service"
+            required
+        >
+            <option value="">
+                Select a service
+            </option>
+            <optgroup label="Immigrate">
+                <option value="Citizenship">
+                    Citizenship
+                </option>
+                <option value="Permanent Residence">
+                    Permanent Residence
+                </option>
+                <option value="Express Entry">
+                    Express Entry
+                </option>
+                <option value="Canadian Experience Class">
+                    Canadian Experience Class
+                </option>
+                <option value="Federal Skilled Trades Program">
+                    Federal Skilled Trades Program
+                </option>
+                <option value="Federal Skilled Worker Program">
+                    Federal Skilled Worker Program
+                </option>
+                <option value="Provincial Nominee Program">
+                    Provincial Nominee Program
+                </option>
+            </optgroup>
+
+            <optgroup label="Sponsor">
+                <option value="Spousal Sponsorship">
+                    Spousal Sponsorship
+                </option>
+                <option value="Same-Sex Relationship Sponsorship">
+                    Same-Sex Relationship Sponsorship
+                </option>
+                <option value="Common-Law Partner Sponsorship">
+                    Common-Law Partner Sponsorship
+                </option>
+                <option value="Conjugal Partner Sponsorship">
+                    Conjugal Partner Sponsorship
+                </option>
+                <option value="Family Sponsorship">
+                    Family Sponsorship
+                </option>
+                <option value="Dependent Child Sponsorship">
+                    Dependent Child Sponsorship
+                </option>
+                <option value="Parents and Grandparents Sponsorship">
+                    Parents and Grandparents Sponsorship
+                </option>
+            </optgroup>
+
+            <optgroup label="Work &amp; LMIA">
+                <option value="Work Permit">
+                    Work Permit
+                </option>
+                <option value="Extend Work Permit">
+                    Extend Work Permit
+                </option>
+                <option value="LMIA">
+                    LMIA
+                </option>
+            </optgroup>
+
+            <optgroup label="Visit">
+                <option value="Super Visa">
+                    Super Visa
+                </option>
+                <option value="Visitor Visa">
+                    Visitor Visa
+                </option>
+                <option value="Extend Your Stay">
+                    Extend Your Stay in Canada
+                </option>
+            </optgroup>
+
+            <optgroup label="Study">
+                <option value="Study Permit">
+                    Study Permit
+                </option>
+                <option value="Extend Study Permit">
+                    Extend Study Permit
+                </option>
+            </optgroup>
+
+            <optgroup label="Other">
+                <option value="Maintained Status">
+                    Maintained Status
+                </option>
+                <option value="Restoration of Temporary Status">
+                    Restoration of Temporary Status
+                </option>
+                <option value="Other Immigration Matter">
+                    Other Immigration Matter
+                </option>
+            </optgroup>
+        </select>
+    </div>
+
+    <!-- ==================================================
+         REFERRAL SOURCE
+    ================================================== -->
+
+    <div class="form-group">
+        <label for="referral">
+            How did you hear about us?
+        </label>
+        <select
+            id="referral"
+            name="referral"
+        >
+            <option value="">
+                Select an option
+            </option>
+            <option value="Friend or Family">
+                Friend or Family
+            </option>
+            <option value="Google Search">
+                Google Search
+            </option>
+            <option value="WeChat">
+                WeChat
+            </option>
+            <option value="Xiaohongshu">
+                Xiaohongshu
+            </option>
+            <option value="Social Media">
+                Other Social Media
+            </option>
+            <option value="Previous Client">
+                Previous Client
+            </option>
+            <option value="Other">
+                Other
+            </option>
+        </select>
+    </div>
+
+    <!-- ==================================================
+         CASE SUMMARY
+    ================================================== -->
+
+    <div class="form-group">
+        <label for="caseSummary">
+            Tell us briefly about your situation
+            <span aria-hidden="true">*</span>
+        </label>
+        <textarea
+            id="caseSummary"
+            name="case_summary"
+            rows="7"
+            required
+            placeholder="Please provide a brief summary of your immigration situation, your goal, and any important deadlines."
+        ></textarea>
+    </div>
+
+    <!-- ==================================================
+         PRIVACY NOTICE
+    ================================================== -->
+
+    <div class="form-privacy-note">
+        <p>
+            Please do not submit passport numbers, UCI numbers,
+            Social Insurance Numbers, banking information,
+            passwords or other unnecessary sensitive information
+            through this general inquiry form.
+        </p>
+        <p>
+            Submitting this form does not establish a
+            consultant-client relationship with AddPlus
+            Immigration Solutions.
+        </p>
+        <p>
+            By submitting this form, you acknowledge that
+            the information provided may be used to review
+            and respond to your inquiry in accordance with
+            our
+            <a data-root-href="privacy-policy.html">
+                Privacy Policy
+            </a>.
+        </p>
+    </div>
+
+    <!-- ==================================================
+         FUTURE TURNSTILE LOCATION
+
+         When we connect Cloudflare Turnstile later,
+         it will be inserted here.
+    ================================================== -->
+
+    <div
+        id="turnstileContainer"
+        class="turnstile-container"
+    ></div>
+
+    <!-- ==================================================
+         SUBMIT
+    ================================================== -->
+
+    <button
+        type="submit"
+        class="button primary-button"
+    >
+        Submit Inquiry
+    </button>
+
+    <div
+        id="formMessage"
+        class="form-message"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+</form>

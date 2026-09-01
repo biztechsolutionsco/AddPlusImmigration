@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /thank-you.html
+
+Sitemap: https://addplus.biztechsolutionsco.workers.dev/sitemap.xml

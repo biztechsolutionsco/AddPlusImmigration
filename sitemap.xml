@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- ==================================================
+         MAIN PAGES
+    ================================================== -->
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/</loc>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/about.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/contact.html</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- ==================================================
+         IMMIGRATE
+    ================================================== -->
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/citizenship.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/permanent-residence.html</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/express-entry.html</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/canadian-experience-class.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/federal-skilled-trades.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/federal-skilled-worker.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/provincial-nominee.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ==================================================
+         SPONSOR
+    ================================================== -->
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/sponsor/spousal-sponsorship.html</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/sponsor/same-sex-sponsorship.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/sponsor/common-law-sponsorship.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/sponsor/conjugal-partner-sponsorship.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/sponsor/family-sponsorship.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/sponsor/dependent-child-sponsorship.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/sponsor/parents-grandparents-sponsorship.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ==================================================
+         WORK & LMIA
+    ================================================== -->
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/work/work-permit.html</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/work/extend-work-permit.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/work/lmia.html</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- ==================================================
+         VISIT
+    ================================================== -->
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/visit/super-visa.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/visit/visitor-visa.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/visit/extend-your-stay.html</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ==================================================
+         STUDY
+    ================================================== -->
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/study/study-permit.html</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/study/extend-study-permit.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ==================================================
+         OTHER TEMPORARY STATUS
+    ================================================== -->
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/others/maintained-status.html</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/others/restoration.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ==================================================
+         LEGAL / INFORMATION PAGES
+    ================================================== -->
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/privacy-policy.html</loc>
+        <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.biztechsolutionsco.workers.dev/terms-of-use.html</loc>
+        <priority>0.3</priority>
+    </url>
+
+</urlset>
