@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     */
 
     const knownServiceFolders = [
-        "immigration",
+        "immigrate",
         "sponsor",
         "work",
         "visit",
