@@ -79,7 +79,7 @@ ${inquiry.form_source || "website"}
 ----------------------------------------
 
 This email was automatically generated from the
-AddPlus Immigration Solutions website inquiry form.
+AddPlus Immigration Solutions Inc. website inquiry form.
         `.trim()
     });
 
