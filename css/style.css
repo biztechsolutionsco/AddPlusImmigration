@@ -7,21 +7,34 @@
     --navy-dark: #102b49;
     --navy-deep: #0f2c4c;
     --navy-light: #2c5d89;
+
     --gold: #b58b32;
     --gold-dark: #966f20;
+
     --white: #ffffff;
     --off-white: #f7f8fa;
     --light-bg: #f5f7f9;
+
     --text: #222222;
     --text-medium: #555555;
     --text-light: #666666;
+
     --border: #e2e5e8;
+
     --container: 1100px;
     --header-container: 1200px;
-    --shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
-    --shadow-light: 0 6px 20px rgba(0, 0, 0, 0.07);
-    --transition: 0.2s ease;
+
+    --shadow:
+        0 8px 25px rgba(0, 0, 0, 0.10);
+
+    --shadow-light:
+        0 6px 20px rgba(0, 0, 0, 0.07);
+
+    --transition:
+        0.2s ease;
 }
+
+
 
 /* ==========================================================
    RESET
@@ -33,25 +46,37 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color: var(--text);
+
     background: var(--white);
+
     line-height: 1.6;
 }
+
 
 img {
     max-width: 100%;
 }
 
+
 a {
     color: inherit;
 }
+
 
 button,
 input,
@@ -59,6 +84,8 @@ select,
 textarea {
     font: inherit;
 }
+
+
 
 /* ==========================================================
    ACCESSIBILITY
@@ -73,23 +100,34 @@ textarea:focus-visible {
     outline-offset: 3px;
 }
 
+
+
 /* ==========================================================
    CONTAINERS
 ========================================================== */
 
 .container,
 .section-container {
-    width: min(calc(100% - 50px), var(--container));
+    width:
+        min(
+            calc(100% - 50px),
+            var(--container)
+        );
+
     margin-inline: auto;
 }
+
 
 .section {
     padding: 75px 0;
 }
 
+
 .section-light {
     background: var(--light-bg);
 }
+
+
 
 /* ==========================================================
    SECTION HEADINGS
@@ -97,32 +135,49 @@ textarea:focus-visible {
 
 .section-heading {
     margin-bottom: 45px;
+
     text-align: center;
 }
+
 
 .section-label,
 .eyebrow {
     margin-bottom: 10px;
+
     color: var(--gold);
+
     font-size: 13px;
+
     font-weight: 700;
+
     letter-spacing: 1.4px;
+
     text-transform: uppercase;
 }
 
+
 .section-title {
     margin: 0 0 15px;
+
     color: var(--navy);
+
     font-size: 34px;
+
     line-height: 1.25;
 }
 
+
 .section-intro {
     max-width: 720px;
+
     margin: 0 auto;
+
     color: var(--text-light);
+
     line-height: 1.8;
 }
+
+
 
 /* ==========================================================
    BUTTONS
@@ -130,14 +185,23 @@ textarea:focus-visible {
 
 .button {
     display: inline-block;
+
     padding: 12px 22px;
+
     border: 2px solid var(--gold);
+
     border-radius: 3px;
+
     background: var(--gold);
+
     color: var(--white);
+
     font-weight: 700;
+
     text-decoration: none;
+
     cursor: pointer;
+
     transition:
         background var(--transition),
         border-color var(--transition),
@@ -145,39 +209,70 @@ textarea:focus-visible {
         transform var(--transition);
 }
 
+
 .button:hover {
     border-color: var(--gold-dark);
+
     background: var(--gold-dark);
 }
+
 
 .button:active {
     transform: translateY(1px);
 }
 
+
 .primary-button {
     background: var(--gold);
+
     color: var(--white);
 }
+
 
 .secondary-button {
     background: transparent;
+
     color: var(--gold);
 }
 
+
 .secondary-button:hover {
     background: var(--gold);
+
     color: var(--white);
 }
 
+
 .text-link {
     color: var(--gold-dark);
+
     font-weight: 700;
+
     text-decoration: none;
 }
+
 
 .text-link:hover {
     text-decoration: underline;
 }
+
+
+
+/* ==========================================================
+   HEADER PLACEHOLDER
+========================================================== */
+
+/*
+The actual header is position: fixed, so it is removed from
+normal document flow. This reserves the same vertical space
+so page content starts below the header instead of underneath it.
+*/
+
+#site-header {
+    height: 100px;
+}
+
+
 
 /* ==========================================================
    HEADER
@@ -214,18 +309,6 @@ textarea:focus-visible {
         border-color var(--transition);
 }
 
-.site-header:hover,
-.site-header:focus-within {
-    background:
-        rgba(255, 255, 255, 0.98);
-
-    border-bottom-color:
-        var(--border);
-
-    box-shadow:
-        0 8px 24px
-        rgba(0, 0, 0, 0.10);
-}
 
 .site-header:hover,
 .site-header:focus-within {
@@ -239,27 +322,45 @@ textarea:focus-visible {
         0 8px 24px
         rgba(0, 0, 0, 0.10);
 }
+
 
 .header-container {
-    width: min(calc(100% - 50px), var(--header-container));
+    width:
+        min(
+            calc(100% - 50px),
+            var(--header-container)
+        );
+
     min-height: 100px;
+
     margin-inline: auto;
+
     display: flex;
+
     align-items: center;
+
     gap: 50px;
 }
 
+
 .logo-link {
     display: flex;
+
     align-items: center;
+
     flex-shrink: 0;
 }
 
+
 .header-logo {
     width: auto;
+
     height: 84px;
+
     object-fit: contain;
 }
+
+
 
 /* ==========================================================
    NAVIGATION
@@ -267,26 +368,42 @@ textarea:focus-visible {
 
 .main-nav {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     gap: 4px;
+
     flex: 1;
+
     transform: translateX(-25px);
 }
+
 
 .main-nav > a,
 .dropdown-toggle {
     position: relative;
+
     padding: 12px 10px;
+
     border: 0;
+
     background: transparent;
+
     color: var(--navy);
+
     font-size: 14px;
+
     font-weight: 600;
+
     text-decoration: none;
+
     cursor: pointer;
+
     white-space: nowrap;
 }
+
 
 .main-nav > a:hover,
 .dropdown-toggle:hover,
@@ -295,15 +412,22 @@ textarea:focus-visible {
     color: var(--gold);
 }
 
+
 .main-nav > a.active::after {
     content: "";
+
     position: absolute;
+
     right: 10px;
     bottom: 6px;
     left: 10px;
+
     height: 2px;
+
     background: var(--gold);
 }
+
+
 
 /* ==========================================================
    HEADER CONTACT BUTTON
@@ -311,41 +435,63 @@ textarea:focus-visible {
 
 .main-nav > a.nav-contact-button {
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
+
     margin-left: 10px;
+
     padding: 11px 18px !important;
+
     border: 1px solid var(--gold);
+
     border-radius: 3px;
+
     background: var(--gold) !important;
+
     color: var(--white) !important;
+
     font-weight: 700;
+
     text-decoration: none;
+
     white-space: nowrap;
+
     opacity: 1 !important;
+
     visibility: visible !important;
+
     transition:
         background var(--transition),
         border-color var(--transition),
         transform var(--transition);
 }
 
+
 .main-nav > a.nav-contact-button:hover,
 .main-nav > a.nav-contact-button:focus {
     border-color: var(--gold-dark);
+
     background: var(--gold-dark) !important;
+
     color: var(--white) !important;
+
     transform: translateY(-1px);
 }
+
 
 .main-nav > a.nav-contact-button::after {
     display: none !important;
 }
 
+
 .mobile-menu-button,
 .mobile-menu-toggle {
     display: none;
 }
+
+
 
 /* ==========================================================
    DROPDOWNS
@@ -355,36 +501,55 @@ textarea:focus-visible {
     position: relative;
 }
 
+
 .dropdown-arrow {
     margin-left: 3px;
+
     font-size: 11px;
 }
 
+
 .dropdown-menu {
     position: absolute;
+
     top: calc(100% + 4px);
     left: 0;
+
     z-index: 1100;
+
     min-width: 260px;
+
     padding: 8px 0;
+
     border: 1px solid var(--border);
+
     background: var(--white);
+
     box-shadow: var(--shadow);
+
     opacity: 0;
+
     visibility: hidden;
+
     transform: translateY(6px);
+
     transition:
         opacity var(--transition),
         visibility var(--transition),
         transform var(--transition);
 }
 
+
 .dropdown:hover > .dropdown-menu,
 .dropdown:focus-within > .dropdown-menu {
     opacity: 1;
+
     visibility: visible;
+
     transform: translateY(0);
 }
+
+
 
 /* ==========================================================
    DROPDOWN ITEMS
@@ -393,27 +558,45 @@ textarea:focus-visible {
 .dropdown-menu > a,
 .submenu-menu > a {
     width: 100%;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 18px;
+
     padding: 10px 18px;
+
     color: var(--navy);
+
     font-family: inherit;
+
     font-size: 13px;
+
     font-weight: 400;
+
     line-height: 1.45;
+
     text-align: left;
+
     text-decoration: none;
+
     white-space: nowrap;
+
     cursor: pointer;
 }
+
 
 .dropdown-menu > a:hover,
 .submenu-menu > a:hover {
     background: var(--light-bg);
+
     color: var(--gold);
 }
+
+
 
 /* ==========================================================
    SUBMENUS
@@ -421,82 +604,132 @@ textarea:focus-visible {
 
 .dropdown-submenu {
     position: relative;
+
     width: 100%;
 }
+
 
 .dropdown-menu .submenu-trigger,
 .dropdown-menu .submenu-label {
     width: 100%;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 18px;
+
     padding: 10px 18px;
+
     border: 0;
+
     background: transparent;
+
     color: var(--navy);
+
     font-family: inherit;
+
     font-size: 13px;
+
     font-weight: 400;
+
     line-height: 1.45;
+
     text-align: left;
+
     text-decoration: none;
+
     white-space: nowrap;
+
     cursor: pointer;
 }
+
 
 .dropdown-menu .submenu-trigger:hover,
 .dropdown-menu .submenu-label:hover {
     background: var(--light-bg);
+
     color: var(--gold);
 }
 
+
 .submenu-arrow {
     flex-shrink: 0;
+
     margin-left: auto;
+
     color: currentColor;
+
     font-size: 17px;
+
     font-weight: 400;
+
     line-height: 1;
-    transition: transform var(--transition);
+
+    transition:
+        transform var(--transition);
 }
+
 
 .submenu-menu {
     position: absolute;
+
     top: -8px;
+
     left: calc(100% - 1px);
+
     z-index: 1200;
+
     min-width: 280px;
+
     padding: 8px 0;
+
     border: 1px solid var(--border);
+
     background: var(--white);
+
     box-shadow: var(--shadow);
+
     opacity: 0;
+
     visibility: hidden;
+
     transform: translateX(6px);
+
     transition:
         opacity var(--transition),
         visibility var(--transition),
         transform var(--transition);
 }
 
+
 .dropdown-submenu:hover > .submenu-menu,
 .dropdown-submenu:focus-within > .submenu-menu {
     opacity: 1;
+
     visibility: visible;
+
     transform: translateX(0);
 }
+
 
 .dropdown-menu .active-dropdown-link,
 .submenu-menu .active-dropdown-link {
     background: #f4f7fa;
+
     color: var(--gold);
+
     font-weight: 600;
 }
+
 
 .dropdown-menu .active-parent-link {
     color: var(--gold);
 }
+
+
 
 /* ==========================================================
    HOMEPAGE HERO
@@ -504,35 +737,66 @@ textarea:focus-visible {
 
 .hero {
     min-height: 560px;
+
     padding: 115px 0 90px;
+
     display: flex;
+
     align-items: center;
+
     background:
-        linear-gradient(rgba(15, 44, 76, 0.82), rgba(15, 44, 76, 0.82)),
-        linear-gradient(135deg, var(--navy), var(--navy-light));
+        linear-gradient(
+            rgba(15, 44, 76, 0.82),
+            rgba(15, 44, 76, 0.82)
+        ),
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--navy-light)
+        );
+
     color: var(--white);
 }
+
 
 .hero-content {
     max-width: 800px;
+
     margin-inline: auto;
+
     text-align: center;
 }
 
+
 .hero h1 {
     margin: 0 0 22px;
+
     color: var(--white);
-    font-size: clamp(42px, 6vw, 68px);
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            68px
+        );
+
     line-height: 1.08;
 }
 
+
 .hero p {
     max-width: 680px;
+
     margin: 0 auto 30px;
+
     color: #eef3f7;
+
     font-size: 18px;
+
     line-height: 1.75;
 }
+
+
 
 /* ==========================================================
    QUICK SERVICE TABS
@@ -540,33 +804,53 @@ textarea:focus-visible {
 
 .quick-links-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
     gap: 12px;
 }
 
+
 .quick-link-card {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     min-height: 85px;
+
     padding: 16px;
+
     border: 1px solid var(--border);
+
     background: var(--white);
+
     color: var(--navy);
+
     font-weight: 700;
+
     text-align: center;
+
     text-decoration: none;
+
     transition:
         transform var(--transition),
         box-shadow var(--transition),
         border-color var(--transition);
 }
 
+
 .quick-link-card:hover {
     border-color: var(--gold);
+
     box-shadow: var(--shadow-light);
+
     transform: translateY(-2px);
 }
+
+
 
 /* ==========================================================
    GENERAL CARDS
@@ -575,37 +859,52 @@ textarea:focus-visible {
 .service-grid,
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 22px;
 }
+
 
 .service-card,
 .info-card {
     padding: 28px;
+
     border: 1px solid var(--border);
+
     background: var(--white);
+
     transition:
         box-shadow var(--transition),
         transform var(--transition);
 }
 
+
 .service-card:hover,
 .info-card:hover {
     box-shadow: var(--shadow-light);
+
     transform: translateY(-3px);
 }
+
 
 .service-card h3,
 .info-card h3 {
     margin: 0 0 10px;
+
     color: var(--navy);
 }
+
 
 .service-card p,
 .info-card p {
     margin-bottom: 0;
+
     color: var(--text-light);
 }
+
+
 
 /* ==========================================================
    HOMEPAGE SERVICE TABS
@@ -615,30 +914,51 @@ textarea:focus-visible {
     background: var(--off-white);
 }
 
+
 .service-tabs {
     margin-bottom: 26px;
+
     display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
     gap: 10px;
 }
+
 
 .service-tab {
     min-width: 0;
     min-height: 82px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     gap: 8px;
+
     padding: 15px 10px;
+
     border: 1px solid var(--border);
+
     border-radius: 4px;
+
     background: var(--white);
+
     color: var(--navy);
+
     font-size: 14px;
+
     font-weight: 700;
+
     line-height: 1.25;
+
     text-align: center;
+
     cursor: pointer;
+
     transition:
         background var(--transition),
         color var(--transition),
@@ -647,24 +967,36 @@ textarea:focus-visible {
         transform var(--transition);
 }
 
+
 .service-tab:hover {
     border-color: var(--gold);
+
     box-shadow: var(--shadow-light);
+
     transform: translateY(-2px);
 }
 
+
 .service-tab.active {
     border-color: var(--navy);
+
     background: var(--navy);
+
     color: var(--white);
+
     box-shadow: var(--shadow-light);
 }
 
+
 .service-tab-icon {
     flex-shrink: 0;
+
     font-size: 20px;
+
     line-height: 1;
 }
+
+
 
 /* ==========================================================
    SERVICE TAB PANELS
@@ -674,9 +1006,12 @@ textarea:focus-visible {
     min-height: 310px;
 }
 
+
 .service-tab-panel[hidden] {
     display: none !important;
 }
+
+
 
 /* ==========================================================
    ALL SERVICES PANEL
@@ -684,45 +1019,71 @@ textarea:focus-visible {
 
 .all-services-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 20px;
+
     padding: 28px;
+
     border: 1px solid var(--border);
+
     border-top: 4px solid var(--gold);
+
     background: var(--white);
+
     box-shadow: var(--shadow-light);
 }
 
+
 .all-services-category {
     min-width: 0;
+
     padding: 22px;
+
     border-bottom: 1px solid var(--border);
 }
+
 
 .all-services-category:nth-last-child(-n + 2) {
     border-bottom: 0;
 }
 
+
 .all-services-category-heading {
     min-width: 0;
+
     display: flex;
+
     align-items: center;
+
     gap: 12px;
+
     margin-bottom: 18px;
 }
 
+
 .all-services-category-heading h3 {
     margin: 0;
+
     color: var(--navy);
+
     font-size: 21px;
+
     line-height: 1.3;
 }
 
+
 .all-services-icon {
     flex-shrink: 0;
+
     font-size: 25px;
+
     line-height: 1.2;
 }
+
+
 
 /* ==========================================================
    ALL SERVICES SUBCATEGORY BUTTONS
@@ -730,26 +1091,44 @@ textarea:focus-visible {
 
 .all-services-links {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 12px;
 }
+
 
 .all-services-links a {
     min-width: 0;
     min-height: 58px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 12px;
+
     padding: 14px 16px;
+
     border: 1px solid var(--border);
+
     border-radius: 4px;
+
     background: var(--white);
+
     color: var(--navy);
+
     font-size: 14px;
+
     font-weight: 700;
+
     line-height: 1.4;
+
     text-decoration: none;
+
     transition:
         border-color var(--transition),
         background var(--transition),
@@ -758,21 +1137,33 @@ textarea:focus-visible {
         transform var(--transition);
 }
 
+
 .all-services-links a::after {
     content: "→";
+
     flex-shrink: 0;
+
     color: var(--gold);
+
     font-size: 18px;
+
     font-weight: 700;
 }
 
+
 .all-services-links a:hover {
     border-color: var(--gold);
+
     background: var(--light-bg);
+
     color: var(--gold-dark);
+
     box-shadow: var(--shadow-light);
+
     transform: translateY(-2px);
 }
+
+
 
 /* ==========================================================
    INDIVIDUAL SERVICE CATEGORY PANEL
@@ -780,50 +1171,81 @@ textarea:focus-visible {
 
 .service-category-panel {
     display: grid;
-    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.5fr);
+
+    grid-template-columns:
+        minmax(260px, 0.8fr)
+        minmax(0, 1.5fr);
+
     gap: 55px;
+
     padding: 40px;
+
     border: 1px solid var(--border);
+
     border-top: 4px solid var(--gold);
+
     background: var(--white);
+
     box-shadow: var(--shadow-light);
 }
 
+
 .service-category-heading {
     display: flex;
+
     align-items: flex-start;
+
     gap: 18px;
 }
+
 
 .service-category-icon {
     width: 58px;
     height: 58px;
+
     flex: 0 0 58px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     border-radius: 50%;
+
     background: var(--light-bg);
+
     font-size: 27px;
 }
+
 
 .service-category-heading .section-label {
     margin: 2px 0 5px;
 }
 
+
 .service-category-heading h3 {
     margin: 0 0 10px;
+
     color: var(--navy);
+
     font-size: 30px;
+
     line-height: 1.2;
 }
 
+
 .service-category-heading p:last-child {
     margin: 0;
+
     color: var(--text-light);
+
     font-size: 14px;
+
     line-height: 1.7;
 }
+
+
 
 /* ==========================================================
    SERVICE CATEGORY CONTENT
@@ -831,10 +1253,15 @@ textarea:focus-visible {
 
 .service-category-content {
     min-width: 0;
+
     display: flex;
+
     flex-direction: column;
+
     gap: 18px;
 }
+
+
 
 /* ==========================================================
    INDIVIDUAL CATEGORY SUBCATEGORY BUTTONS
@@ -842,26 +1269,44 @@ textarea:focus-visible {
 
 .service-category-links {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 14px;
 }
+
 
 .service-category-links a {
     min-width: 0;
     min-height: 64px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 14px;
+
     padding: 16px 18px;
+
     border: 1px solid var(--border);
+
     border-radius: 4px;
+
     background: var(--white);
+
     color: var(--navy);
+
     font-size: 15px;
+
     font-weight: 700;
+
     line-height: 1.4;
+
     text-decoration: none;
+
     transition:
         border-color var(--transition),
         background var(--transition),
@@ -870,24 +1315,36 @@ textarea:focus-visible {
         transform var(--transition);
 }
 
+
 .service-category-links a span:first-child {
     min-width: 0;
 }
 
+
 .service-category-links a span:last-child {
     flex-shrink: 0;
+
     color: var(--gold);
+
     font-size: 20px;
+
     font-weight: 700;
 }
 
+
 .service-category-links a:hover {
     border-color: var(--gold);
+
     background: var(--light-bg);
+
     color: var(--gold-dark);
+
     box-shadow: var(--shadow-light);
+
     transform: translateY(-2px);
 }
+
+
 
 /* ==========================================================
    HOMEPAGE PROCESS
@@ -895,35 +1352,54 @@ textarea:focus-visible {
 
 .process-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
     gap: 20px;
 }
 
+
 .process-card {
     padding: 28px 22px;
+
     border-top: 4px solid var(--gold);
+
     background: var(--white);
+
     text-align: center;
 }
 
+
 .process-number {
     margin-bottom: 10px;
+
     color: var(--gold);
+
     font-size: 13px;
+
     font-weight: 700;
+
     letter-spacing: 1px;
 }
 
+
 .process-card h3 {
     margin: 0 0 8px;
+
     color: var(--navy);
 }
 
+
 .process-card p {
     margin-bottom: 0;
+
     color: var(--text-light);
+
     font-size: 14px;
 }
+
+
 
 /* ==========================================================
    CONTACT PAGE HERO
@@ -931,35 +1407,55 @@ textarea:focus-visible {
 
 .contact-hero {
     padding: 48px 0 25px;
+
     background: var(--white);
 }
+
 
 .contact-hero-content {
     max-width: 900px;
 }
 
+
 .contact-hero .eyebrow {
     margin: 0 0 14px;
 }
 
+
 .contact-hero h1 {
     margin: 0 0 18px;
+
     color: var(--text);
-    font-size: clamp(40px, 5vw, 56px);
+
+    font-size:
+        clamp(
+            40px,
+            5vw,
+            56px
+        );
+
     line-height: 1.15;
 }
 
+
 .contact-hero p {
     max-width: 760px;
+
     margin: 0;
+
     color: var(--text);
+
     font-size: 18px;
+
     line-height: 1.7;
 }
+
 
 .contact-hero + .section {
     padding-top: 35px;
 }
+
+
 
 /* ==========================================================
    CONTACT SECTION / CONTACT PAGE GRID
@@ -967,29 +1463,41 @@ textarea:focus-visible {
 
 .contact-section {
     padding: 75px 0;
+
     background: var(--navy);
+
     color: var(--white);
 }
+
 
 .contact-section .section-title {
     color: var(--white);
 }
 
+
 .contact-section .section-intro {
     color: #e7edf3;
 }
 
+
 .contact-grid,
 .contact-page-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+
+    grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(0, 1.2fr);
+
     gap: 55px;
+
     align-items: start;
 }
+
 
 .contact-details {
     color: var(--text-light);
 }
+
 
 .contact-details h2,
 .contact-details h3,
@@ -997,47 +1505,66 @@ textarea:focus-visible {
     color: var(--navy);
 }
 
+
 .contact-details > .section-label {
     margin-top: 0;
 }
 
+
 .contact-details h2 {
     margin: 0 0 18px;
+
     font-size: 34px;
+
     line-height: 1.2;
 }
 
+
 .contact-details-intro {
     margin: 0;
+
     color: var(--text-light);
+
     line-height: 1.8;
 }
+
 
 .contact-form-wrapper,
 .contact-page-form-wrapper {
     min-width: 0;
 }
 
+
 .contact-form-heading {
     margin-bottom: 24px;
 }
+
 
 .contact-form-heading .section-label {
     margin-top: 0;
 }
 
+
 .contact-form-heading h2 {
     margin: 0 0 10px;
+
     color: var(--navy);
+
     font-size: 34px;
+
     line-height: 1.2;
 }
 
+
 .contact-form-heading p:last-child {
     margin: 0;
+
     color: var(--text-light);
+
     line-height: 1.7;
 }
+
+
 
 /* ==========================================================
    CONTACT INFO ITEMS
@@ -1045,35 +1572,52 @@ textarea:focus-visible {
 
 .contact-info-item {
     display: flex;
+
     align-items: flex-start;
+
     gap: 14px;
 }
+
 
 .contact-info-icon {
     width: 28px;
     height: 28px;
+
     flex: 0 0 28px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     margin-top: 2px;
+
     color: var(--navy);
+
     font-size: 18px;
+
     line-height: 1;
 }
 
+
 .contact-info-content {
     flex: 1;
+
     min-width: 0;
 }
+
 
 .contact-info-content h3 {
     margin: 0 0 8px;
 }
 
+
 .contact-info-content p {
     margin: 0;
 }
+
+
 
 /* ==========================================================
    CONTACT REASONS
@@ -1083,13 +1627,17 @@ textarea:focus-visible {
     margin-top: 32px;
 }
 
+
 .contact-reasons .contact-info-item {
     margin-bottom: 30px;
 }
 
+
 .contact-reasons .contact-info-item:last-child {
     margin-bottom: 0;
 }
+
+
 
 /* ==========================================================
    CONTACT — CONNECT WITH US
@@ -1098,16 +1646,23 @@ textarea:focus-visible {
 .contact-connect,
 .contact-social {
     margin-top: 42px;
+
     padding-top: 32px;
+
     border-top: 1px solid var(--border);
 }
+
 
 .contact-connect > h3,
 .contact-social > h3 {
     margin: 0 0 22px;
+
     color: var(--navy);
+
     font-size: 21px;
 }
+
+
 
 /* ==========================================================
    CONTACT — SOCIAL ICONS
@@ -1116,61 +1671,92 @@ textarea:focus-visible {
 .contact-social-icons,
 .contact-social-links {
     display: flex;
+
     align-items: center;
+
     flex-wrap: wrap;
+
     gap: 14px;
 }
+
 
 .contact-social-icons .social-qr-button,
 .contact-social-links .social-qr-button {
     width: 64px;
     height: 64px;
+
     min-width: 64px;
     max-width: 64px;
+
     flex: 0 0 64px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     margin: 0;
+
     padding: 0;
+
     border: 1px solid var(--border);
+
     border-radius: 6px;
+
     background: var(--white);
+
     cursor: pointer;
+
     overflow: hidden;
+
     transition:
         transform var(--transition),
         border-color var(--transition),
         box-shadow var(--transition);
 }
 
+
 .contact-social-icons .social-qr-button:hover,
 .contact-social-links .social-qr-button:hover {
     border-color: var(--gold);
+
     box-shadow: var(--shadow-light);
+
     transform: translateY(-2px);
 }
+
 
 .contact-social-icons .social-icon-image,
 .contact-social-links .social-icon-image {
     display: block;
+
     width: 64px;
     height: 64px;
+
     min-width: 64px;
     max-width: 64px;
+
     object-fit: cover;
 }
 
+
 /* Fallback if the current HTML still uses text links */
+
 .contact-social-links > a {
     color: var(--navy);
+
     font-weight: 700;
+
     text-decoration: none;
 }
+
 
 .contact-social-links > a:hover {
     color: var(--gold-dark);
 }
+
+
 
 /* ==========================================================
    CONTACT — EMAIL
@@ -1179,47 +1765,71 @@ textarea:focus-visible {
 .contact-connect-email,
 .contact-email-block {
     margin-top: 28px;
+
     padding-top: 24px;
+
     border-top: 1px solid var(--border);
 }
 
+
 .contact-connect-email-heading {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
+
     margin-bottom: 7px;
 }
+
 
 .contact-connect-email-icon {
     width: 22px;
     height: 22px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     color: var(--navy);
+
     font-size: 17px;
+
     line-height: 1;
 }
 
+
 .contact-connect-email h4 {
     margin: 0;
+
     color: var(--navy);
+
     font-size: 16px;
 }
+
 
 .contact-connect-email > a,
 .contact-email-block a {
     color: var(--text-light);
+
     font-size: 17px;
+
     overflow-wrap: anywhere;
+
     text-decoration: underline;
+
     text-underline-offset: 3px;
 }
+
 
 .contact-connect-email > a:hover,
 .contact-email-block a:hover {
     color: var(--gold-dark);
 }
+
+
 
 /* ==========================================================
    FORMS
@@ -1227,45 +1837,68 @@ textarea:focus-visible {
 
 .contact-form {
     padding: 32px;
+
     background: var(--white);
+
     color: var(--text);
+
     box-shadow: var(--shadow-light);
 }
 
+
 .form-row {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 18px;
 }
+
 
 .form-group {
     margin-bottom: 18px;
 }
 
+
 .form-group label {
     display: block;
+
     margin-bottom: 7px;
+
     color: var(--navy);
+
     font-size: 14px;
+
     font-weight: 700;
 }
+
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
+
     min-height: 46px;
+
     padding: 11px 12px;
+
     border: 1px solid #cfd5dc;
+
     border-radius: 2px;
+
     background: var(--white);
+
     color: var(--text);
 }
 
+
 .form-group textarea {
     min-height: 150px;
+
     resize: vertical;
 }
+
 
 .form-group input:focus,
 .form-group select:focus,
@@ -1273,36 +1906,51 @@ textarea:focus-visible {
     border-color: var(--navy-light);
 }
 
+
 .form-privacy-note {
     margin: 5px 0 20px;
+
     padding: 16px;
+
     background: var(--light-bg);
+
     color: var(--text-light);
+
     font-size: 12px;
+
     line-height: 1.65;
 }
+
 
 .form-privacy-note p {
     margin: 0 0 8px;
 }
 
+
 .form-privacy-note p:last-child {
     margin-bottom: 0;
 }
 
+
 .form-privacy-note a {
     color: var(--navy);
+
     font-weight: 700;
 }
 
+
 .form-message {
     margin-top: 15px;
+
     font-size: 14px;
 }
+
 
 .turnstile-container {
     margin-bottom: 18px;
 }
+
+
 
 /* ==========================================================
    CONTACT PROCESS
@@ -1310,41 +1958,61 @@ textarea:focus-visible {
 
 .contact-process-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
     gap: 20px;
 }
 
+
 .contact-process-card {
     padding: 30px 24px;
+
     border-top: 4px solid var(--gold);
+
     background: var(--white);
+
     text-align: center;
+
     transition:
         box-shadow var(--transition),
         transform var(--transition);
 }
 
+
 .contact-process-card:hover {
     box-shadow: var(--shadow-light);
+
     transform: translateY(-3px);
 }
+
 
 .contact-process-card .process-number {
     margin-bottom: 12px;
 }
 
+
 .contact-process-card h3 {
     margin: 0 0 9px;
+
     color: var(--navy);
+
     font-size: 18px;
 }
 
+
 .contact-process-card p {
     margin: 0;
+
     color: var(--text-light);
+
     font-size: 14px;
+
     line-height: 1.7;
 }
+
+
 
 /* ==========================================================
    CONTACT FINAL CTA
@@ -1352,42 +2020,64 @@ textarea:focus-visible {
 
 .contact-final-cta {
     padding: 70px 25px;
+
     background: var(--navy);
+
     color: var(--white);
+
     text-align: center;
 }
+
 
 .contact-final-cta-content {
     max-width: 760px;
 }
 
+
 .contact-final-cta h2 {
     margin: 0 0 14px;
+
     color: var(--white);
+
     font-size: 34px;
+
     line-height: 1.25;
 }
 
+
 .contact-final-cta p {
     max-width: 650px;
+
     margin: 0 auto 18px;
+
     color: #e7edf3;
 }
 
+
 .contact-email-link {
     display: inline-block;
+
     color: #d5b970;
+
     font-size: 18px;
+
     font-weight: 700;
+
     text-decoration: none;
+
     overflow-wrap: anywhere;
 }
 
+
 .contact-email-link:hover {
     color: var(--white);
+
     text-decoration: underline;
+
     text-underline-offset: 4px;
 }
+
+
 
 /* ==========================================================
    ABOUT PAGE
@@ -1402,13 +2092,16 @@ textarea:focus-visible {
     padding: 48px 0 25px;
 }
 
+
 .about-hero-content {
     max-width: 900px;
 }
 
+
 .about-hero .eyebrow {
     margin: 0 0 14px;
 }
+
 
 .about-hero h1 {
     margin: 0 0 18px;
@@ -1425,6 +2118,7 @@ textarea:focus-visible {
     line-height: 1.15;
 }
 
+
 .about-hero .hero-subtitle {
     max-width: 760px;
 
@@ -1438,14 +2132,10 @@ textarea:focus-visible {
 }
 
 
-/*
-Reduce the gap between the About hero
-and the first content section.
-*/
-
 .about-hero + .section {
     padding-top: 35px;
 }
+
 
 
 /* ==========================================================
@@ -1464,13 +2154,16 @@ and the first content section.
     align-items: center;
 }
 
+
 .content-column {
     min-width: 0;
 }
 
+
 .content-column .section-label {
     margin-top: 0;
 }
+
 
 .content-column h2 {
     margin: 0 0 20px;
@@ -1482,6 +2175,7 @@ and the first content section.
     line-height: 1.2;
 }
 
+
 .content-column p {
     margin: 0 0 18px;
 
@@ -1490,9 +2184,11 @@ and the first content section.
     line-height: 1.8;
 }
 
+
 .content-column p:last-child {
     margin-bottom: 0;
 }
+
 
 
 /* ==========================================================
@@ -1503,10 +2199,12 @@ and the first content section.
     min-width: 0;
 }
 
+
 .section-image {
     display: block;
 
     width: 100%;
+
     height: auto;
 
     max-height: 420px;
@@ -1515,6 +2213,7 @@ and the first content section.
 
     border-radius: 4px;
 }
+
 
 
 /* ==========================================================
@@ -1537,13 +2236,16 @@ and the first content section.
     align-items: center;
 }
 
+
 .credential-logo {
     width: 160px;
+
     height: 160px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 18px;
@@ -1555,16 +2257,19 @@ and the first content section.
     background: var(--white);
 }
 
+
 .credential-logo img {
     display: block;
 
     width: 100%;
+
     height: 100%;
 
     max-width: 100%;
 
     object-fit: contain;
 }
+
 
 .credential-content p {
     margin: 0 0 18px;
@@ -1574,9 +2279,11 @@ and the first content section.
     line-height: 1.8;
 }
 
+
 .credential-content p:last-child {
     margin-bottom: 0;
 }
+
 
 
 /* ==========================================================
@@ -1589,9 +2296,11 @@ and the first content section.
     color: var(--white);
 }
 
+
 .section-dark .section-label {
     color: #d5b970;
 }
+
 
 
 /* ==========================================================
@@ -1607,6 +2316,7 @@ and the first content section.
     gap: 35px;
 }
 
+
 .value-card {
     padding: 34px;
 
@@ -1620,6 +2330,7 @@ and the first content section.
             0.06
         );
 }
+
 
 .value-number {
     display: block;
@@ -1635,6 +2346,7 @@ and the first content section.
     letter-spacing: 1.2px;
 }
 
+
 .value-card h2 {
     margin: 0 0 18px;
 
@@ -1645,6 +2357,7 @@ and the first content section.
     line-height: 1.25;
 }
 
+
 .value-card p {
     margin: 0 0 16px;
 
@@ -1653,9 +2366,11 @@ and the first content section.
     line-height: 1.8;
 }
 
+
 .value-card p:last-child {
     margin-bottom: 0;
 }
+
 
 .commitment-highlight {
     margin-top: 22px !important;
@@ -1677,6 +2392,7 @@ and the first content section.
 }
 
 
+
 /* ==========================================================
    WHY ADDPLUS FEATURE GRID
 ========================================================== */
@@ -1689,6 +2405,7 @@ and the first content section.
 
     gap: 20px;
 }
+
 
 .feature-card {
     padding: 28px 24px;
@@ -1705,6 +2422,7 @@ and the first content section.
         border-color var(--transition);
 }
 
+
 .feature-card:hover {
     border-color: var(--gold);
 
@@ -1713,13 +2431,16 @@ and the first content section.
     transform: translateY(-3px);
 }
 
+
 .feature-icon {
     width: 38px;
+
     height: 38px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     margin-bottom: 16px;
@@ -1737,6 +2458,7 @@ and the first content section.
     line-height: 1;
 }
 
+
 .feature-card h3 {
     margin: 0 0 10px;
 
@@ -1747,6 +2469,7 @@ and the first content section.
     line-height: 1.35;
 }
 
+
 .feature-card p {
     margin: 0;
 
@@ -1756,6 +2479,7 @@ and the first content section.
 
     line-height: 1.7;
 }
+
 
 
 /* ==========================================================
@@ -1772,6 +2496,7 @@ and the first content section.
     text-align: center;
 }
 
+
 .cta-content {
     width:
         min(
@@ -1782,9 +2507,11 @@ and the first content section.
     margin-inline: auto;
 }
 
+
 .cta-section .section-label {
     color: #d5b970;
 }
+
 
 .cta-section h2 {
     margin: 0 0 16px;
@@ -1796,6 +2523,7 @@ and the first content section.
     line-height: 1.25;
 }
 
+
 .cta-section p {
     max-width: 680px;
 
@@ -1806,44 +2534,77 @@ and the first content section.
     line-height: 1.75;
 }
 
+
+
 /* ==========================================================
    SERVICE PAGE HERO
 ========================================================== */
 
 .service-page-hero {
     min-height: 420px;
+
     padding: 75px 0;
+
     display: flex;
+
     align-items: center;
+
     background:
-        linear-gradient(rgba(15, 44, 76, 0.80), rgba(15, 44, 76, 0.80)),
-        linear-gradient(135deg, var(--navy), var(--navy-light));
+        linear-gradient(
+            rgba(15, 44, 76, 0.80),
+            rgba(15, 44, 76, 0.80)
+        ),
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--navy-light)
+        );
+
     color: var(--white);
 }
 
+
 .service-page-hero-content {
     max-width: 820px;
+
     text-align: center;
 }
+
 
 .service-page-hero .eyebrow {
     color: #d5b970;
 }
 
+
 .service-page-hero h1 {
     margin-bottom: 20px;
+
     color: var(--white);
-    font-size: clamp(40px, 5vw, 60px);
+
+    font-size:
+        clamp(
+            40px,
+            5vw,
+            60px
+        );
+
     line-height: 1.12;
 }
 
+
 .service-page-hero p {
     max-width: 700px;
+
     margin: 0 auto 28px;
+
     color: #eef3f7;
+
     font-size: 18px;
+
     line-height: 1.7;
 }
+
+
 
 /* ==========================================================
    SERVICE INTRO
@@ -1851,25 +2612,39 @@ and the first content section.
 
 .service-intro-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(270px, 0.65fr);
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(270px, 0.65fr);
+
     align-items: start;
+
     gap: 65px;
 }
+
 
 .service-intro-main h2,
 .service-note-layout h2 {
     margin-bottom: 20px;
+
     color: var(--navy);
+
     font-size: 34px;
+
     line-height: 1.2;
 }
+
 
 .service-intro-main p,
 .service-note-layout > div:first-child p {
     margin-bottom: 18px;
+
     color: var(--text-light);
+
     line-height: 1.8;
 }
+
+
 
 /* ==========================================================
    SERVICE SUMMARY
@@ -1877,39 +2652,58 @@ and the first content section.
 
 .service-summary-card {
     padding: 30px;
+
     border-top: 4px solid var(--gold);
+
     background: var(--light-bg);
 }
 
+
 .service-summary-card h3 {
     margin-bottom: 20px;
+
     color: var(--navy);
+
     font-size: 21px;
 }
 
+
 .service-summary-item {
     padding: 14px 0;
+
     border-top: 1px solid var(--border);
 }
+
 
 .service-summary-item:first-of-type {
     border-top: 0;
 }
 
+
 .service-summary-item span {
     display: block;
+
     margin-bottom: 4px;
+
     color: var(--text-light);
+
     font-size: 12px;
+
     text-transform: uppercase;
+
     letter-spacing: 0.5px;
 }
 
+
 .service-summary-item strong {
     color: var(--navy);
+
     font-size: 14px;
+
     line-height: 1.5;
 }
+
+
 
 /* ==========================================================
    SERVICE FEATURE CARDS
@@ -1917,44 +2711,67 @@ and the first content section.
 
 .service-feature-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 20px;
 }
 
+
 .service-feature-card {
     padding: 30px 25px;
+
     border: 1px solid var(--border);
+
     background: var(--white);
+
     transition:
         box-shadow var(--transition),
         transform var(--transition);
 }
 
+
 .service-feature-card:hover {
     box-shadow: var(--shadow-light);
+
     transform: translateY(-3px);
 }
 
+
 .service-feature-number {
     margin-bottom: 15px;
+
     color: var(--gold);
+
     font-size: 13px;
+
     font-weight: 700;
+
     letter-spacing: 1px;
 }
 
+
 .service-feature-card h3 {
     margin-bottom: 10px;
+
     color: var(--navy);
+
     font-size: 18px;
 }
 
+
 .service-feature-card p {
     margin-bottom: 0;
+
     color: var(--text-light);
+
     font-size: 14px;
+
     line-height: 1.7;
 }
+
+
 
 /* ==========================================================
    SERVICE BENEFITS
@@ -1962,42 +2779,70 @@ and the first content section.
 
 .service-benefits-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
     gap: 20px 40px;
 }
 
+
 .service-benefit {
     padding: 22px 0;
+
     display: grid;
-    grid-template-columns: 42px 1fr;
+
+    grid-template-columns:
+        42px 1fr;
+
     gap: 16px;
-    border-bottom: 1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
 }
+
 
 .service-check {
     width: 40px;
+
     height: 40px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     border-radius: 50%;
+
     background: var(--navy);
+
     color: var(--white);
+
     font-weight: 700;
 }
 
+
 .service-benefit h3 {
     margin-bottom: 6px;
+
     color: var(--navy);
+
     font-size: 18px;
 }
 
+
 .service-benefit p {
     margin-bottom: 0;
+
     color: var(--text-light);
+
     font-size: 14px;
+
     line-height: 1.7;
 }
+
+
 
 /* ==========================================================
    SERVICE PROCESS
@@ -2005,37 +2850,56 @@ and the first content section.
 
 .service-process-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
     gap: 18px;
 }
 
+
 .service-process-card {
     padding: 28px 20px;
+
     border-top: 4px solid var(--gold);
+
     background: var(--white);
+
     text-align: center;
+
     transition:
         box-shadow var(--transition),
         transform var(--transition);
 }
 
+
 .service-process-card:hover {
     box-shadow: var(--shadow-light);
+
     transform: translateY(-3px);
 }
 
+
 .service-process-card h3 {
     margin-bottom: 9px;
+
     color: var(--navy);
+
     font-size: 16px;
 }
 
+
 .service-process-card p {
     margin-bottom: 0;
+
     color: var(--text-light);
+
     font-size: 13px;
+
     line-height: 1.65;
 }
+
+
 
 /* ==========================================================
    SERVICE NOTE
@@ -2043,28 +2907,44 @@ and the first content section.
 
 .service-note-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+
+    grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(280px, 0.75fr);
+
     align-items: center;
+
     gap: 65px;
 }
 
+
 .service-note-box {
     padding: 32px;
+
     border-top: 4px solid var(--gold);
+
     background: var(--light-bg);
 }
 
+
 .service-note-box h3 {
     margin-bottom: 12px;
+
     color: var(--navy);
+
     font-size: 21px;
 }
 
+
 .service-note-box p {
     margin-bottom: 22px;
+
     color: var(--text-light);
+
     line-height: 1.7;
 }
+
+
 
 /* ==========================================================
    SERVICE FINAL CTA
@@ -2072,31 +2952,45 @@ and the first content section.
 
 .service-final-cta {
     padding: 75px 25px;
+
     background: var(--navy);
+
     color: var(--white);
+
     text-align: center;
 }
+
 
 .service-final-cta-content {
     max-width: 760px;
 }
 
+
 .service-final-cta .section-label {
     color: #d5b970;
 }
 
+
 .service-final-cta h2 {
     margin-bottom: 16px;
+
     color: var(--white);
+
     font-size: 34px;
+
     line-height: 1.25;
 }
 
+
 .service-final-cta p {
     max-width: 680px;
+
     margin: 0 auto 28px;
+
     color: #e7edf3;
 }
+
+
 
 /* ==========================================================
    FOOTER
@@ -2104,50 +2998,78 @@ and the first content section.
 
 .site-footer {
     padding-top: 55px;
+
     background: var(--navy-deep);
+
     color: #dce5ed;
 }
 
+
 .footer-container {
-    width: min(calc(100% - 50px), var(--container));
+    width:
+        min(
+            calc(100% - 50px),
+            var(--container)
+        );
+
     margin-inline: auto;
+
     display: grid;
-    grid-template-columns: 1.4fr 0.8fr 1fr;
+
+    grid-template-columns:
+        1.4fr 0.8fr 1fr;
+
     gap: 50px;
 }
 
+
 .footer-title {
     margin-bottom: 14px;
+
     color: var(--white);
+
     font-size: 16px;
+
     font-weight: 700;
 }
+
 
 .footer-about p,
 .site-footer p {
     color: #c9d5df;
+
     font-size: 14px;
+
     line-height: 1.7;
 }
 
+
 .site-footer a {
     color: #dce5ed;
+
     text-decoration: none;
 }
+
 
 .site-footer a:hover {
     color: #d5b970;
 }
 
+
 .footer-links {
     display: flex;
+
     flex-direction: column;
+
     gap: 8px;
 }
+
 
 .footer-links a {
     font-size: 14px;
 }
+
+
 
 /* ==========================================================
    FOOTER SOCIAL ICONS
@@ -2155,54 +3077,105 @@ and the first content section.
 
 .site-footer .social-links {
     margin-top: 18px;
+
     display: flex;
+
     flex-direction: row;
+
     align-items: center;
+
     justify-content: flex-start;
+
     flex-wrap: nowrap;
+
     gap: 14px;
 }
+
 
 .site-footer .social-qr-button {
     width: 64px;
     height: 64px;
+
     min-width: 64px;
     max-width: 64px;
+
     flex: 0 0 64px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     margin: 0;
+
     padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.06);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
     cursor: pointer;
+
     overflow: hidden;
+
     transition:
         transform var(--transition),
         border-color var(--transition),
         background var(--transition);
 }
 
+
 .site-footer .social-qr-button:hover {
     border-color: var(--gold);
-    background: rgba(255, 255, 255, 0.10);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+
     transform: translateY(-2px);
 }
 
+
 .site-footer .social-qr-button:focus-visible {
     outline: 2px solid var(--gold);
+
     outline-offset: 4px;
 }
 
+
 .site-footer .social-icon-image {
     display: block;
+
     width: 64px;
+
     height: 64px;
+
     max-width: none;
+
     object-fit: cover;
 }
+
+
 
 /* ==========================================================
    FOOTER MAP
@@ -2210,35 +3183,76 @@ and the first content section.
 
 .footer-map {
     width: 100%;
+
     max-width: 320px;
+
     margin-top: 18px;
+
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
     border-radius: 4px;
 }
 
+
 .footer-map iframe {
     display: block;
+
     width: 100%;
+
     height: 190px;
+
     border: 0;
 }
+
+
 
 /* ==========================================================
    COPYRIGHT
 ========================================================== */
 
 .copyright {
-    width: min(calc(100% - 50px), var(--container));
-    margin: 45px auto 0;
-    padding: 22px 0;
+    width:
+        min(
+            calc(100% - 50px),
+            var(--container)
+        );
+
+    margin:
+        45px auto 0;
+
+    padding:
+        22px 0;
+
     display: flex;
+
     justify-content: space-between;
+
     gap: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
     color: #aebdca;
+
     font-size: 12px;
 }
+
+
 
 /* ==========================================================
    QR CODE MODAL
@@ -2246,490 +3260,780 @@ and the first content section.
 
 .qr-modal {
     position: fixed;
+
     inset: 0;
+
     z-index: 3000;
+
     display: none;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 25px;
 }
+
 
 .qr-modal.open {
     display: flex;
 }
 
+
 .qr-modal-backdrop {
     position: absolute;
+
     inset: 0;
-    background: rgba(15, 44, 76, 0.78);
+
+    background:
+        rgba(
+            15,
+            44,
+            76,
+            0.78
+        );
 }
+
 
 .qr-modal-dialog {
     position: relative;
+
     z-index: 1;
-    width: min(100%, 430px);
-    padding: 42px 35px 35px;
+
+    width:
+        min(
+            100%,
+            430px
+        );
+
+    padding:
+        42px 35px 35px;
+
     background: var(--white);
+
     text-align: center;
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+
+    box-shadow:
+        0 18px 50px
+        rgba(
+            0,
+            0,
+            0,
+            0.22
+        );
 }
+
 
 .qr-modal-dialog .section-label {
     margin-bottom: 7px;
 }
 
+
 .qr-modal-dialog h2 {
-    margin: 0 0 10px;
+    margin:
+        0 0 10px;
+
     color: var(--navy);
+
     font-size: 28px;
+
     line-height: 1.25;
 }
 
+
 .qr-modal-description {
     max-width: 330px;
-    margin: 0 auto 22px;
+
+    margin:
+        0 auto 22px;
+
     color: var(--text-light);
+
     font-size: 14px;
+
     line-height: 1.7;
 }
 
+
 .qr-modal-image {
     display: block;
-    width: min(100%, 280px);
+
+    width:
+        min(
+            100%,
+            280px
+        );
+
     height: auto;
+
     margin: 0 auto;
+
     object-fit: contain;
 }
 
+
 .qr-modal-close {
     position: absolute;
+
     top: 10px;
+
     right: 12px;
+
     width: 44px;
+
     height: 44px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 0;
+
     border: 0;
+
     background: transparent;
+
     color: var(--navy);
+
     font-size: 32px;
+
     line-height: 1;
+
     cursor: pointer;
 }
+
 
 .qr-modal-close:hover {
     color: var(--gold);
 }
 
+
 .qr-modal-close:focus-visible {
-    outline: 2px solid var(--gold);
+    outline:
+        2px solid var(--gold);
+
     outline-offset: 2px;
 }
+
 
 body.qr-modal-open {
     overflow: hidden;
 }
+
+
 
 /* ==========================================================
    RESPONSIVE — TABLET
 ========================================================== */
 
 @media (max-width: 1000px) {
+
     .quick-links-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns:
+            repeat(3, 1fr);
     }
+
 
     .feature-grid {
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
     }
+
 
     .service-grid,
     .card-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
+
 
     .service-feature-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
+
 
     .service-process-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns:
+            repeat(3, 1fr);
     }
+
 
     .process-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
+
     .service-tabs {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(
+                4,
+                minmax(0, 1fr)
+            );
     }
+
 
     .all-services-grid {
         grid-template-columns: 1fr;
     }
 
+
     .all-services-category:nth-last-child(-n + 2) {
-        border-bottom: 1px solid var(--border);
+        border-bottom:
+            1px solid
+            var(--border);
     }
+
 
     .all-services-category:last-child {
         border-bottom: 0;
     }
 
+
     .service-category-panel {
         grid-template-columns: 1fr;
+
         gap: 30px;
     }
 
+
     .contact-page-grid,
     .contact-grid {
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        grid-template-columns:
+            minmax(0, 0.9fr)
+            minmax(0, 1.1fr);
+
         gap: 40px;
     }
+
 }
+
+
 
 /* ==========================================================
    RESPONSIVE — MOBILE NAVIGATION
 ========================================================== */
 
 @media (max-width: 800px) {
+
+    #site-header {
+        height: 70px;
+    }
+
+
     .header-container {
         min-height: 70px;
-        width: calc(100% - 30px);
+
+        width:
+            calc(100% - 30px);
     }
+
 
     .header-logo {
         height: 52px;
+
         width: auto;
+
         object-fit: contain;
     }
+
 
     .mobile-menu-button,
     .mobile-menu-toggle {
         display: block;
+
         margin-left: auto;
+
         border: 0;
+
         background: transparent;
+
         color: var(--navy);
+
         font-size: 28px;
+
         line-height: 1;
+
         cursor: pointer;
     }
 
+
     .main-nav {
         position: absolute;
+
         top: 70px;
+
         right: 0;
+
         left: 0;
+
         display: none;
-        max-height: calc(100vh - 70px);
+
+        max-height:
+            calc(
+                100vh - 70px
+            );
+
         overflow-y: auto;
-        padding: 10px 20px 20px;
+
+        padding:
+            10px 20px 20px;
+
         flex-direction: column;
+
         align-items: stretch;
-        border-top: 1px solid #eeeeee;
+
+        border-top:
+            1px solid #eeeeee;
+
         background: var(--white);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+        box-shadow:
+            0 8px 20px
+            rgba(
+                0,
+                0,
+                0,
+                0.08
+            );
+
         transform: none;
     }
+
 
     .main-nav.open {
         display: flex;
     }
 
+
     .main-nav > a,
     .dropdown-toggle {
         width: 100%;
-        padding: 12px 5px;
+
+        padding:
+            12px 5px;
+
         text-align: left;
+
         font-size: 14px;
     }
+
 
     .main-nav > a.active::after {
         display: none;
     }
 
+
     .main-nav > a.nav-contact-button {
         width: fit-content;
-        margin: 10px 0 0;
-        padding: 11px 18px !important;
+
+        margin:
+            10px 0 0;
+
+        padding:
+            11px 18px !important;
     }
+
 
     .dropdown-menu {
         position: static;
+
         display: none;
+
         min-width: 0;
+
         padding-left: 15px;
+
         border: 0;
+
         box-shadow: none;
+
         opacity: 1;
+
         visibility: visible;
+
         transform: none;
     }
+
 
     .dropdown:hover > .dropdown-menu,
     .dropdown:focus-within > .dropdown-menu {
         display: none;
     }
 
+
     .dropdown.open > .dropdown-menu {
         display: block;
     }
 
+
     .dropdown-menu > a {
-        padding: 9px 10px;
+        padding:
+            9px 10px;
+
         white-space: normal;
     }
+
 
     .dropdown-submenu {
         width: 100%;
     }
 
+
     .dropdown-menu .submenu-trigger,
     .dropdown-menu .submenu-label {
         width: 100%;
-        padding: 9px 10px;
+
+        padding:
+            9px 10px;
+
         font-size: 13px;
+
         white-space: normal;
     }
 
+
     .submenu-menu {
         position: static;
+
         display: none;
+
         min-width: 0;
-        padding: 0 0 0 15px;
+
+        padding:
+            0 0 0 15px;
+
         border: 0;
+
         background: transparent;
+
         box-shadow: none;
+
         opacity: 1;
+
         visibility: visible;
+
         transform: none;
     }
+
 
     .dropdown-submenu:hover > .submenu-menu,
     .dropdown-submenu:focus-within > .submenu-menu {
         display: none;
+
         opacity: 1;
+
         visibility: visible;
+
         transform: none;
     }
+
 
     .dropdown-submenu.open > .submenu-menu {
         display: block;
     }
 
+
     .submenu-menu > a {
-        padding: 9px 10px;
+        padding:
+            9px 10px;
+
         white-space: normal;
     }
 
+
     .dropdown-submenu.open > .submenu-label .submenu-arrow,
     .dropdown-submenu.open > .submenu-trigger .submenu-arrow {
-        transform: rotate(90deg);
+        transform:
+            rotate(
+                90deg
+            );
     }
+
 
     .service-page-hero {
         min-height: 360px;
-        padding: 60px 0;
+
+        padding:
+            60px 0;
     }
+
 
     .service-intro-grid,
     .service-note-layout {
         grid-template-columns: 1fr;
+
         gap: 40px;
     }
+
 
     .service-benefits-grid {
         grid-template-columns: 1fr;
     }
 
+
     .service-process-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
+
 
     .two-column,
     .contact-grid,
     .contact-page-grid {
         grid-template-columns: 1fr;
+
         gap: 40px;
     }
 
-        .credential-layout {
+
+    .credential-layout {
         grid-template-columns: 1fr;
 
         gap: 28px;
     }
 
+
     .credential-logo {
         width: 140px;
+
         height: 140px;
 
         margin-inline: auto;
     }
 
+
     .values-grid {
         grid-template-columns: 1fr;
     }
+
 
     .contact-process-grid {
         grid-template-columns: 1fr;
     }
 
+
     .contact-hero {
-        padding: 42px 0 20px;
+        padding:
+            42px 0 20px;
     }
+
 
     .contact-hero + .section {
         padding-top: 30px;
     }
 
+
     .footer-container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
+
         gap: 35px;
     }
 
+
     .footer-about {
-        grid-column: 1 / -1;
+        grid-column:
+            1 / -1;
     }
+
 
     .copyright {
         flex-direction: column;
+
         gap: 10px;
     }
+
 }
+
+
 
 /* ==========================================================
    SERVICE TABS — MOBILE
 ========================================================== */
 
 @media (max-width: 700px) {
+
     .service-tabs {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
         gap: 8px;
     }
 
+
     .service-tab {
         min-height: 64px;
-        padding: 11px 8px;
+
+        padding:
+            11px 8px;
+
         font-size: 13px;
     }
+
 
     .service-tab-icon {
         font-size: 17px;
     }
 
+
     .all-services-grid {
         padding: 18px;
     }
 
+
     .all-services-category {
-        padding: 20px 10px;
+        padding:
+            20px 10px;
     }
+
 
     .all-services-links {
         grid-template-columns: 1fr;
+
         gap: 11px;
     }
 
+
     .service-category-panel {
-        padding: 26px 20px;
+        padding:
+            26px 20px;
     }
+
 
     .service-category-content {
         gap: 14px;
     }
 
+
     .service-category-links {
         grid-template-columns: 1fr;
     }
+
 }
+
+
 
 /* ==========================================================
    RESPONSIVE — SMALL MOBILE
 ========================================================== */
 
 @media (max-width: 600px) {
+
     .container,
     .section-container {
-        width: calc(100% - 30px);
+        width:
+            calc(
+                100% - 30px
+            );
     }
 
+
     .section {
-        padding: 55px 0;
+        padding:
+            55px 0;
     }
+
 
     .section-title {
         font-size: 28px;
     }
 
-        .about-hero {
+
+    .about-hero {
         padding:
             38px 0 20px;
     }
+
 
     .about-hero h1 {
         font-size: 36px;
     }
 
+
     .about-hero .hero-subtitle {
         font-size: 16px;
     }
+
 
     .about-hero + .section {
         padding-top: 28px;
     }
 
+
     .content-column h2 {
         font-size: 28px;
     }
 
+
     .credential-logo {
         width: 120px;
+
         height: 120px;
 
         padding: 14px;
     }
 
+
     .value-card {
-        padding: 26px 22px;
+        padding:
+            26px 22px;
     }
+
 
     .value-card h2 {
         font-size: 25px;
     }
 
+
     .feature-grid {
         grid-template-columns: 1fr;
     }
+
 
     .cta-section {
         padding:
             60px 20px;
     }
 
+
     .cta-section h2 {
         font-size: 28px;
     }
 
+
     .hero {
         min-height: 480px;
-        padding: 70px 0;
+
+        padding:
+            70px 0;
     }
+
 
     .hero h1 {
         font-size: 38px;
     }
 
+
     .hero p {
         font-size: 16px;
     }
 
+
     .quick-links-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
+
 
     .service-grid,
     .card-grid,
@@ -2739,34 +4043,43 @@ body.qr-modal-open {
         grid-template-columns: 1fr;
     }
 
+
     .service-page-hero h1 {
         font-size: 36px;
     }
 
+
     .service-page-hero p {
         font-size: 16px;
     }
+
 
     .service-summary-card,
     .service-note-box {
         padding: 25px;
     }
 
+
     .service-final-cta {
-        padding: 60px 20px;
+        padding:
+            60px 20px;
     }
+
 
     .service-final-cta h2 {
         font-size: 28px;
     }
 
+
     .contact-hero h1 {
         font-size: 36px;
     }
 
+
     .contact-hero p {
         font-size: 16px;
     }
+
 
     .contact-details h2,
     .contact-form-heading h2,
@@ -2774,80 +4087,119 @@ body.qr-modal-open {
         font-size: 28px;
     }
 
+
     .contact-final-cta {
-        padding: 55px 20px;
+        padding:
+            55px 20px;
     }
+
 
     .form-row {
         grid-template-columns: 1fr;
+
         gap: 0;
     }
 
+
     .contact-form {
-        padding: 24px 20px;
+        padding:
+            24px 20px;
     }
 
+
     .footer-container {
-        width: calc(100% - 30px);
+        width:
+            calc(
+                100% - 30px
+            );
+
         grid-template-columns: 1fr;
     }
+
 
     .footer-about {
         grid-column: auto;
     }
 
+
     .copyright {
-        width: calc(100% - 30px);
+        width:
+            calc(
+                100% - 30px
+            );
     }
+
 
     .qr-modal {
         padding: 18px;
     }
 
+
     .qr-modal-dialog {
-        padding: 38px 22px 28px;
+        padding:
+            38px 22px 28px;
     }
+
 
     .qr-modal-dialog h2 {
         font-size: 25px;
     }
 
+
     .qr-modal-image {
-        width: min(100%, 250px);
+        width:
+            min(
+                100%,
+                250px
+            );
     }
+
 }
+
+
 
 /* ==========================================================
    SERVICE TABS — VERY SMALL MOBILE
 ========================================================== */
 
 @media (max-width: 420px) {
+
     .quick-links-grid {
         grid-template-columns: 1fr;
     }
 
+
     .service-tabs {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
+
 
     .service-tab {
         min-height: 58px;
     }
 
+
     .service-category-heading {
         gap: 12px;
     }
 
+
     .service-category-icon {
         width: 48px;
+
         height: 48px;
+
         flex-basis: 48px;
+
         font-size: 23px;
     }
+
 
     .service-category-heading h3 {
         font-size: 25px;
     }
+
 
     .contact-social-icons .social-qr-button,
     .contact-social-links .social-qr-button,
@@ -2856,32 +4208,49 @@ body.qr-modal-open {
     .site-footer .social-qr-button,
     .site-footer .social-icon-image {
         width: 58px;
+
         height: 58px;
+
         min-width: 58px;
+
         max-width: 58px;
     }
+
 
     .contact-social-icons .social-qr-button,
     .contact-social-links .social-qr-button,
     .site-footer .social-qr-button {
         flex-basis: 58px;
     }
+
 }
+
+
 
 /* ==========================================================
    REDUCED MOTION
 ========================================================== */
 
-@media (prefers-reduced-motion: reduce) {
+@media (
+    prefers-reduced-motion: reduce
+) {
+
     html {
         scroll-behavior: auto;
     }
 
+
     *,
     *::before,
     *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        transition-duration:
+            0.01ms !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
     }
+
 }
