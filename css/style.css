@@ -34,8 +34,6 @@
         0.2s ease;
 }
 
-
-
 /* ==========================================================
    RESET
 ========================================================== */
@@ -46,11 +44,9 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     margin: 0;
@@ -67,16 +63,13 @@ body {
     line-height: 1.6;
 }
 
-
 img {
     max-width: 100%;
 }
 
-
 a {
     color: inherit;
 }
-
 
 button,
 input,
@@ -84,8 +77,6 @@ select,
 textarea {
     font: inherit;
 }
-
-
 
 /* ==========================================================
    ACCESSIBILITY
@@ -99,8 +90,6 @@ textarea:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 3px;
 }
-
-
 
 /* ==========================================================
    CONTAINERS
@@ -117,28 +106,23 @@ textarea:focus-visible {
     margin-inline: auto;
 }
 
-
 .section {
-    padding: 75px 0;
+    padding: 60px 0;
 }
-
 
 .section-light {
     background: var(--light-bg);
 }
-
-
 
 /* ==========================================================
    SECTION HEADINGS
 ========================================================== */
 
 .section-heading {
-    margin-bottom: 45px;
+    margin-bottom: 35px;
 
     text-align: center;
 }
-
 
 .section-label,
 .eyebrow {
@@ -155,7 +139,6 @@ textarea:focus-visible {
     text-transform: uppercase;
 }
 
-
 .section-title {
     margin: 0 0 15px;
 
@@ -166,7 +149,6 @@ textarea:focus-visible {
     line-height: 1.25;
 }
 
-
 .section-intro {
     max-width: 720px;
 
@@ -176,8 +158,6 @@ textarea:focus-visible {
 
     line-height: 1.8;
 }
-
-
 
 /* ==========================================================
    BUTTONS
@@ -209,13 +189,11 @@ textarea:focus-visible {
         transform var(--transition);
 }
 
-
 .button:hover {
     border-color: var(--gold-dark);
 
     background: var(--gold-dark);
 }
-
 
 .button:active {
     transform: translateY(1px);
@@ -228,20 +206,17 @@ textarea:focus-visible {
     color: var(--white);
 }
 
-
 .secondary-button {
     background: transparent;
 
     color: var(--gold);
 }
 
-
 .secondary-button:hover {
     background: var(--gold);
 
     color: var(--white);
 }
-
 
 .text-link {
     color: var(--gold-dark);
@@ -251,22 +226,13 @@ textarea:focus-visible {
     text-decoration: none;
 }
 
-
 .text-link:hover {
     text-decoration: underline;
 }
 
-
-
 /* ==========================================================
-   HEADER PLACEHOLDER
+   FIXED HEADER PLACEHOLDER
 ========================================================== */
-
-/*
-The actual header is position: fixed, so it is removed from
-normal document flow. This reserves the same vertical space
-so page content starts below the header instead of underneath it.
-*/
 
 #site-header {
     height: 100px;
@@ -664,8 +630,6 @@ so page content starts below the header instead of underneath it.
 
     font-size: 17px;
 
-    font-weight: 400;
-
     line-height: 1;
 
     transition:
@@ -799,7 +763,7 @@ so page content starts below the header instead of underneath it.
 
 
 /* ==========================================================
-   QUICK SERVICE TABS
+   QUICK SERVICE LINKS
 ========================================================== */
 
 .quick-links-grid {
@@ -813,13 +777,13 @@ so page content starts below the header instead of underneath it.
 
 
 .quick-link-card {
+    min-height: 85px;
+
     display: flex;
 
     align-items: center;
 
     justify-content: center;
-
-    min-height: 85px;
 
     padding: 16px;
 
@@ -896,7 +860,6 @@ so page content starts below the header instead of underneath it.
     color: var(--navy);
 }
 
-
 .service-card p,
 .info-card p {
     margin-bottom: 0;
@@ -904,7 +867,13 @@ so page content starts below the header instead of underneath it.
     color: var(--text-light);
 }
 
-
+.service-grid-note {
+    max-width: 900px;
+    margin: 32px auto 0;
+    color: var(--text-medium);
+    font-size: 16px;
+    line-height: 1.7;
+}
 
 /* ==========================================================
    HOMEPAGE SERVICE TABS
@@ -913,7 +882,6 @@ so page content starts below the header instead of underneath it.
 .services-section {
     background: var(--off-white);
 }
-
 
 .service-tabs {
     margin-bottom: 26px;
@@ -1003,7 +971,7 @@ so page content starts below the header instead of underneath it.
 ========================================================== */
 
 .service-tab-panel {
-    min-height: 310px;
+    min-height: 0;
 }
 
 
@@ -1014,22 +982,17 @@ so page content starts below the header instead of underneath it.
 
 
 /* ==========================================================
-   ALL SERVICES PANEL
+   ALL SERVICES ACCORDION
 ========================================================== */
 
-.all-services-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 20px;
-
-    padding: 28px;
+.services-accordion {
+    overflow: hidden;
 
     border: 1px solid var(--border);
 
     border-top: 4px solid var(--gold);
+
+    border-radius: 4px;
 
     background: var(--white);
 
@@ -1037,26 +1000,199 @@ so page content starts below the header instead of underneath it.
 }
 
 
-.all-services-category {
-    min-width: 0;
-
-    padding: 22px;
-
+.services-accordion-item {
     border-bottom: 1px solid var(--border);
 }
 
 
-.all-services-category:nth-last-child(-n + 2) {
+.services-accordion-item:last-child {
     border-bottom: 0;
 }
 
 
-.all-services-category-heading {
-    min-width: 0;
+
+/* ==========================================================
+   ACCORDION CATEGORY BUTTON
+========================================================== */
+
+.services-accordion-trigger {
+    width: 100%;
+
+    min-height: 70px;
 
     display: flex;
 
     align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 16px 22px;
+
+    border: 0;
+
+    background: var(--white);
+
+    color: var(--navy);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+
+.services-accordion-trigger:hover {
+    background: var(--light-bg);
+}
+
+
+.services-accordion-item.open
+.services-accordion-trigger {
+    background: #f8fafc;
+}
+
+
+
+/* ==========================================================
+   ACCORDION CATEGORY TITLE
+========================================================== */
+
+.services-accordion-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+.services-accordion-icon {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--light-bg);
+
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+
+.services-accordion-item.open
+.services-accordion-icon {
+    background: var(--navy);
+
+    color: var(--white);
+}
+
+
+
+/* ==========================================================
+   ACCORDION PLUS / MINUS
+========================================================== */
+
+.services-accordion-symbol {
+    width: 32px;
+    height: 32px;
+
+    flex: 0 0 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--gold);
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+
+/* ==========================================================
+   ACCORDION CONTENT
+========================================================== */
+
+.services-accordion-content {
+    padding:
+        4px 22px 22px 74px;
+
+    background: var(--white);
+}
+
+
+.services-accordion-content[hidden] {
+    display: none !important;
+}
+
+
+
+/* ==========================================================
+   ACCORDION SUBGROUPS
+========================================================== */
+
+.services-accordion-subgroup {
+    margin-bottom: 22px;
+}
+
+
+.services-accordion-subgroup:last-child {
+    margin-bottom: 0;
+}
+
+
+.services-accordion-subgroup-title {
+    margin:
+        0 0 10px;
+
+    color: var(--text-medium);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+}
+
+
+
+/* ==========================================================
+   ACCORDION SERVICE BUTTONS
+========================================================== */
+
+.services-accordion-links {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
     gap: 12px;
 
@@ -1064,43 +1200,20 @@ so page content starts below the header instead of underneath it.
 }
 
 
-.all-services-category-heading h3 {
-    margin: 0;
-
-    color: var(--navy);
-
-    font-size: 21px;
-
-    line-height: 1.3;
+.services-accordion-links:last-child {
+    margin-bottom: 0;
 }
 
 
-.all-services-icon {
-    flex-shrink: 0;
-
-    font-size: 25px;
-
-    line-height: 1.2;
+.services-accordion-subgroup
+.services-accordion-links {
+    margin-bottom: 0;
 }
 
 
-
-/* ==========================================================
-   ALL SERVICES SUBCATEGORY BUTTONS
-========================================================== */
-
-.all-services-links {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 12px;
-}
-
-
-.all-services-links a {
+.services-accordion-links a {
     min-width: 0;
+
     min-height: 58px;
 
     display: flex;
@@ -1109,7 +1222,7 @@ so page content starts below the header instead of underneath it.
 
     justify-content: space-between;
 
-    gap: 12px;
+    gap: 14px;
 
     padding: 14px 16px;
 
@@ -1138,9 +1251,12 @@ so page content starts below the header instead of underneath it.
 }
 
 
-.all-services-links a::after {
-    content: "→";
+.services-accordion-links a span:first-child {
+    min-width: 0;
+}
 
+
+.services-accordion-links a span:last-child {
     flex-shrink: 0;
 
     color: var(--gold);
@@ -1151,7 +1267,7 @@ so page content starts below the header instead of underneath it.
 }
 
 
-.all-services-links a:hover {
+.services-accordion-links a:hover {
     border-color: var(--gold);
 
     background: var(--light-bg);
@@ -1246,11 +1362,6 @@ so page content starts below the header instead of underneath it.
 }
 
 
-
-/* ==========================================================
-   SERVICE CATEGORY CONTENT
-========================================================== */
-
 .service-category-content {
     min-width: 0;
 
@@ -1264,7 +1375,7 @@ so page content starts below the header instead of underneath it.
 
 
 /* ==========================================================
-   INDIVIDUAL CATEGORY SUBCATEGORY BUTTONS
+   INDIVIDUAL CATEGORY SERVICE BUTTONS
 ========================================================== */
 
 .service-category-links {
@@ -1462,7 +1573,7 @@ so page content starts below the header instead of underneath it.
 ========================================================== */
 
 .contact-section {
-    padding: 75px 0;
+    padding: 60px 0;
 
     background: var(--navy);
 
@@ -1567,7 +1678,7 @@ so page content starts below the header instead of underneath it.
 
 
 /* ==========================================================
-   CONTACT INFO ITEMS
+   CONTACT INFO
 ========================================================== */
 
 .contact-info-item {
@@ -1618,11 +1729,6 @@ so page content starts below the header instead of underneath it.
 }
 
 
-
-/* ==========================================================
-   CONTACT REASONS
-========================================================== */
-
 .contact-reasons {
     margin-top: 32px;
 }
@@ -1640,7 +1746,7 @@ so page content starts below the header instead of underneath it.
 
 
 /* ==========================================================
-   CONTACT — CONNECT WITH US
+   CONTACT SOCIAL
 ========================================================== */
 
 .contact-connect,
@@ -1662,11 +1768,6 @@ so page content starts below the header instead of underneath it.
     font-size: 21px;
 }
 
-
-
-/* ==========================================================
-   CONTACT — SOCIAL ICONS
-========================================================== */
 
 .contact-social-icons,
 .contact-social-links {
@@ -1741,8 +1842,6 @@ so page content starts below the header instead of underneath it.
 }
 
 
-/* Fallback if the current HTML still uses text links */
-
 .contact-social-links > a {
     color: var(--navy);
 
@@ -1759,7 +1858,7 @@ so page content starts below the header instead of underneath it.
 
 
 /* ==========================================================
-   CONTACT — EMAIL
+   CONTACT EMAIL
 ========================================================== */
 
 .contact-connect-email,
@@ -2019,7 +2118,7 @@ so page content starts below the header instead of underneath it.
 ========================================================== */
 
 .contact-final-cta {
-    padding: 70px 25px;
+    padding: 60px 25px;
 
     background: var(--navy);
 
@@ -2077,11 +2176,6 @@ so page content starts below the header instead of underneath it.
     text-underline-offset: 4px;
 }
 
-
-
-/* ==========================================================
-   ABOUT PAGE
-========================================================== */
 
 
 /* ==========================================================
@@ -2239,7 +2333,6 @@ so page content starts below the header instead of underneath it.
 
 .credential-logo {
     width: 160px;
-
     height: 160px;
 
     display: flex;
@@ -2262,10 +2355,7 @@ so page content starts below the header instead of underneath it.
     display: block;
 
     width: 100%;
-
     height: 100%;
-
-    max-width: 100%;
 
     object-fit: contain;
 }
@@ -2287,7 +2377,7 @@ so page content starts below the header instead of underneath it.
 
 
 /* ==========================================================
-   ABOUT DARK VALUES SECTION
+   ABOUT DARK VALUES
 ========================================================== */
 
 .section-dark {
@@ -2301,11 +2391,6 @@ so page content starts below the header instead of underneath it.
     color: #d5b970;
 }
 
-
-
-/* ==========================================================
-   MISSION + COMMITMENT
-========================================================== */
 
 .values-grid {
     display: grid;
@@ -2323,12 +2408,7 @@ so page content starts below the header instead of underneath it.
     border-top: 4px solid var(--gold);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.06
-        );
+        rgba(255, 255, 255, 0.06);
 }
 
 
@@ -2379,12 +2459,7 @@ so page content starts below the header instead of underneath it.
 
     border-top:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.18
-        );
+        rgba(255, 255, 255, 0.18);
 
     color: var(--white) !important;
 
@@ -2394,7 +2469,7 @@ so page content starts below the header instead of underneath it.
 
 
 /* ==========================================================
-   WHY ADDPLUS FEATURE GRID
+   WHY ADDPLUS
 ========================================================== */
 
 .feature-grid {
@@ -2414,8 +2489,6 @@ so page content starts below the header instead of underneath it.
 
     background: var(--white);
 
-    text-align: left;
-
     transition:
         box-shadow var(--transition),
         transform var(--transition),
@@ -2434,7 +2507,6 @@ so page content starts below the header instead of underneath it.
 
 .feature-icon {
     width: 38px;
-
     height: 38px;
 
     display: flex;
@@ -2451,11 +2523,7 @@ so page content starts below the header instead of underneath it.
 
     color: var(--white);
 
-    font-size: 16px;
-
     font-weight: 700;
-
-    line-height: 1;
 }
 
 
@@ -2465,8 +2533,6 @@ so page content starts below the header instead of underneath it.
     color: var(--navy);
 
     font-size: 18px;
-
-    line-height: 1.35;
 }
 
 
@@ -2487,7 +2553,7 @@ so page content starts below the header instead of underneath it.
 ========================================================== */
 
 .cta-section {
-    padding: 70px 25px;
+    padding: 60px 25px;
 
     background: var(--navy);
 
@@ -2519,8 +2585,6 @@ so page content starts below the header instead of underneath it.
     color: var(--white);
 
     font-size: 34px;
-
-    line-height: 1.25;
 }
 
 
@@ -2804,7 +2868,6 @@ so page content starts below the header instead of underneath it.
 
 .service-check {
     width: 40px;
-
     height: 40px;
 
     display: flex;
@@ -2951,7 +3014,7 @@ so page content starts below the header instead of underneath it.
 ========================================================== */
 
 .service-final-cta {
-    padding: 75px 25px;
+    padding: 60px 25px;
 
     background: var(--navy);
 
@@ -2977,8 +3040,6 @@ so page content starts below the header instead of underneath it.
     color: var(--white);
 
     font-size: 34px;
-
-    line-height: 1.25;
 }
 
 
@@ -3113,22 +3174,12 @@ so page content starts below the header instead of underneath it.
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.18
-        );
+        rgba(255, 255, 255, 0.18);
 
     border-radius: 6px;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.06
-        );
+        rgba(255, 255, 255, 0.06);
 
     cursor: pointer;
 
@@ -3145,21 +3196,9 @@ so page content starts below the header instead of underneath it.
     border-color: var(--gold);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.10
-        );
+        rgba(255, 255, 255, 0.10);
 
     transform: translateY(-2px);
-}
-
-
-.site-footer .social-qr-button:focus-visible {
-    outline: 2px solid var(--gold);
-
-    outline-offset: 4px;
 }
 
 
@@ -3167,7 +3206,6 @@ so page content starts below the header instead of underneath it.
     display: block;
 
     width: 64px;
-
     height: 64px;
 
     max-width: none;
@@ -3192,12 +3230,7 @@ so page content starts below the header instead of underneath it.
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.15
-        );
+        rgba(255, 255, 255, 0.15);
 
     border-radius: 4px;
 }
@@ -3226,11 +3259,9 @@ so page content starts below the header instead of underneath it.
             var(--container)
         );
 
-    margin:
-        45px auto 0;
+    margin: 45px auto 0;
 
-    padding:
-        22px 0;
+    padding: 22px 0;
 
     display: flex;
 
@@ -3240,12 +3271,7 @@ so page content starts below the header instead of underneath it.
 
     border-top:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.12
-        );
+        rgba(255, 255, 255, 0.12);
 
     color: #aebdca;
 
@@ -3286,12 +3312,7 @@ so page content starts below the header instead of underneath it.
     inset: 0;
 
     background:
-        rgba(
-            15,
-            44,
-            76,
-            0.78
-        );
+        rgba(15, 44, 76, 0.78);
 }
 
 
@@ -3306,8 +3327,7 @@ so page content starts below the header instead of underneath it.
             430px
         );
 
-    padding:
-        42px 35px 35px;
+    padding: 42px 35px 35px;
 
     background: var(--white);
 
@@ -3315,12 +3335,7 @@ so page content starts below the header instead of underneath it.
 
     box-shadow:
         0 18px 50px
-        rgba(
-            0,
-            0,
-            0,
-            0.22
-        );
+        rgba(0, 0, 0, 0.22);
 }
 
 
@@ -3330,22 +3345,18 @@ so page content starts below the header instead of underneath it.
 
 
 .qr-modal-dialog h2 {
-    margin:
-        0 0 10px;
+    margin: 0 0 10px;
 
     color: var(--navy);
 
     font-size: 28px;
-
-    line-height: 1.25;
 }
 
 
 .qr-modal-description {
     max-width: 330px;
 
-    margin:
-        0 auto 22px;
+    margin: 0 auto 22px;
 
     color: var(--text-light);
 
@@ -3376,11 +3387,9 @@ so page content starts below the header instead of underneath it.
     position: absolute;
 
     top: 10px;
-
     right: 12px;
 
     width: 44px;
-
     height: 44px;
 
     display: flex;
@@ -3399,22 +3408,12 @@ so page content starts below the header instead of underneath it.
 
     font-size: 32px;
 
-    line-height: 1;
-
     cursor: pointer;
 }
 
 
 .qr-modal-close:hover {
     color: var(--gold);
-}
-
-
-.qr-modal-close:focus-visible {
-    outline:
-        2px solid var(--gold);
-
-    outline-offset: 2px;
 }
 
 
@@ -3438,10 +3437,7 @@ body.qr-modal-open {
 
     .feature-grid {
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0, 1fr)
-            );
+            repeat(2, minmax(0, 1fr));
     }
 
 
@@ -3472,27 +3468,7 @@ body.qr-modal-open {
 
     .service-tabs {
         grid-template-columns:
-            repeat(
-                4,
-                minmax(0, 1fr)
-            );
-    }
-
-
-    .all-services-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    .all-services-category:nth-last-child(-n + 2) {
-        border-bottom:
-            1px solid
-            var(--border);
-    }
-
-
-    .all-services-category:last-child {
-        border-bottom: 0;
+            repeat(4, minmax(0, 1fr));
     }
 
 
@@ -3539,8 +3515,6 @@ body.qr-modal-open {
         height: 52px;
 
         width: auto;
-
-        object-fit: contain;
     }
 
 
@@ -3558,8 +3532,6 @@ body.qr-modal-open {
 
         font-size: 28px;
 
-        line-height: 1;
-
         cursor: pointer;
     }
 
@@ -3570,15 +3542,12 @@ body.qr-modal-open {
         top: 70px;
 
         right: 0;
-
         left: 0;
 
         display: none;
 
         max-height:
-            calc(
-                100vh - 70px
-            );
+            calc(100vh - 70px);
 
         overflow-y: auto;
 
@@ -3596,12 +3565,7 @@ body.qr-modal-open {
 
         box-shadow:
             0 8px 20px
-            rgba(
-                0,
-                0,
-                0,
-                0.08
-            );
+            rgba(0, 0, 0, 0.08);
 
         transform: none;
     }
@@ -3616,12 +3580,9 @@ body.qr-modal-open {
     .dropdown-toggle {
         width: 100%;
 
-        padding:
-            12px 5px;
+        padding: 12px 5px;
 
         text-align: left;
-
-        font-size: 14px;
     }
 
 
@@ -3635,9 +3596,6 @@ body.qr-modal-open {
 
         margin:
             10px 0 0;
-
-        padding:
-            11px 18px !important;
     }
 
 
@@ -3674,26 +3632,15 @@ body.qr-modal-open {
 
 
     .dropdown-menu > a {
-        padding:
-            9px 10px;
+        padding: 9px 10px;
 
         white-space: normal;
     }
 
 
-    .dropdown-submenu {
-        width: 100%;
-    }
-
-
     .dropdown-menu .submenu-trigger,
     .dropdown-menu .submenu-label {
-        width: 100%;
-
-        padding:
-            9px 10px;
-
-        font-size: 13px;
+        padding: 9px 10px;
 
         white-space: normal;
     }
@@ -3726,12 +3673,6 @@ body.qr-modal-open {
     .dropdown-submenu:hover > .submenu-menu,
     .dropdown-submenu:focus-within > .submenu-menu {
         display: none;
-
-        opacity: 1;
-
-        visibility: visible;
-
-        transform: none;
     }
 
 
@@ -3741,27 +3682,27 @@ body.qr-modal-open {
 
 
     .submenu-menu > a {
-        padding:
-            9px 10px;
+        padding: 9px 10px;
 
         white-space: normal;
     }
 
 
-    .dropdown-submenu.open > .submenu-label .submenu-arrow,
-    .dropdown-submenu.open > .submenu-trigger .submenu-arrow {
+    .dropdown-submenu.open
+    > .submenu-label
+    .submenu-arrow,
+    .dropdown-submenu.open
+    > .submenu-trigger
+    .submenu-arrow {
         transform:
-            rotate(
-                90deg
-            );
+            rotate(90deg);
     }
 
 
     .service-page-hero {
         min-height: 360px;
 
-        padding:
-            60px 0;
+        padding: 60px 0;
     }
 
 
@@ -3802,7 +3743,6 @@ body.qr-modal-open {
 
     .credential-logo {
         width: 140px;
-
         height: 140px;
 
         margin-inline: auto;
@@ -3816,17 +3756,6 @@ body.qr-modal-open {
 
     .contact-process-grid {
         grid-template-columns: 1fr;
-    }
-
-
-    .contact-hero {
-        padding:
-            42px 0 20px;
-    }
-
-
-    .contact-hero + .section {
-        padding-top: 30px;
     }
 
 
@@ -3855,17 +3784,14 @@ body.qr-modal-open {
 
 
 /* ==========================================================
-   SERVICE TABS — MOBILE
+   SERVICE TABS / ACCORDION — MOBILE
 ========================================================== */
 
 @media (max-width: 700px) {
 
     .service-tabs {
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0, 1fr)
-            );
+            repeat(2, minmax(0, 1fr));
 
         gap: 8px;
     }
@@ -3886,32 +3812,64 @@ body.qr-modal-open {
     }
 
 
-    .all-services-grid {
-        padding: 18px;
-    }
+    .services-accordion-trigger {
+        min-height: 62px;
 
-
-    .all-services-category {
         padding:
-            20px 10px;
+            13px 15px;
     }
 
 
-    .all-services-links {
+    .services-accordion-title {
+        gap: 10px;
+
+        font-size: 16px;
+    }
+
+
+    .services-accordion-icon {
+        width: 34px;
+        height: 34px;
+
+        flex-basis: 34px;
+
+        font-size: 18px;
+    }
+
+
+    .services-accordion-content {
+        padding:
+            4px 15px 18px;
+    }
+
+
+    .services-accordion-links {
         grid-template-columns: 1fr;
 
-        gap: 11px;
+        gap: 10px;
+
+        margin-bottom: 16px;
+    }
+
+
+    .services-accordion-links a {
+        min-height: 54px;
+
+        padding:
+            13px 14px;
+
+        font-size: 14px;
+    }
+
+
+    .services-accordion-subgroup {
+        margin-bottom: 18px;
     }
 
 
     .service-category-panel {
         padding:
             26px 20px;
-    }
-
-
-    .service-category-content {
-        gap: 14px;
     }
 
 
@@ -3932,15 +3890,18 @@ body.qr-modal-open {
     .container,
     .section-container {
         width:
-            calc(
-                100% - 30px
-            );
+            calc(100% - 30px);
     }
 
 
     .section {
         padding:
-            55px 0;
+            45px 0;
+    }
+
+
+    .section-heading {
+        margin-bottom: 30px;
     }
 
 
@@ -3955,18 +3916,15 @@ body.qr-modal-open {
     }
 
 
-    .about-hero h1 {
+    .about-hero h1,
+    .contact-hero h1 {
         font-size: 36px;
     }
 
 
-    .about-hero .hero-subtitle {
+    .about-hero .hero-subtitle,
+    .contact-hero p {
         font-size: 16px;
-    }
-
-
-    .about-hero + .section {
-        padding-top: 28px;
     }
 
 
@@ -3977,7 +3935,6 @@ body.qr-modal-open {
 
     .credential-logo {
         width: 120px;
-
         height: 120px;
 
         padding: 14px;
@@ -3990,24 +3947,8 @@ body.qr-modal-open {
     }
 
 
-    .value-card h2 {
-        font-size: 25px;
-    }
-
-
     .feature-grid {
         grid-template-columns: 1fr;
-    }
-
-
-    .cta-section {
-        padding:
-            60px 20px;
-    }
-
-
-    .cta-section h2 {
-        font-size: 28px;
     }
 
 
@@ -4060,37 +4001,17 @@ body.qr-modal-open {
     }
 
 
-    .service-final-cta {
-        padding:
-            60px 20px;
-    }
-
-
-    .service-final-cta h2 {
-        font-size: 28px;
-    }
-
-
-    .contact-hero h1 {
-        font-size: 36px;
-    }
-
-
-    .contact-hero p {
-        font-size: 16px;
-    }
-
-
-    .contact-details h2,
-    .contact-form-heading h2,
-    .contact-final-cta h2 {
-        font-size: 28px;
-    }
-
-
-    .contact-final-cta {
+    .service-final-cta,
+    .cta-section {
         padding:
             55px 20px;
+    }
+
+
+    .service-final-cta h2,
+    .cta-section h2,
+    .contact-final-cta h2 {
+        font-size: 28px;
     }
 
 
@@ -4109,9 +4030,7 @@ body.qr-modal-open {
 
     .footer-container {
         width:
-            calc(
-                100% - 30px
-            );
+            calc(100% - 30px);
 
         grid-template-columns: 1fr;
     }
@@ -4124,9 +4043,7 @@ body.qr-modal-open {
 
     .copyright {
         width:
-            calc(
-                100% - 30px
-            );
+            calc(100% - 30px);
     }
 
 
@@ -4159,7 +4076,7 @@ body.qr-modal-open {
 
 
 /* ==========================================================
-   SERVICE TABS — VERY SMALL MOBILE
+   VERY SMALL MOBILE
 ========================================================== */
 
 @media (max-width: 420px) {
@@ -4187,7 +4104,6 @@ body.qr-modal-open {
 
     .service-category-icon {
         width: 48px;
-
         height: 48px;
 
         flex-basis: 48px;
@@ -4208,19 +4124,10 @@ body.qr-modal-open {
     .site-footer .social-qr-button,
     .site-footer .social-icon-image {
         width: 58px;
-
         height: 58px;
 
         min-width: 58px;
-
         max-width: 58px;
-    }
-
-
-    .contact-social-icons .social-qr-button,
-    .contact-social-links .social-qr-button,
-    .site-footer .social-qr-button {
-        flex-basis: 58px;
     }
 
 }
