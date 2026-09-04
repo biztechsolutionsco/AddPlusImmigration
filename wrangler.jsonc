@@ -18,5 +18,12 @@
       "database_name": "addplus-inquiries",
       "database_id": "be0e76d1-56e4-4662-8f6f-ee3be7861f24"
     }
+  ],
+
+  "send_email": [
+    {
+      "name": "INQUIRY_EMAIL",
+      "destination_address": "addplusimmigration@gmail.com"
+    }
   ]
 }
