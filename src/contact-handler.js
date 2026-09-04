@@ -17,6 +17,7 @@ const MAX_LENGTHS = {
     website: 200
 };
 
+
 // ==========================================================
 // VALID SERVICE VALUES
 // ==========================================================
@@ -60,6 +61,7 @@ const ALLOWED_SERVICES = new Set([
     "Other Immigration Matter"
 ]);
 
+
 // ==========================================================
 // VALID REFERRAL VALUES
 // ==========================================================
@@ -74,6 +76,17 @@ const ALLOWED_REFERRALS = new Set([
     "Previous Client",
     "Other"
 ]);
+
+
+// ==========================================================
+// ALLOWED TURNSTILE HOSTNAMES
+// ==========================================================
+
+const ALLOWED_TURNSTILE_HOSTNAMES = new Set([
+    "addplusimmigration.biztechsolutionsco.workers.dev",
+    "addplus.ca"
+]);
+
 
 // ==========================================================
 // JSON RESPONSE HELPER
@@ -97,6 +110,7 @@ function jsonResponse(data, status = 200) {
     );
 
 }
+
 
 // ==========================================================
 // NORMALIZE TEXT
@@ -124,6 +138,7 @@ function normalizeText(
 
 }
 
+
 // ==========================================================
 // SIMPLE EMAIL VALIDATION
 // ==========================================================
@@ -147,6 +162,118 @@ function isValidEmail(email) {
         .test(email);
 
 }
+
+
+// ==========================================================
+// VERIFY CLOUDFLARE TURNSTILE
+// ==========================================================
+
+async function verifyTurnstile(
+    token,
+    request,
+    env
+) {
+
+    if (
+        !env.TURNSTILE_SECRET_KEY
+    ) {
+
+        console.error(
+            "TURNSTILE_SECRET_KEY is not configured."
+        );
+
+        return {
+            success: false
+        };
+
+    }
+
+
+    if (
+        !token ||
+        typeof token !== "string" ||
+        token.length > 2048
+    ) {
+
+        return {
+            success: false
+        };
+
+    }
+
+
+    const remoteIp =
+        request.headers.get(
+            "CF-Connecting-IP"
+        ) || "";
+
+
+    try {
+
+        const response =
+            await fetch(
+                "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            secret:
+                                env.TURNSTILE_SECRET_KEY,
+
+                            response:
+                                token,
+
+                            remoteip:
+                                remoteIp
+                        })
+                }
+            );
+
+
+        if (!response.ok) {
+
+            console.error(
+                "Turnstile Siteverify returned:",
+                response.status
+            );
+
+
+            return {
+                success: false
+            };
+
+        }
+
+
+        const result =
+            await response.json();
+
+
+        return result;
+
+
+    } catch (error) {
+
+        console.error(
+            "Turnstile verification failed:",
+            error
+        );
+
+
+        return {
+            success: false
+        };
+
+    }
+
+}
+
 
 // ==========================================================
 // MAIN CONTACT HANDLER
@@ -179,6 +306,7 @@ export async function handleContactRequest(
 
     }
 
+
     /*
     ======================================================
     CONTENT TYPE
@@ -208,6 +336,7 @@ export async function handleContactRequest(
 
     }
 
+
     /*
     ======================================================
     PARSE REQUEST
@@ -235,6 +364,7 @@ export async function handleContactRequest(
 
     }
 
+
     if (
         !body ||
         typeof body !==
@@ -252,6 +382,7 @@ export async function handleContactRequest(
         );
 
     }
+
 
     /*
     ======================================================
@@ -282,6 +413,115 @@ export async function handleContactRequest(
         );
 
     }
+
+
+    /*
+    ======================================================
+    CLOUDFLARE TURNSTILE VERIFICATION
+    ======================================================
+    */
+
+    const turnstileToken =
+        normalizeText(
+            body["cf-turnstile-response"],
+            2048
+        );
+
+
+    if (!turnstileToken) {
+
+        return jsonResponse(
+            {
+                success: false,
+                message:
+                    "Please complete the security verification."
+            },
+            400
+        );
+
+    }
+
+
+    const turnstileResult =
+        await verifyTurnstile(
+            turnstileToken,
+            request,
+            env
+        );
+
+
+    if (
+        !turnstileResult.success
+    ) {
+
+        return jsonResponse(
+            {
+                success: false,
+                message:
+                    "Security verification failed. Please refresh the page and try again."
+            },
+            403
+        );
+
+    }
+
+
+    /*
+    Make sure the token was issued specifically
+    for the contact form.
+    */
+
+    if (
+        turnstileResult.action !==
+        "contact_form"
+    ) {
+
+        console.error(
+            "Unexpected Turnstile action:",
+            turnstileResult.action
+        );
+
+
+        return jsonResponse(
+            {
+                success: false,
+                message:
+                    "Security verification failed. Please refresh the page and try again."
+            },
+            403
+        );
+
+    }
+
+
+    /*
+    Make sure the token was generated on an
+    approved AddPlus hostname.
+    */
+
+    if (
+        !ALLOWED_TURNSTILE_HOSTNAMES.has(
+            turnstileResult.hostname
+        )
+    ) {
+
+        console.error(
+            "Unexpected Turnstile hostname:",
+            turnstileResult.hostname
+        );
+
+
+        return jsonResponse(
+            {
+                success: false,
+                message:
+                    "Security verification failed. Please refresh the page and try again."
+            },
+            403
+        );
+
+    }
+
 
     /*
     ======================================================
@@ -353,6 +593,7 @@ export async function handleContactRequest(
 
     };
 
+
     /*
     ======================================================
     REQUIRED FIELDS
@@ -374,6 +615,7 @@ export async function handleContactRequest(
 
     }
 
+
     if (!inquiry.last_name) {
 
         return jsonResponse(
@@ -388,6 +630,7 @@ export async function handleContactRequest(
         );
 
     }
+
 
     if (
         !isValidEmail(
@@ -408,6 +651,7 @@ export async function handleContactRequest(
 
     }
 
+
     if (!inquiry.service) {
 
         return jsonResponse(
@@ -422,6 +666,7 @@ export async function handleContactRequest(
         );
 
     }
+
 
     if (
         !ALLOWED_SERVICES.has(
@@ -442,6 +687,7 @@ export async function handleContactRequest(
 
     }
 
+
     if (
         !ALLOWED_REFERRALS.has(
             inquiry.referral
@@ -461,6 +707,7 @@ export async function handleContactRequest(
 
     }
 
+
     if (!inquiry.case_summary) {
 
         return jsonResponse(
@@ -475,6 +722,7 @@ export async function handleContactRequest(
         );
 
     }
+
 
     /*
     ======================================================
@@ -500,6 +748,7 @@ export async function handleContactRequest(
 
     }
 
+
     /*
     ======================================================
     D1 BINDING CHECK
@@ -523,6 +772,7 @@ export async function handleContactRequest(
         );
 
     }
+
 
     /*
     ======================================================
@@ -564,6 +814,13 @@ export async function handleContactRequest(
                 )
                 .run();
 
+
+        /*
+        ==================================================
+        SUCCESS
+        ==================================================
+        */
+
         return jsonResponse(
             {
                 success: true,
@@ -578,6 +835,7 @@ export async function handleContactRequest(
             },
             201
         );
+
 
     } catch (error) {
 

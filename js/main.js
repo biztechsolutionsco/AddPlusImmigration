@@ -16,7 +16,7 @@
 
     let servicesAccordionInitialized = false;
 
-
+    let turnstileInitialized = false;
 
     /*
     ==========================================================
@@ -599,11 +599,8 @@
 
 
                 /*
-                Convert form fields to an object.
-
-                When Cloudflare Turnstile is added later,
-                its response token can be included here
-                automatically as another form field.
+                Cloudflare Turnstile automatically adds
+                cf-turnstile-response to the form.
                 */
 
                 const formData =
@@ -737,6 +734,255 @@
                 }
 
             }
+        );
+
+    }
+
+    /*
+    ==========================================================
+    CLOUDFLARE TURNSTILE
+    ==========================================================
+    */
+
+    function initializeTurnstile() {
+
+        if (turnstileInitialized) {
+            return;
+        }
+
+
+        const container =
+            document.getElementById(
+                "turnstileContainer"
+            );
+
+
+        if (!container) {
+            return;
+        }
+
+
+        const sitekey =
+            container.dataset.sitekey;
+
+
+        if (!sitekey) {
+            return;
+        }
+
+
+        turnstileInitialized = true;
+
+
+
+        /*
+        ======================================================
+        RENDER WIDGET
+        ======================================================
+        */
+
+        function renderTurnstile() {
+
+            if (
+                !window.turnstile ||
+                container.dataset
+                    .turnstileRendered ===
+                    "true"
+            ) {
+                return;
+            }
+
+
+            window.turnstile.render(
+                container,
+                {
+                    sitekey: sitekey,
+
+                    theme: "auto",
+
+                    action:
+                        "contact_form",
+
+                    callback:
+                        function () {
+
+                            const message =
+                                document.getElementById(
+                                    "formMessage"
+                                );
+
+
+                            if (
+                                message &&
+                                message.classList
+                                    .contains(
+                                        "error"
+                                    )
+                            ) {
+
+                                message.textContent =
+                                    "";
+
+                                message.classList
+                                    .remove(
+                                        "error"
+                                    );
+
+                            }
+
+                        },
+
+                    "expired-callback":
+                        function () {
+
+                            const message =
+                                document.getElementById(
+                                    "formMessage"
+                                );
+
+
+                            if (message) {
+
+                                message.textContent =
+                                    "The security verification expired. Please complete it again before submitting.";
+
+                                message.classList
+                                    .remove(
+                                        "success"
+                                    );
+
+                                message.classList
+                                    .add(
+                                        "error"
+                                    );
+
+                            }
+
+                        },
+
+                    "error-callback":
+                        function () {
+
+                            const message =
+                                document.getElementById(
+                                    "formMessage"
+                                );
+
+
+                            if (message) {
+
+                                message.textContent =
+                                    "We could not load the security verification. Please refresh the page and try again.";
+
+                                message.classList
+                                    .remove(
+                                        "success"
+                                    );
+
+                                message.classList
+                                    .add(
+                                        "error"
+                                    );
+
+                            }
+
+                        }
+                }
+            );
+
+
+            container.dataset
+                .turnstileRendered =
+                "true";
+
+        }
+
+
+
+        /*
+        ======================================================
+        LOAD TURNSTILE SCRIPT
+        ======================================================
+        */
+
+        if (window.turnstile) {
+
+            renderTurnstile();
+
+            return;
+
+        }
+
+
+        const existingScript =
+            document.querySelector(
+                'script[data-turnstile-script]'
+            );
+
+
+        if (existingScript) {
+
+            existingScript.addEventListener(
+                "load",
+                renderTurnstile,
+                {
+                    once: true
+                }
+            );
+
+            return;
+
+        }
+
+
+        const script =
+            document.createElement(
+                "script"
+            );
+
+
+        script.src =
+            "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+
+
+        script.async = true;
+
+        script.defer = true;
+
+        script.dataset.turnstileScript =
+            "true";
+
+
+        script.addEventListener(
+            "load",
+            renderTurnstile,
+            {
+                once: true
+            }
+        );
+
+
+        script.addEventListener(
+            "error",
+            function () {
+
+                turnstileInitialized =
+                    false;
+
+
+                console.error(
+                    "Unable to load Cloudflare Turnstile."
+                );
+
+            },
+            {
+                once: true
+            }
+        );
+
+
+        document.head.appendChild(
+            script
         );
 
     }
@@ -1570,6 +1816,8 @@
 
         initializeContactForm();
 
+        initializeTurnstile();
+
         initializeQrModal();
 
         initializeServiceTabs();
@@ -1577,8 +1825,6 @@
         initializeServicesAccordion();
 
     }
-
-
 
     /*
     ==========================================================
