@@ -1,11 +1,9 @@
 // ==========================================================
-// AddPlus Immigration Solutions
+// AddPlus Immigration Solutions Inc.
 // Contact Form API Handler
 // ==========================================================
 
-
 const MAX_LENGTHS = {
-
     first_name: 100,
     last_name: 100,
     email: 254,
@@ -15,10 +13,67 @@ const MAX_LENGTHS = {
     service: 150,
     referral: 150,
     case_summary: 5000,
-    form_source: 100
-
+    form_source: 255,
+    website: 200
 };
 
+// ==========================================================
+// VALID SERVICE VALUES
+// ==========================================================
+
+const ALLOWED_SERVICES = new Set([
+    "Permanent Residence",
+    "Canadian Experience Class",
+    "Federal Skilled Worker Program",
+    "Federal Skilled Trades Program",
+    "Provincial Nominee Program",
+
+    "Spousal Sponsorship",
+    "Common-Law Partner Sponsorship",
+    "Conjugal Partner Sponsorship",
+    "Same-Sex Sponsorship",
+    "Dependent Child Sponsorship",
+    "Parents and Grandparents Sponsorship",
+    "Super Visa",
+
+    "Work Permit",
+    "Spousal Open Work Permit",
+    "Post-Graduation Work Permit",
+    "Bridging Open Work Permit",
+    "Vulnerable Worker Open Work Permit",
+    "Extend or Change Work Permit",
+    "LMIA for Employers",
+    "LMIA-Based Work Permit",
+
+    "Study Permit",
+    "Study Permit Extension",
+
+    "Visitor Visa",
+    "Extend Your Stay",
+
+    "Maintained Status",
+    "Restoration of Temporary Status",
+    "PR Card Renewal or Replacement",
+    "Permanent Resident Travel Document",
+    "Canadian Citizenship",
+
+    "Other Immigration Matter"
+]);
+
+// ==========================================================
+// VALID REFERRAL VALUES
+// ==========================================================
+
+const ALLOWED_REFERRALS = new Set([
+    "",
+    "Friend or Family",
+    "Google Search",
+    "WeChat",
+    "Xiaohongshu",
+    "Social Media",
+    "Previous Client",
+    "Other"
+]);
 
 // ==========================================================
 // JSON RESPONSE HELPER
@@ -32,20 +87,25 @@ function jsonResponse(data, status = 200) {
             status,
 
             headers: {
-                "Content-Type": "application/json; charset=utf-8",
-                "Cache-Control": "no-store"
+                "Content-Type":
+                    "application/json; charset=utf-8",
+
+                "Cache-Control":
+                    "no-store"
             }
         }
     );
 
 }
 
-
 // ==========================================================
 // NORMALIZE TEXT
 // ==========================================================
 
-function normalizeText(value, maxLength) {
+function normalizeText(
+    value,
+    maxLength
+) {
 
     if (
         value === undefined ||
@@ -57,10 +117,12 @@ function normalizeText(value, maxLength) {
 
     return String(value)
         .trim()
-        .slice(0, maxLength);
+        .slice(
+            0,
+            maxLength
+        );
 
 }
-
 
 // ==========================================================
 // SIMPLE EMAIL VALIDATION
@@ -73,74 +135,18 @@ function isValidEmail(email) {
     }
 
 
-    if (email.length > 254) {
+    if (
+        email.length >
+        MAX_LENGTHS.email
+    ) {
         return false;
     }
 
 
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        .test(email);
 
 }
-
-
-// ==========================================================
-// VALID SERVICE VALUES
-// ==========================================================
-
-const ALLOWED_SERVICES = new Set([
-
-    "Citizenship",
-
-    "Permanent Residence",
-
-    "Express Entry",
-
-    "Canadian Experience Class",
-
-    "Federal Skilled Trades Program",
-
-    "Federal Skilled Worker Program",
-
-    "Provincial Nominee Program",
-
-    "Spousal Sponsorship",
-
-    "Same-Sex Relationship Sponsorship",
-
-    "Common-Law Partner Sponsorship",
-
-    "Conjugal Partner Sponsorship",
-
-    "Family Sponsorship",
-
-    "Dependent Child Sponsorship",
-
-    "Parents and Grandparents Sponsorship",
-
-    "Work Permit",
-
-    "Extend Work Permit",
-
-    "LMIA",
-
-    "Super Visa",
-
-    "Visitor Visa",
-
-    "Extend Your Stay",
-
-    "Study Permit",
-
-    "Extend Study Permit",
-
-    "Maintained Status",
-
-    "Restoration of Temporary Status",
-
-    "Other Immigration Matter"
-
-]);
-
 
 // ==========================================================
 // MAIN CONTACT HANDLER
@@ -157,18 +163,21 @@ export async function handleContactRequest(
     ======================================================
     */
 
-    if (request.method !== "POST") {
+    if (
+        request.method !==
+        "POST"
+    ) {
 
         return jsonResponse(
             {
                 success: false,
-                error: "Method not allowed."
+                message:
+                    "Method not allowed."
             },
             405
         );
 
     }
-
 
     /*
     ======================================================
@@ -177,21 +186,27 @@ export async function handleContactRequest(
     */
 
     const contentType =
-        request.headers.get("Content-Type") || "";
+        request.headers.get(
+            "Content-Type"
+        ) || "";
 
 
-    if (!contentType.includes("application/json")) {
+    if (
+        !contentType.includes(
+            "application/json"
+        )
+    ) {
 
         return jsonResponse(
             {
                 success: false,
-                error: "Invalid request format."
+                message:
+                    "Invalid request format."
             },
             415
         );
 
     }
-
 
     /*
     ======================================================
@@ -204,20 +219,69 @@ export async function handleContactRequest(
 
     try {
 
-        body = await request.json();
+        body =
+            await request.json();
 
     } catch {
 
         return jsonResponse(
             {
                 success: false,
-                error: "Invalid JSON."
+                message:
+                    "Invalid JSON."
             },
             400
         );
 
     }
 
+    if (
+        !body ||
+        typeof body !==
+            "object" ||
+        Array.isArray(body)
+    ) {
+
+        return jsonResponse(
+            {
+                success: false,
+                message:
+                    "Invalid request."
+            },
+            400
+        );
+
+    }
+
+    /*
+    ======================================================
+    HONEYPOT
+
+    Legitimate users never fill this field.
+    Return a normal-looking success response so bots
+    are not told how the spam filter works.
+    ======================================================
+    */
+
+    const website =
+        normalizeText(
+            body.website,
+            MAX_LENGTHS.website
+        );
+
+
+    if (website) {
+
+        return jsonResponse(
+            {
+                success: true,
+                message:
+                    "Your inquiry has been received."
+            },
+            200
+        );
+
+    }
 
     /*
     ======================================================
@@ -227,58 +291,67 @@ export async function handleContactRequest(
 
     const inquiry = {
 
-        first_name: normalizeText(
-            body.first_name,
-            MAX_LENGTHS.first_name
-        ),
+        first_name:
+            normalizeText(
+                body.first_name,
+                MAX_LENGTHS.first_name
+            ),
 
-        last_name: normalizeText(
-            body.last_name,
-            MAX_LENGTHS.last_name
-        ),
+        last_name:
+            normalizeText(
+                body.last_name,
+                MAX_LENGTHS.last_name
+            ),
 
-        email: normalizeText(
-            body.email,
-            MAX_LENGTHS.email
-        ).toLowerCase(),
+        email:
+            normalizeText(
+                body.email,
+                MAX_LENGTHS.email
+            ).toLowerCase(),
 
-        phone: normalizeText(
-            body.phone,
-            MAX_LENGTHS.phone
-        ),
+        phone:
+            normalizeText(
+                body.phone,
+                MAX_LENGTHS.phone
+            ),
 
-        citizenship: normalizeText(
-            body.citizenship,
-            MAX_LENGTHS.citizenship
-        ),
+        citizenship:
+            normalizeText(
+                body.citizenship,
+                MAX_LENGTHS.citizenship
+            ),
 
-        residence: normalizeText(
-            body.residence,
-            MAX_LENGTHS.residence
-        ),
+        residence:
+            normalizeText(
+                body.residence,
+                MAX_LENGTHS.residence
+            ),
 
-        service: normalizeText(
-            body.service,
-            MAX_LENGTHS.service
-        ),
+        service:
+            normalizeText(
+                body.service,
+                MAX_LENGTHS.service
+            ),
 
-        referral: normalizeText(
-            body.referral,
-            MAX_LENGTHS.referral
-        ),
+        referral:
+            normalizeText(
+                body.referral,
+                MAX_LENGTHS.referral
+            ),
 
-        case_summary: normalizeText(
-            body.case_summary,
-            MAX_LENGTHS.case_summary
-        ),
+        case_summary:
+            normalizeText(
+                body.case_summary,
+                MAX_LENGTHS.case_summary
+            ),
 
-        form_source: normalizeText(
-            body.form_source,
-            MAX_LENGTHS.form_source
-        ) || "website"
+        form_source:
+            normalizeText(
+                body.form_source,
+                MAX_LENGTHS.form_source
+            ) || "website"
 
     };
-
 
     /*
     ======================================================
@@ -291,108 +364,141 @@ export async function handleContactRequest(
         return jsonResponse(
             {
                 success: false,
-                field: "first_name",
-                error: "First name is required."
+                field:
+                    "first_name",
+                message:
+                    "First name is required."
             },
             400
         );
 
     }
-
 
     if (!inquiry.last_name) {
 
         return jsonResponse(
             {
                 success: false,
-                field: "last_name",
-                error: "Last name is required."
+                field:
+                    "last_name",
+                message:
+                    "Last name is required."
             },
             400
         );
 
     }
 
-
-    if (!isValidEmail(inquiry.email)) {
+    if (
+        !isValidEmail(
+            inquiry.email
+        )
+    ) {
 
         return jsonResponse(
             {
                 success: false,
-                field: "email",
-                error: "Please provide a valid email address."
+                field:
+                    "email",
+                message:
+                    "Please provide a valid email address."
             },
             400
         );
 
     }
-
 
     if (!inquiry.service) {
 
         return jsonResponse(
             {
                 success: false,
-                field: "service",
-                error: "Please select a service."
+                field:
+                    "service",
+                message:
+                    "Please select a service."
             },
             400
         );
 
     }
 
-
-    if (!ALLOWED_SERVICES.has(inquiry.service)) {
+    if (
+        !ALLOWED_SERVICES.has(
+            inquiry.service
+        )
+    ) {
 
         return jsonResponse(
             {
                 success: false,
-                field: "service",
-                error: "Invalid service selected."
+                field:
+                    "service",
+                message:
+                    "Invalid service selected."
             },
             400
         );
 
     }
 
+    if (
+        !ALLOWED_REFERRALS.has(
+            inquiry.referral
+        )
+    ) {
+
+        return jsonResponse(
+            {
+                success: false,
+                field:
+                    "referral",
+                message:
+                    "Invalid referral source."
+            },
+            400
+        );
+
+    }
 
     if (!inquiry.case_summary) {
 
         return jsonResponse(
             {
                 success: false,
-                field: "case_summary",
-                error: "Please provide a brief summary of your situation."
+                field:
+                    "case_summary",
+                message:
+                    "Please provide a brief summary of your situation."
             },
             400
         );
 
     }
 
-
     /*
     ======================================================
-    MINIMUM MESSAGE LENGTH
-    ======================================================
-
-    Helps reject blank or extremely low-quality automated
-    submissions even before Turnstile is added.
+    MINIMUM CASE SUMMARY LENGTH
     ======================================================
     */
 
-    if (inquiry.case_summary.length < 10) {
+    if (
+        inquiry.case_summary.length <
+        10
+    ) {
 
         return jsonResponse(
             {
                 success: false,
-                field: "case_summary",
-                error: "Please provide a little more information about your situation."
+                field:
+                    "case_summary",
+                message:
+                    "Please provide a little more information about your situation."
             },
             400
         );
 
     }
-
 
     /*
     ======================================================
@@ -410,13 +516,13 @@ export async function handleContactRequest(
         return jsonResponse(
             {
                 success: false,
-                error: "The inquiry service is temporarily unavailable."
+                message:
+                    "The inquiry service is temporarily unavailable."
             },
             500
         );
 
     }
-
 
     /*
     ======================================================
@@ -426,54 +532,52 @@ export async function handleContactRequest(
 
     try {
 
-        const result = await env.DB
-            .prepare(`
-                INSERT INTO inquiries (
-                    first_name,
-                    last_name,
-                    email,
-                    phone,
-                    citizenship,
-                    residence,
-                    service,
-                    referral,
-                    case_summary,
-                    form_source,
-                    status
+        const result =
+            await env.DB
+                .prepare(`
+                    INSERT INTO inquiries (
+                        first_name,
+                        last_name,
+                        email,
+                        phone,
+                        citizenship,
+                        residence,
+                        service,
+                        referral,
+                        case_summary,
+                        form_source,
+                        status
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'new')
+                `)
+                .bind(
+                    inquiry.first_name,
+                    inquiry.last_name,
+                    inquiry.email,
+                    inquiry.phone || null,
+                    inquiry.citizenship || null,
+                    inquiry.residence || null,
+                    inquiry.service,
+                    inquiry.referral || null,
+                    inquiry.case_summary,
+                    inquiry.form_source
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'new')
-            `)
-            .bind(
-                inquiry.first_name,
-                inquiry.last_name,
-                inquiry.email,
-                inquiry.phone || null,
-                inquiry.citizenship || null,
-                inquiry.residence || null,
-                inquiry.service,
-                inquiry.referral || null,
-                inquiry.case_summary,
-                inquiry.form_source
-            )
-            .run();
-
-
-        /*
-        ==================================================
-        SUCCESS
-        ==================================================
-        */
+                .run();
 
         return jsonResponse(
             {
                 success: true,
 
                 inquiry_id:
-                    result.meta?.last_row_id || null
+                    result.meta
+                        ?.last_row_id ||
+                    null,
+
+                message:
+                    "Your inquiry has been received."
             },
             201
         );
-
 
     } catch (error) {
 
@@ -486,7 +590,8 @@ export async function handleContactRequest(
         return jsonResponse(
             {
                 success: false,
-                error: "We were unable to save your inquiry. Please try again."
+                message:
+                    "We were unable to save your inquiry. Please try again."
             },
             500
         );

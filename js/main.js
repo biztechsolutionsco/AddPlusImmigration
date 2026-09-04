@@ -384,8 +384,6 @@
 
     }
 
-
-
     /*
     ==========================================================
     CONTACT FORM
@@ -410,43 +408,338 @@
         }
 
 
+        const message =
+            document.getElementById(
+                "formMessage"
+            );
+
+
+        const submitButton =
+            form.querySelector(
+                'button[type="submit"]'
+            );
+
+
+        const formSource =
+            document.getElementById(
+                "formSource"
+            );
+
+
+        /*
+        Record the page from which the inquiry
+        was submitted.
+
+        Examples:
+        /
+        /work/open/pgwp
+        /family/spouse/spousal-sponsorship
+        */
+
+        if (formSource) {
+
+            formSource.value =
+                window.location.pathname ||
+                "/";
+
+        }
+
+
         contactFormInitialized = true;
 
 
+
+        /*
+        ======================================================
+        MESSAGE HELPER
+        ======================================================
+        */
+
+        function showFormMessage(
+            text,
+            type = ""
+        ) {
+
+            if (!message) {
+                return;
+            }
+
+
+            message.textContent =
+                text;
+
+
+            message.classList.remove(
+                "success",
+                "error"
+            );
+
+
+            if (type) {
+
+                message.classList.add(
+                    type
+                );
+
+            }
+
+        }
+
+
+
+        /*
+        ======================================================
+        SUBMIT BUTTON STATE
+        ======================================================
+        */
+
+        function setSubmitting(
+            isSubmitting
+        ) {
+
+            if (!submitButton) {
+                return;
+            }
+
+
+            submitButton.disabled =
+                isSubmitting;
+
+
+            submitButton.setAttribute(
+                "aria-busy",
+                String(isSubmitting)
+            );
+
+
+            submitButton.textContent =
+                isSubmitting
+                    ? "Submitting..."
+                    : "Submit Inquiry";
+
+        }
+
+
+
+        /*
+        ======================================================
+        FORM SUBMISSION
+        ======================================================
+        */
+
         form.addEventListener(
             "submit",
-            function (event) {
+            async function (event) {
 
                 event.preventDefault();
 
 
-                const message =
-                    document.getElementById(
-                        "formMessage"
+                showFormMessage("");
+
+
+                /*
+                Use the browser's built-in field validation
+                even though the form itself uses novalidate.
+                */
+
+                if (!form.checkValidity()) {
+
+                    form.reportValidity();
+
+                    showFormMessage(
+                        "Please complete all required fields and check that your information is entered correctly.",
+                        "error"
                     );
-
-
-                if (message) {
-
-                    message.textContent =
-                        "Thank you for your inquiry. Our online submission system will be connected shortly.";
 
                     return;
 
                 }
 
 
-                alert(
-                    "Thank you for your inquiry. Our online submission system will be connected shortly."
-                );
+                /*
+                Basic honeypot protection.
+
+                The server will perform this check again.
+                */
+
+                const honeypot =
+                    form.elements.website;
+
+
+                if (
+                    honeypot &&
+                    honeypot.value.trim() !== ""
+                ) {
+
+                    /*
+                    Do not give automated submissions useful
+                    information about why they were rejected.
+                    */
+
+                    form.reset();
+
+
+                    if (formSource) {
+
+                        formSource.value =
+                            window.location.pathname ||
+                            "/";
+
+                    }
+
+
+                    showFormMessage(
+                        "Thank you. Your inquiry has been received.",
+                        "success"
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                Convert form fields to an object.
+
+                When Cloudflare Turnstile is added later,
+                its response token can be included here
+                automatically as another form field.
+                */
+
+                const formData =
+                    new FormData(
+                        form
+                    );
+
+
+                const payload =
+                    Object.fromEntries(
+                        formData.entries()
+                    );
+
+
+                /*
+                Trim string values before sending.
+                */
+
+                Object.keys(payload)
+                    .forEach(
+                        function (key) {
+
+                            if (
+                                typeof payload[key] ===
+                                "string"
+                            ) {
+
+                                payload[key] =
+                                    payload[key]
+                                        .trim();
+
+                            }
+
+                        }
+                    );
+
+
+                setSubmitting(true);
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/contact",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify(
+                                        payload
+                                    )
+                            }
+                        );
+
+
+                    let result = null;
+
+
+                    try {
+
+                        result =
+                            await response.json();
+
+                    } catch (error) {
+
+                        result = null;
+
+                    }
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            result &&
+                            result.message
+                                ? result.message
+                                : "Unable to submit inquiry."
+                        );
+
+                    }
+
+
+                    form.reset();
+
+
+                    /*
+                    Restore the page source because reset()
+                    returns the hidden field to its original
+                    HTML value of "website".
+                    */
+
+                    if (formSource) {
+
+                        formSource.value =
+                            window.location.pathname ||
+                            "/";
+
+                    }
+
+
+                    showFormMessage(
+                        "Thank you for contacting AddPlus Immigration Solutions Inc. Your inquiry has been received and our team will respond as soon as possible.",
+                        "success"
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Contact form submission failed:",
+                        error
+                    );
+
+
+                    showFormMessage(
+                        "We were unable to submit your inquiry. Please try again. If the problem continues, please contact us by email.",
+                        "error"
+                    );
+
+
+                } finally {
+
+                    setSubmitting(false);
+
+                }
 
             }
         );
 
     }
-
-
-
     /*
     ==========================================================
     QR CODE MODAL

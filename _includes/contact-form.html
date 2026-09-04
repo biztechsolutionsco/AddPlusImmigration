@@ -16,6 +16,21 @@
         value="website"
     >
 
+    <div
+        class="form-honeypot"
+        aria-hidden="true"
+    >
+        <label for="website">
+            Website
+        </label>
+        <input
+            type="text"
+            id="website"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+        >
+    </div>
     <!-- ==================================================
          NAME
     ================================================== -->
@@ -32,6 +47,7 @@
                 id="firstName"
                 name="first_name"
                 autocomplete="given-name"
+                maxlength="100"
                 required
             >
         </div>
@@ -46,6 +62,7 @@
                 id="lastName"
                 name="last_name"
                 autocomplete="family-name"
+                maxlength="100"
                 required
             >
         </div>
@@ -68,6 +85,7 @@
                 id="email"
                 name="email"
                 autocomplete="email"
+                maxlength="254"
                 required
             >
         </div>
@@ -81,6 +99,7 @@
                 id="phone"
                 name="phone"
                 autocomplete="tel"
+                maxlength="50"
             >
         </div>
 
@@ -101,6 +120,7 @@
                 id="citizenship"
                 name="citizenship"
                 autocomplete="country-name"
+                maxlength="100"
             >
         </div>
 
@@ -113,6 +133,7 @@
                 id="residence"
                 name="residence"
                 autocomplete="country-name"
+                maxlength="100"
             >
         </div>
 
@@ -135,36 +156,28 @@
             <option value="">
                 Select a service
             </option>
+
             <optgroup label="Immigrate">
-                <option value="Citizenship">
-                    Citizenship
-                </option>
                 <option value="Permanent Residence">
                     Permanent Residence
-                </option>
-                <option value="Express Entry">
-                    Express Entry
                 </option>
                 <option value="Canadian Experience Class">
                     Canadian Experience Class
                 </option>
-                <option value="Federal Skilled Trades Program">
-                    Federal Skilled Trades Program
-                </option>
                 <option value="Federal Skilled Worker Program">
                     Federal Skilled Worker Program
+                </option>
+                <option value="Federal Skilled Trades Program">
+                    Federal Skilled Trades Program
                 </option>
                 <option value="Provincial Nominee Program">
                     Provincial Nominee Program
                 </option>
             </optgroup>
 
-            <optgroup label="Sponsor">
+            <optgroup label="Family">
                 <option value="Spousal Sponsorship">
                     Spousal Sponsorship
-                </option>
-                <option value="Same-Sex Relationship Sponsorship">
-                    Same-Sex Relationship Sponsorship
                 </option>
                 <option value="Common-Law Partner Sponsorship">
                     Common-Law Partner Sponsorship
@@ -172,8 +185,8 @@
                 <option value="Conjugal Partner Sponsorship">
                     Conjugal Partner Sponsorship
                 </option>
-                <option value="Family Sponsorship">
-                    Family Sponsorship
+                <option value="Same-Sex Sponsorship">
+                    Same-Sex Sponsorship
                 </option>
                 <option value="Dependent Child Sponsorship">
                     Dependent Child Sponsorship
@@ -181,24 +194,48 @@
                 <option value="Parents and Grandparents Sponsorship">
                     Parents and Grandparents Sponsorship
                 </option>
+                <option value="Super Visa">
+                    Super Visa
+                </option>
             </optgroup>
 
-            <optgroup label="Work &amp; LMIA">
+            <optgroup label="Work">
                 <option value="Work Permit">
                     Work Permit
                 </option>
-                <option value="Extend Work Permit">
-                    Extend Work Permit
+                <option value="Spousal Open Work Permit">
+                    Spousal Open Work Permit
                 </option>
-                <option value="LMIA">
-                    LMIA
+                <option value="Post-Graduation Work Permit">
+                    Post-Graduation Work Permit (PGWP)
+                </option>
+                <option value="Bridging Open Work Permit">
+                    Bridging Open Work Permit (BOWP)
+                </option>
+                <option value="Vulnerable Worker Open Work Permit">
+                    Vulnerable Worker Open Work Permit
+                </option>
+                <option value="Extend or Change Work Permit">
+                    Extend or Change Work Permit
+                </option>
+                <option value="LMIA for Employers">
+                    LMIA for Employers
+                </option>
+                <option value="LMIA-Based Work Permit">
+                    LMIA-Based Work Permit
+                </option>
+            </optgroup>
+
+            <optgroup label="Study">
+                <option value="Study Permit">
+                    Study Permit
+                </option>
+                <option value="Study Permit Extension">
+                    Study Permit Extension
                 </option>
             </optgroup>
 
             <optgroup label="Visit">
-                <option value="Super Visa">
-                    Super Visa
-                </option>
                 <option value="Visitor Visa">
                     Visitor Visa
                 </option>
@@ -207,22 +244,25 @@
                 </option>
             </optgroup>
 
-            <optgroup label="Study">
-                <option value="Study Permit">
-                    Study Permit
-                </option>
-                <option value="Extend Study Permit">
-                    Extend Study Permit
-                </option>
-            </optgroup>
-
-            <optgroup label="Other">
+            <optgroup label="Status &amp; Citizenship">
                 <option value="Maintained Status">
                     Maintained Status
                 </option>
                 <option value="Restoration of Temporary Status">
                     Restoration of Temporary Status
                 </option>
+                <option value="PR Card Renewal or Replacement">
+                    PR Card Renewal or Replacement
+                </option>
+                <option value="Permanent Resident Travel Document">
+                    Permanent Resident Travel Document (PRTD)
+                </option>
+                <option value="Canadian Citizenship">
+                    Canadian Citizenship
+                </option>
+            </optgroup>
+
+            <optgroup label="Other">
                 <option value="Other Immigration Matter">
                     Other Immigration Matter
                 </option>
@@ -282,6 +322,7 @@
             id="caseSummary"
             name="case_summary"
             rows="7"
+            maxlength="5000"
             required
             placeholder="Please provide a brief summary of your immigration situation, your goal, and any important deadlines."
         ></textarea>
@@ -300,8 +341,8 @@
         </p>
         <p>
             Submitting this form does not establish a
-            consultant-client relationship with AddPlus
-            Immigration Solutions.
+            consultant-client relationship with
+            AddPlus Immigration Solutions Inc.
         </p>
         <p>
             By submitting this form, you acknowledge that
