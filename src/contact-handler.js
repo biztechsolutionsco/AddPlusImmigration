@@ -84,7 +84,9 @@ const ALLOWED_REFERRALS = new Set([
 
 const ALLOWED_TURNSTILE_HOSTNAMES = new Set([
     "addplusimmigration.biztechsolutionsco.workers.dev",
-    "addplus.ca"
+    "addplus.ca",
+    "www.addplus.ca",
+    "biztechsolutionsco.github.io"
 ]);
 
 

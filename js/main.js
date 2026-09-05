@@ -645,7 +645,7 @@
 
                     const response =
                         await fetch(
-                            "/api/contact",
+                            "https://addplusimmigration.biztechsolutionsco.workers.dev/api/contact",
                             {
                                 method: "POST",
 
