@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /thank-you.html
 
-Sitemap: https://addplus.biztechsolutionsco.workers.dev/sitemap.xml
+Sitemap: https://addplus.ca/sitemap.xml

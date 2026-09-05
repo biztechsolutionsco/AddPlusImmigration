@@ -1676,7 +1676,6 @@ textarea:focus-visible {
 }
 
 
-
 /* ==========================================================
    CONTACT INFO
 ========================================================== */
@@ -2005,6 +2004,13 @@ textarea:focus-visible {
     border-color: var(--navy-light);
 }
 
+.form-honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
 
 .form-privacy-note {
     margin: 5px 0 20px;

@@ -7,15 +7,18 @@
     ================================================== -->
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/</loc>
+        <loc>https://addplus.ca/</loc>
+        <priority>1.0</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/about</loc>
+        <loc>https://addplus.ca/about.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/contact</loc>
+        <loc>https://addplus.ca/contact.html</loc>
+        <priority>0.9</priority>
     </url>
 
 
@@ -24,23 +27,28 @@
     ================================================== -->
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/pr</loc>
+        <loc>https://addplus.ca/immigrate/pr.html</loc>
+        <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/express-entry/cec</loc>
+        <loc>https://addplus.ca/immigrate/express-entry/cec.html</loc>
+        <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/express-entry/fswp</loc>
+        <loc>https://addplus.ca/immigrate/express-entry/fswp.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/express-entry/fstp</loc>
+        <loc>https://addplus.ca/immigrate/express-entry/fstp.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/immigrate/pnp</loc>
+        <loc>https://addplus.ca/immigrate/pnp.html</loc>
+        <priority>0.9</priority>
     </url>
 
 
@@ -49,31 +57,38 @@
     ================================================== -->
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/family/spouse/spousal-sponsorship</loc>
+        <loc>https://addplus.ca/family/spouse/spousal-sponsorship.html</loc>
+        <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/family/spouse/common-law-sponsorship</loc>
+        <loc>https://addplus.ca/family/spouse/common-law-sponsorship.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/family/spouse/conjugal-partner-sponsorship</loc>
+        <loc>https://addplus.ca/family/spouse/conjugal-partner-sponsorship.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/family/spouse/same-sex-sponsorship</loc>
+        <loc>https://addplus.ca/family/spouse/same-sex-sponsorship.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/family/dependent-child-sponsorship</loc>
+        <loc>https://addplus.ca/family/dependent-child-sponsorship.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/family/parents-grandparents-sponsorship</loc>
+        <loc>https://addplus.ca/family/parents-grandparents-sponsorship.html</loc>
+        <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/family/super-visa</loc>
+        <loc>https://addplus.ca/family/super-visa.html</loc>
+        <priority>0.9</priority>
     </url>
 
 
@@ -82,36 +97,48 @@
     ================================================== -->
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/work/open/spousal-open-work-permit</loc>
+        <loc>https://addplus.ca/work/work-permit.html</loc>
+        <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/work/open/pgwp</loc>
+        <loc>https://addplus.ca/work/open/spousal-open-work-permit.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/work/open/bowp</loc>
+        <loc>https://addplus.ca/work/open/pgwp.html</loc>
+        <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/work/open/vulnerable-worker-work-permit</loc>
+        <loc>https://addplus.ca/work/open/bowp.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/work/open/extend-work-permit</loc>
-    </url>
-
-
-    <!-- ==================================================
-         LMIA
-    ================================================== -->
-
-    <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/work/lmia/employers</loc>
+        <loc>https://addplus.ca/work/open/vulnerable-worker-work-permit.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/work/lmia/lmia-based-work-permit</loc>
+        <loc>https://addplus.ca/work/open/extend-work-permit.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/work/lmia.html</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/work/lmia/employers.html</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/work/lmia/lmia-based-work-permit.html</loc>
+        <priority>0.8</priority>
     </url>
 
 
@@ -120,11 +147,13 @@
     ================================================== -->
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/study/study-permit</loc>
+        <loc>https://addplus.ca/study/study-permit.html</loc>
+        <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/study/study-permit-extension</loc>
+        <loc>https://addplus.ca/study/study-permit-extension.html</loc>
+        <priority>0.8</priority>
     </url>
 
 
@@ -133,11 +162,13 @@
     ================================================== -->
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/visit/visitor-visa</loc>
+        <loc>https://addplus.ca/visit/visitor-visa.html</loc>
+        <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/visit/extend-your-stay</loc>
+        <loc>https://addplus.ca/visit/extend-your-stay.html</loc>
+        <priority>0.8</priority>
     </url>
 
 
@@ -146,36 +177,38 @@
     ================================================== -->
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/status/maintained-status</loc>
+        <loc>https://addplus.ca/status/maintained-status.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/status/restoration</loc>
+        <loc>https://addplus.ca/status/restoration.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/status/pr-card</loc>
+        <loc>https://addplus.ca/status/pr-card.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/status/prtd</loc>
+        <loc>https://addplus.ca/status/prtd.html</loc>
+        <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/status/citizenship</loc>
+        <loc>https://addplus.ca/status/citizenship.html</loc>
+        <priority>0.9</priority>
     </url>
 
 
     <!-- ==================================================
-         LEGAL / INFORMATION
+         LEGAL
     ================================================== -->
 
     <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/privacy-policy</loc>
-    </url>
-
-    <url>
-        <loc>https://addplus.biztechsolutionsco.workers.dev/terms-of-use</loc>
+        <loc>https://addplus.ca/privacy-policy.html</loc>
+        <priority>0.4</priority>
     </url>
 
 </urlset>
