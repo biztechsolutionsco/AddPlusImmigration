@@ -278,6 +278,172 @@ async function verifyTurnstile(
 
 
 // ==========================================================
+// SEND INQUIRY EMAIL THROUGH BREVO
+// ==========================================================
+
+async function sendInquiryNotification(
+    inquiry,
+    inquiryId,
+    env
+) {
+
+    if (
+        !env.BREVO_API_KEY ||
+        !env.INQUIRY_NOTIFICATION_EMAIL
+    ) {
+
+        console.error(
+            "Brevo email configuration is missing."
+        );
+
+        return false;
+
+    }
+
+
+    const fullName =
+        `${inquiry.first_name} ${inquiry.last_name}`
+            .trim();
+
+
+    const subject =
+        `New Website Inquiry — ${inquiry.service} — ${fullName}`;
+
+
+    const textContent = `
+A new inquiry has been submitted through the AddPlus Immigration Solutions Inc. website.
+
+Inquiry ID:
+${inquiryId || "Not available"}
+
+Name:
+${fullName}
+
+Email:
+${inquiry.email}
+
+Phone:
+${inquiry.phone || "Not provided"}
+
+Citizenship:
+${inquiry.citizenship || "Not provided"}
+
+Current Residence:
+${inquiry.residence || "Not provided"}
+
+Service:
+${inquiry.service}
+
+How they heard about us:
+${inquiry.referral || "Not provided"}
+
+Submitted from:
+${inquiry.form_source || "Not provided"}
+
+Case Summary:
+${inquiry.case_summary}
+`;
+
+
+    try {
+
+        const response =
+            await fetch(
+                "https://api.brevo.com/v3/smtp/email",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "accept":
+                            "application/json",
+
+                        "api-key":
+                            env.BREVO_API_KEY,
+
+                        "content-type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            sender: {
+                                name: "AddPlus Immigration Solutions Inc.",
+
+                                email:
+                                    "addplusimmigration@gmail.com"
+                            },
+
+                            to: [
+                                {
+                                    email:
+                                        env.INQUIRY_NOTIFICATION_EMAIL
+                                }
+                            ],
+
+                            replyTo: {
+                                email:
+                                    inquiry.email,
+
+                                name:
+                                    fullName
+                            },
+
+                            subject:
+                                subject,
+
+                            textContent:
+                                textContent
+                        })
+                }
+            );
+
+
+        if (!response.ok) {
+
+            let errorBody = "";
+
+
+            try {
+
+                errorBody =
+                    await response.text();
+
+            } catch {
+                errorBody = "";
+            }
+
+
+            console.error(
+                "Brevo email failed:",
+                response.status,
+                errorBody
+            );
+
+
+            return false;
+
+        }
+
+
+        return true;
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to send inquiry notification:",
+            error
+        );
+
+
+        return false;
+
+    }
+
+}
+
+
+// ==========================================================
 // MAIN CONTACT HANDLER
 // ==========================================================
 
@@ -389,10 +555,6 @@ export async function handleContactRequest(
     /*
     ======================================================
     HONEYPOT
-
-    Legitimate users never fill this field.
-    Return a normal-looking success response so bots
-    are not told how the spam filter works.
     ======================================================
     */
 
@@ -468,11 +630,6 @@ export async function handleContactRequest(
     }
 
 
-    /*
-    Make sure the token was issued specifically
-    for the contact form.
-    */
-
     if (
         turnstileResult.action !==
         "contact_form"
@@ -495,11 +652,6 @@ export async function handleContactRequest(
 
     }
 
-
-    /*
-    Make sure the token was generated on an
-    approved AddPlus hostname.
-    */
 
     if (
         !ALLOWED_TURNSTILE_HOSTNAMES.has(
@@ -726,12 +878,6 @@ export async function handleContactRequest(
     }
 
 
-    /*
-    ======================================================
-    MINIMUM CASE SUMMARY LENGTH
-    ======================================================
-    */
-
     if (
         inquiry.case_summary.length <
         10
@@ -817,6 +963,40 @@ export async function handleContactRequest(
                 .run();
 
 
+        const inquiryId =
+            result.meta
+                ?.last_row_id ||
+            null;
+
+
+        /*
+        ==================================================
+        SEND EMAIL NOTIFICATION
+
+        Failure here does not affect the successful
+        inquiry submission because the inquiry is
+        already stored safely in D1.
+        ==================================================
+        */
+
+        const emailSent =
+            await sendInquiryNotification(
+                inquiry,
+                inquiryId,
+                env
+            );
+
+
+        if (!emailSent) {
+
+            console.error(
+                "Inquiry saved, but notification email was not sent.",
+                inquiryId
+            );
+
+        }
+
+
         /*
         ==================================================
         SUCCESS
@@ -828,9 +1008,7 @@ export async function handleContactRequest(
                 success: true,
 
                 inquiry_id:
-                    result.meta
-                        ?.last_row_id ||
-                    null,
+                    inquiryId,
 
                 message:
                     "Your inquiry has been received."
