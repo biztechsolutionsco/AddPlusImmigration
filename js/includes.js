@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         loadInclude(
             contactFormContainer,
             "contact-form.html",
-            sharedIncludePrefix
+            languageIncludePrefix
         )
 
     ]);
