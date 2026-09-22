@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     /immigrate/express-entry/index.html
     folderDepth = 2
 
-    /immigrate/express-entry/canadian-experience-class.html
-    folderDepth = 2
+    /zh/index.html
+    folderDepth = 1
 
-    /work/work-permits/open-work-permits/pgwp.html
+    /zh/work/open/pgwp.html
     folderDepth = 3
     ==========================================================
     */
@@ -59,18 +59,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     ==========================================================
     HANDLE LOCAL DEVELOPMENT PROJECT FOLDER
     ==========================================================
-
-    When using Live Server you may have something like:
-
-    /addplusimmigration/index.html
-
-    But on Cloudflare the site may be:
-
-    /index.html
-
-    If your local Live Server already opens directly at the
-    project root, leave SITE_FOLDER_NAME empty.
-    ==========================================================
     */
 
     const SITE_FOLDER_NAME = "";
@@ -89,6 +77,29 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     /*
     ==========================================================
+    DETERMINE LANGUAGE
+    ==========================================================
+
+    Any page whose first site folder is /zh/ is treated as
+    a Chinese-language page.
+
+    English:
+    /index.html
+    /work/open/pgwp.html
+
+    Chinese:
+    /zh/index.html
+    /zh/work/open/pgwp.html
+    ==========================================================
+    */
+
+    const isChinesePage =
+        folderParts.length > 0 &&
+        folderParts[0] === "zh";
+
+
+    /*
+    ==========================================================
     CALCULATE ROOT PREFIX
     ==========================================================
     */
@@ -96,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const folderDepth = folderParts.length;
 
     const is404Page =
-    document.body.classList.contains("error-page");
+        document.body.classList.contains("error-page");
 
     const rootPrefix =
         is404Page
@@ -107,27 +118,38 @@ document.addEventListener("DOMContentLoaded", async function () {
                     : "../".repeat(folderDepth)
             );
 
+
+    /*
+    ==========================================================
+    INCLUDE BASE PATHS
+    ==========================================================
+
+    English header/footer:
+    /_includes/
+
+    Chinese header/footer:
+    /zh/_includes/
+
+    The contact form remains the existing English shared form
+    for now. It can be moved to /zh/_includes/contact-form.html
+    when the Chinese form is created.
+    ==========================================================
+    */
+
+    const sharedIncludePrefix =
+        `${rootPrefix}_includes/`;
+
+    const languageIncludePrefix =
+        isChinesePage
+            ? `${rootPrefix}zh/_includes/`
+            : sharedIncludePrefix;
+
+
     /*
     ==========================================================
     CURRENT PAGE PATH
     ==========================================================
-
-    Produces:
-
-    index.html
-
-    immigrate/index.html
-
-    immigrate/express-entry/index.html
-
-    immigrate/express-entry/
-    canadian-experience-class.html
-
-    work/work-permits/
-    open-work-permits/pgwp.html
-    ==========================================================
     */
-
 
     let currentPage = pathname
         .split("/")
@@ -171,7 +193,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     ==========================================================
     */
 
-    async function loadInclude(container, file) {
+    async function loadInclude(
+        container,
+        file,
+        includePrefix = sharedIncludePrefix
+    ) {
 
         if (!container) {
             return;
@@ -181,7 +207,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         try {
 
             const response = await fetch(
-                `${rootPrefix}_includes/${file}`
+                `${includePrefix}${file}`
             );
 
 
@@ -237,17 +263,20 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         loadInclude(
             headerContainer,
-            "header.html"
+            "header.html",
+            languageIncludePrefix
         ),
 
         loadInclude(
             footerContainer,
-            "footer.html"
+            "footer.html",
+            languageIncludePrefix
         ),
 
         loadInclude(
             contactFormContainer,
-            "contact-form.html"
+            "contact-form.html",
+            sharedIncludePrefix
         )
 
     ]);
@@ -322,10 +351,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
             if (page === currentPage) {
-
-                /*
-                Exact page link
-                */
 
                 if (
                     link.closest(".dropdown-menu") ||
@@ -405,22 +430,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     ==========================================================
     ACTIVE SECTION NAVIGATION
     ==========================================================
-
-    This allows a parent menu to stay highlighted when the
-    visitor is anywhere inside that section.
-
-    Example:
-
-    /immigrate/express-entry/canadian-experience-class.html
-
-    will highlight:
-
-    IMMIGRATE
-    EXPRESS ENTRY
-    CANADIAN EXPERIENCE CLASS
-    ==========================================================
     */
-
 
     document
         .querySelectorAll("[data-nav-section]")
@@ -466,11 +476,25 @@ document.addEventListener("DOMContentLoaded", async function () {
                 "homepage";
 
         } else if (
+            currentPage === "zh/index.html"
+        ) {
+
+            formSource.value =
+                "zh-homepage";
+
+        } else if (
             currentPage === "contact.html"
         ) {
 
             formSource.value =
                 "contact-page";
+
+        } else if (
+            currentPage === "zh/contact.html"
+        ) {
+
+            formSource.value =
+                "zh-contact-page";
 
         } else {
 

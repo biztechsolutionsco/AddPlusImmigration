@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
 
     <!-- ==================================================
          MAIN PAGES
@@ -8,16 +11,51 @@
 
     <url>
         <loc>https://addplus.ca/</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/" />
         <priority>1.0</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/" />
+        <priority>1.0</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/about.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/about.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/about.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/about.html" />
         <priority>0.8</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/about.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/about.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/about.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/about.html" />
+        <priority>0.8</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/contact.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/contact.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/contact.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/contact.html" />
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/contact.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/contact.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/contact.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/contact.html" />
         <priority>0.9</priority>
     </url>
 
@@ -28,26 +66,102 @@
 
     <url>
         <loc>https://addplus.ca/immigrate/pr.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/pr.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/pr.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/pr.html" />
         <priority>0.9</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/immigrate/pr.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/pr.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/pr.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/pr.html" />
+        <priority>0.9</priority>
+    </url>
+
+
+    <url>
+        <loc>https://addplus.ca/immigrate/express-entry.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/express-entry.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/express-entry.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/express-entry.html" />
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/immigrate/express-entry.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/express-entry.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/express-entry.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/express-entry.html" />
+        <priority>0.9</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/immigrate/express-entry/cec.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/express-entry/cec.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/express-entry/cec.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/express-entry/cec.html" />
         <priority>0.9</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/immigrate/express-entry/cec.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/express-entry/cec.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/express-entry/cec.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/express-entry/cec.html" />
+        <priority>0.9</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/immigrate/express-entry/fswp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/express-entry/fswp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/express-entry/fswp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/express-entry/fswp.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/immigrate/express-entry/fswp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/express-entry/fswp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/express-entry/fswp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/express-entry/fswp.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/immigrate/express-entry/fstp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/express-entry/fstp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/express-entry/fstp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/express-entry/fstp.html" />
         <priority>0.8</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/immigrate/express-entry/fstp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/express-entry/fstp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/express-entry/fstp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/express-entry/fstp.html" />
+        <priority>0.8</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/immigrate/pnp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/pnp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/pnp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/pnp.html" />
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/immigrate/pnp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/immigrate/pnp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/immigrate/pnp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/immigrate/pnp.html" />
         <priority>0.9</priority>
     </url>
 
@@ -58,36 +172,119 @@
 
     <url>
         <loc>https://addplus.ca/family/spouse/spousal-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/spouse/spousal-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/spouse/spousal-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/spouse/spousal-sponsorship.html" />
         <priority>0.9</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/family/spouse/spousal-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/spouse/spousal-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/spouse/spousal-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/spouse/spousal-sponsorship.html" />
+        <priority>0.9</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/family/spouse/common-law-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/spouse/common-law-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/spouse/common-law-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/spouse/common-law-sponsorship.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/family/spouse/common-law-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/spouse/common-law-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/spouse/common-law-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/spouse/common-law-sponsorship.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/family/spouse/conjugal-partner-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/spouse/conjugal-partner-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/spouse/conjugal-partner-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/spouse/conjugal-partner-sponsorship.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/family/spouse/conjugal-partner-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/spouse/conjugal-partner-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/spouse/conjugal-partner-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/spouse/conjugal-partner-sponsorship.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/family/spouse/same-sex-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/spouse/same-sex-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/spouse/same-sex-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/spouse/same-sex-sponsorship.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/family/spouse/same-sex-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/spouse/same-sex-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/spouse/same-sex-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/spouse/same-sex-sponsorship.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/family/dependent-child-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/dependent-child-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/dependent-child-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/dependent-child-sponsorship.html" />
         <priority>0.8</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/family/dependent-child-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/dependent-child-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/dependent-child-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/dependent-child-sponsorship.html" />
+        <priority>0.8</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/family/parents-grandparents-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/parents-grandparents-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/parents-grandparents-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/parents-grandparents-sponsorship.html" />
         <priority>0.9</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/family/parents-grandparents-sponsorship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/parents-grandparents-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/parents-grandparents-sponsorship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/parents-grandparents-sponsorship.html" />
+        <priority>0.9</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/family/super-visa.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/super-visa.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/super-visa.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/super-visa.html" />
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/family/super-visa.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/family/super-visa.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/family/super-visa.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/family/super-visa.html" />
         <priority>0.9</priority>
     </url>
 
@@ -98,46 +295,153 @@
 
     <url>
         <loc>https://addplus.ca/work/work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/work-permit.html" />
         <priority>0.9</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/work/work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/work-permit.html" />
+        <priority>0.9</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/work/open/spousal-open-work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/spousal-open-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/spousal-open-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/spousal-open-work-permit.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/work/open/spousal-open-work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/spousal-open-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/spousal-open-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/spousal-open-work-permit.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/work/open/pgwp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/pgwp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/pgwp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/pgwp.html" />
         <priority>0.9</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/work/open/pgwp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/pgwp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/pgwp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/pgwp.html" />
+        <priority>0.9</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/work/open/bowp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/bowp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/bowp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/bowp.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/work/open/bowp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/bowp.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/bowp.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/bowp.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/work/open/vulnerable-worker-work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/vulnerable-worker-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/vulnerable-worker-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/vulnerable-worker-work-permit.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/work/open/vulnerable-worker-work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/vulnerable-worker-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/vulnerable-worker-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/vulnerable-worker-work-permit.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/work/open/extend-work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/extend-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/extend-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/extend-work-permit.html" />
         <priority>0.8</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/work/open/extend-work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/open/extend-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/open/extend-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/open/extend-work-permit.html" />
+        <priority>0.8</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/work/lmia.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/lmia.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/lmia.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/lmia.html" />
         <priority>0.9</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/work/lmia.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/lmia.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/lmia.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/lmia.html" />
+        <priority>0.9</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/work/lmia/employers.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/lmia/employers.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/lmia/employers.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/lmia/employers.html" />
         <priority>0.9</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/work/lmia/employers.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/lmia/employers.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/lmia/employers.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/lmia/employers.html" />
+        <priority>0.9</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/work/lmia/lmia-based-work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/lmia/lmia-based-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/lmia/lmia-based-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/lmia/lmia-based-work-permit.html" />
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/work/lmia/lmia-based-work-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/work/lmia/lmia-based-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/work/lmia/lmia-based-work-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/work/lmia/lmia-based-work-permit.html" />
         <priority>0.8</priority>
     </url>
 
@@ -148,11 +452,34 @@
 
     <url>
         <loc>https://addplus.ca/study/study-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/study/study-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/study/study-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/study/study-permit.html" />
         <priority>0.9</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/study/study-permit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/study/study-permit.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/study/study-permit.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/study/study-permit.html" />
+        <priority>0.9</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/study/study-permit-extension.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/study/study-permit-extension.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/study/study-permit-extension.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/study/study-permit-extension.html" />
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/study/study-permit-extension.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/study/study-permit-extension.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/study/study-permit-extension.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/study/study-permit-extension.html" />
         <priority>0.8</priority>
     </url>
 
@@ -163,11 +490,34 @@
 
     <url>
         <loc>https://addplus.ca/visit/visitor-visa.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/visit/visitor-visa.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/visit/visitor-visa.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/visit/visitor-visa.html" />
         <priority>0.9</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/visit/visitor-visa.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/visit/visitor-visa.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/visit/visitor-visa.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/visit/visitor-visa.html" />
+        <priority>0.9</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/visit/extend-your-stay.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/visit/extend-your-stay.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/visit/extend-your-stay.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/visit/extend-your-stay.html" />
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/visit/extend-your-stay.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/visit/extend-your-stay.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/visit/extend-your-stay.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/visit/extend-your-stay.html" />
         <priority>0.8</priority>
     </url>
 
@@ -178,26 +528,85 @@
 
     <url>
         <loc>https://addplus.ca/status/maintained-status.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/maintained-status.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/maintained-status.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/maintained-status.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/status/maintained-status.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/maintained-status.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/maintained-status.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/maintained-status.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/status/restoration.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/restoration.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/restoration.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/restoration.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/status/restoration.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/restoration.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/restoration.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/restoration.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/status/pr-card.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/pr-card.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/pr-card.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/pr-card.html" />
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/status/pr-card.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/pr-card.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/pr-card.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/pr-card.html" />
+        <priority>0.8</priority>
+    </url>
+
 
     <url>
         <loc>https://addplus.ca/status/prtd.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/prtd.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/prtd.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/prtd.html" />
         <priority>0.8</priority>
     </url>
 
     <url>
+        <loc>https://addplus.ca/zh/status/prtd.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/prtd.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/prtd.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/prtd.html" />
+        <priority>0.8</priority>
+    </url>
+
+
+    <url>
         <loc>https://addplus.ca/status/citizenship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/citizenship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/citizenship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/citizenship.html" />
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/status/citizenship.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/status/citizenship.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/status/citizenship.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/status/citizenship.html" />
         <priority>0.9</priority>
     </url>
 
@@ -208,6 +617,34 @@
 
     <url>
         <loc>https://addplus.ca/privacy-policy.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/privacy-policy.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/privacy-policy.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/privacy-policy.html" />
+        <priority>0.4</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/privacy-policy.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/privacy-policy.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/privacy-policy.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/privacy-policy.html" />
+        <priority>0.4</priority>
+    </url>
+
+
+    <url>
+        <loc>https://addplus.ca/terms-of-use.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/terms-of-use.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/terms-of-use.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/terms-of-use.html" />
+        <priority>0.4</priority>
+    </url>
+
+    <url>
+        <loc>https://addplus.ca/zh/terms-of-use.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://addplus.ca/terms-of-use.html" />
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://addplus.ca/zh/terms-of-use.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://addplus.ca/terms-of-use.html" />
         <priority>0.4</priority>
     </url>
 

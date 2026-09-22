@@ -8,6 +8,8 @@
 
     let navigationInitialized = false;
 
+    let languageSwitcherInitialized = false;
+
     let contactFormInitialized = false;
 
     let qrModalInitialized = false;
@@ -386,6 +388,122 @@
 
     /*
     ==========================================================
+    LANGUAGE SWITCHER
+    ==========================================================
+    */
+
+    function initializeLanguageSwitcher() {
+
+        if (languageSwitcherInitialized) {
+            return;
+        }
+
+
+        languageSwitcherInitialized = true;
+
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                const link =
+                    event.target.closest(
+                        "[data-language-switch]"
+                    );
+
+
+                if (!link) {
+                    return;
+                }
+
+
+                const language =
+                    link.dataset.languageSwitch;
+
+
+                if (
+                    language !== "en" &&
+                    language !== "zh"
+                ) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                const currentPath =
+                    window.location.pathname ||
+                    "/";
+
+
+                let targetPath;
+
+
+                if (language === "en") {
+
+                    if (
+                        currentPath === "/zh" ||
+                        currentPath === "/zh/"
+                    ) {
+
+                        targetPath = "/";
+
+                    } else if (
+                        currentPath.startsWith("/zh/")
+                    ) {
+
+                        targetPath =
+                            currentPath.replace(
+                                /^\/zh/,
+                                ""
+                            );
+
+                    } else {
+
+                        targetPath =
+                            currentPath;
+
+                    }
+
+                } else {
+
+                    if (
+                        currentPath === "/zh" ||
+                        currentPath === "/zh/"
+                    ) {
+
+                        targetPath = "/zh/";
+
+                    } else if (
+                        currentPath.startsWith("/zh/")
+                    ) {
+
+                        targetPath =
+                            currentPath;
+
+                    } else {
+
+                        targetPath =
+                            currentPath === "/"
+                                ? "/zh/"
+                                : `/zh${currentPath}`;
+
+                    }
+
+                }
+
+
+                window.location.href =
+                    `${targetPath}${window.location.search}${window.location.hash}`;
+
+            }
+        );
+
+    }
+
+    /*
+    ==========================================================
     CONTACT FORM
     ==========================================================
     */
@@ -424,6 +542,9 @@
             document.getElementById(
                 "formSource"
             );
+        
+        const isChinesePage =
+            window.location.pathname.startsWith("/zh/");
 
 
         /*
@@ -513,9 +634,17 @@
 
 
             submitButton.textContent =
-                isSubmitting
-                    ? "Submitting..."
-                    : "Submit Inquiry";
+                isChinesePage
+                    ? (
+                        isSubmitting
+                            ? "正在提交..."
+                            : "提交咨询"
+                    )
+                    : (
+                        isSubmitting
+                            ? "Submitting..."
+                            : "Submit Inquiry"
+                    );
 
         }
 
@@ -547,7 +676,9 @@
                     form.reportValidity();
 
                     showFormMessage(
-                        "Please complete all required fields and check that your information is entered correctly.",
+                        isChinesePage
+                            ? "请填写所有必填项，并确认所填写的信息正确无误。"
+                            : "Please complete all required fields and check that your information is entered correctly.",
                         "error"
                     );
 
@@ -589,7 +720,9 @@
 
 
                     showFormMessage(
-                        "Thank you. Your inquiry has been received.",
+                        isChinesePage
+                            ? "谢谢。我们已收到您的咨询。"
+                            : "Thank you. Your inquiry has been received.",
                         "success"
                     );
 
@@ -707,10 +840,10 @@
                     }
 
 
-                    showFormMessage(
-                        "Thank you for contacting AddPlus Immigration Solutions Inc. Your inquiry has been received and our team will respond as soon as possible.",
-                        "success"
-                    );
+                    window.location.href =
+                        isChinesePage
+                            ? "/zh/thank-you.html"
+                            : "/thank-you.html";
 
 
                 } catch (error) {
@@ -722,7 +855,9 @@
 
 
                     showFormMessage(
-                        "We were unable to submit your inquiry. Please try again. If the problem continues, please contact us by email.",
+                        isChinesePage
+                            ? "您的咨询暂时无法提交。请稍后重试。如果问题持续存在，请通过电子邮件联系我们。"
+                            : "We were unable to submit your inquiry. Please try again. If the problem continues, please contact us by email.",
                         "error"
                     );
 
@@ -770,6 +905,8 @@
             return;
         }
 
+        const isChinesePage =
+            window.location.pathname.startsWith("/zh/");
 
         turnstileInitialized = true;
 
@@ -844,7 +981,9 @@
                             if (message) {
 
                                 message.textContent =
-                                    "The security verification expired. Please complete it again before submitting.";
+                                    isChinesePage
+                                        ? "安全验证已过期。请重新完成验证后再提交。"
+                                        : "The security verification expired. Please complete it again before submitting.";
 
                                 message.classList
                                     .remove(
@@ -872,7 +1011,9 @@
                             if (message) {
 
                                 message.textContent =
-                                    "We could not load the security verification. Please refresh the page and try again.";
+                                    isChinesePage
+                                        ? "安全验证无法加载。请刷新页面后重试。"
+                                        : "We could not load the security verification. Please refresh the page and try again.";
 
                                 message.classList
                                     .remove(
@@ -1059,62 +1200,6 @@
         let previouslyFocusedElement =
             null;
 
-
-
-        /*
-        ======================================================
-        DETERMINE ROOT PREFIX
-        ======================================================
-        */
-
-        const pathParts =
-            window.location.pathname
-                .split("/")
-                .filter(Boolean);
-
-
-        const rootFolders = [
-            "immigrate",
-            "family",
-            "work",
-            "study",
-            "visit",
-            "status"
-        ];
-
-
-        let depth = 0;
-
-
-        for (
-            let index = 0;
-            index < pathParts.length - 1;
-            index++
-        ) {
-
-            if (
-                rootFolders.includes(
-                    pathParts[index]
-                )
-            ) {
-
-                depth =
-                    pathParts.length - 1;
-
-                break;
-
-            }
-
-        }
-
-
-        const rootPrefix =
-            depth > 0
-                ? "../".repeat(depth)
-                : "";
-
-
-
         /*
         ======================================================
         OPEN MODAL
@@ -1151,8 +1236,14 @@
                 document.activeElement;
 
 
+            const imageSource =
+                /^(https?:|data:|blob:)/i.test(image)
+                    ? image
+                    : `/${image.replace(/^\/+/, "")}`;
+
+
             modalImage.src =
-                `${rootPrefix}${image}`;
+                imageSource;
 
 
             modalImage.alt =
@@ -1813,6 +1904,8 @@
     function initializeSite() {
 
         initializeNavigation();
+
+        initializeLanguageSwitcher();
 
         initializeContactForm();
 

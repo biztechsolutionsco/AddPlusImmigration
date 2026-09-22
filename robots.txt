@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 
 Disallow: /thank-you.html
+Disallow: /zh/thank-you.html
 
 Sitemap: https://addplus.ca/sitemap.xml
