@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Termination, Refund & Reschedule Policies | AddPlus Immigration Solutions Inc.
+    </title>
+
+    <meta
+        name="description"
+        content="Termination, refund and reschedule policies of AddPlus Immigration Solutions Inc."
+    >
+
+    <link
+        rel="canonical"
+        href="https://addplus.ca/termination-refund-reschedule-policies.html"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background: #e9edf1;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color: #123b63;
+
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        #pdfViewer {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 18px;
+
+            padding: 20px;
+        }
+
+        .pdf-page {
+            display: block;
+
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 2px 12px
+                rgba(0, 0, 0, 0.15);
+        }
+
+        .status-screen {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            text-align: center;
+        }
+
+        .status-screen p {
+            margin: 6px 0;
+        }
+
+        .loading-message {
+            color: #123b63;
+        }
+
+        .error-message {
+            color: #8b1e1e;
+        }
+
+        .error-details {
+            margin-top: 12px !important;
+
+            max-width: 700px;
+
+            font-size: 0.85rem;
+            line-height: 1.5;
+
+            color: #666666;
+
+            word-break: break-word;
+
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        @media (max-width: 600px) {
+
+            #pdfViewer {
+                gap: 10px;
+                padding: 8px;
+            }
+
+            .pdf-page {
+                box-shadow:
+                    0 1px 6px
+                    rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        @media print {
+
+            body {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div
+        id="loadingMessage"
+        class="status-screen loading-message"
+    >
+        <p>Loading policy document...</p>
+    </div>
+
+
+    <main
+        id="pdfViewer"
+        aria-label="Termination, Refund and Reschedule Policies"
+        hidden
+    ></main>
+
+
+    <div
+        id="errorMessage"
+        class="status-screen error-message"
+        hidden
+    >
+        <p>
+            The policy document could not be displayed.
+        </p>
+
+        <p
+            id="errorDetails"
+            class="error-details"
+        ></p>
+    </div>
+
+
+    <script type="module">
+
+        const PDF_URL =
+            "./Files/Termination,%20Refund,%20Reschedule%20Policies%20V202512.pdf";
+
+
+        const PDFJS_URL =
+            "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.5.438/build/pdf.mjs";
+
+
+        const PDFJS_WORKER_URL =
+            "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.5.438/build/pdf.worker.mjs";
+
+
+        const viewer =
+            document.getElementById("pdfViewer");
+
+
+        const loadingMessage =
+            document.getElementById("loadingMessage");
+
+
+        const errorMessage =
+            document.getElementById("errorMessage");
+
+
+        const errorDetails =
+            document.getElementById("errorDetails");
+
+
+        function showError(message) {
+
+            console.error(message);
+
+            loadingMessage.hidden = true;
+
+            viewer.hidden = true;
+
+            errorMessage.hidden = false;
+
+            errorDetails.textContent = message;
+
+        }
+
+
+        async function checkPDFFile() {
+
+            const response =
+                await fetch(
+                    PDF_URL,
+                    {
+                        cache: "no-store"
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    `PDF file could not be found. HTTP status: ${response.status}. ` +
+                    `Checked path: ${PDF_URL}`
+                );
+
+            }
+
+        }
+
+
+        async function renderPDF() {
+
+            try {
+
+                /*
+                    STEP 1:
+                    Make sure the PDF actually exists
+                    at the expected local path.
+                */
+
+                await checkPDFFile();
+
+
+                /*
+                    STEP 2:
+                    Load PDF.js dynamically.
+
+                    Using dynamic import means that
+                    a CDN/module error can be caught
+                    and displayed on the page.
+                */
+
+                const pdfjsLib =
+                    await import(PDFJS_URL);
+
+
+                pdfjsLib.GlobalWorkerOptions.workerSrc =
+                    PDFJS_WORKER_URL;
+
+
+                /*
+                    STEP 3:
+                    Load the PDF.
+                */
+
+                const loadingTask =
+                    pdfjsLib.getDocument({
+                        url: PDF_URL
+                    });
+
+
+                const pdf =
+                    await loadingTask.promise;
+
+
+                loadingMessage.hidden = true;
+
+                viewer.hidden = false;
+
+
+                /*
+                    STEP 4:
+                    Render each PDF page onto
+                    its own canvas.
+                */
+
+                for (
+                    let pageNumber = 1;
+                    pageNumber <= pdf.numPages;
+                    pageNumber++
+                ) {
+
+                    const page =
+                        await pdf.getPage(
+                            pageNumber
+                        );
+
+
+                    const baseViewport =
+                        page.getViewport({
+                            scale: 1
+                        });
+
+
+                    const availableWidth =
+                        Math.min(
+                            1000,
+                            window.innerWidth - 40
+                        );
+
+
+                    const scale =
+                        availableWidth /
+                        baseViewport.width;
+
+
+                    const viewport =
+                        page.getViewport({
+                            scale: scale
+                        });
+
+
+                    const outputScale =
+                        Math.min(
+                            window.devicePixelRatio || 1,
+                            2
+                        );
+
+
+                    const canvas =
+                        document.createElement(
+                            "canvas"
+                        );
+
+
+                    canvas.className =
+                        "pdf-page";
+
+
+                    canvas.width =
+                        Math.floor(
+                            viewport.width *
+                            outputScale
+                        );
+
+
+                    canvas.height =
+                        Math.floor(
+                            viewport.height *
+                            outputScale
+                        );
+
+
+                    canvas.style.width =
+                        `${viewport.width}px`;
+
+
+                    canvas.style.height =
+                        `${viewport.height}px`;
+
+
+                    canvas.setAttribute(
+                        "aria-label",
+                        `Page ${pageNumber}`
+                    );
+
+
+                    viewer.appendChild(
+                        canvas
+                    );
+
+
+                    const context =
+                        canvas.getContext(
+                            "2d",
+                            {
+                                alpha: false
+                            }
+                        );
+
+
+                    await page.render({
+
+                        canvasContext:
+                            context,
+
+                        viewport:
+                            viewport,
+
+                        transform:
+                            outputScale !== 1
+                                ? [
+                                    outputScale,
+                                    0,
+                                    0,
+                                    outputScale,
+                                    0,
+                                    0
+                                ]
+                                : null
+
+                    }).promise;
+
+                }
+
+            } catch (error) {
+
+                showError(
+                    error?.message ||
+                    String(error)
+                );
+
+            }
+
+        }
+
+
+        /*
+            Disable the normal right-click menu.
+        */
+
+        document.addEventListener(
+            "contextmenu",
+            function (event) {
+
+                event.preventDefault();
+
+            }
+        );
+
+
+        /*
+            Discourage common Save and Print shortcuts.
+        */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                const key =
+                    event.key.toLowerCase();
+
+
+                if (
+                    (
+                        event.ctrlKey ||
+                        event.metaKey
+                    ) &&
+                    (
+                        key === "s" ||
+                        key === "p"
+                    )
+                ) {
+
+                    event.preventDefault();
+
+                }
+
+            }
+        );
+
+
+        renderPDF();
+
+    </script>
+
+</body>
+
+</html>
