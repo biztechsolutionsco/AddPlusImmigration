@@ -89,10 +89,6 @@
             text-align: center;
         }
 
-        .status-screen p {
-            margin: 6px 0;
-        }
-
         .loading-message {
             color: #123b63;
         }
@@ -102,7 +98,7 @@
         }
 
         .error-details {
-            margin-top: 12px !important;
+            margin-top: 12px;
 
             max-width: 700px;
 
@@ -115,6 +111,10 @@
 
             -webkit-user-select: text;
             user-select: text;
+        }
+
+        [hidden] {
+            display: none !important;
         }
 
         @media (max-width: 600px) {
@@ -146,7 +146,7 @@
         id="loadingMessage"
         class="status-screen loading-message"
     >
-        <p>Loading policy document...</p>
+        Loading policy document...
     </div>
 
 
@@ -173,18 +173,19 @@
     </div>
 
 
-    <script type="module">
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+    ></script>
+
+
+    <script>
 
         const PDF_URL =
             "./Files/Termination,%20Refund,%20Reschedule%20Policies%20V202512.pdf";
 
 
-        const PDFJS_URL =
-            "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.5.438/build/pdf.mjs";
-
-
-        const PDFJS_WORKER_URL =
-            "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.5.438/build/pdf.worker.mjs";
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
 
         const viewer =
@@ -218,68 +219,33 @@
         }
 
 
-        async function checkPDFFile() {
-
-            const response =
-                await fetch(
-                    PDF_URL,
-                    {
-                        cache: "no-store"
-                    }
-                );
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    `PDF file could not be found. HTTP status: ${response.status}. ` +
-                    `Checked path: ${PDF_URL}`
-                );
-
-            }
-
-        }
-
-
         async function renderPDF() {
 
             try {
 
-                /*
-                    STEP 1:
-                    Make sure the PDF actually exists
-                    at the expected local path.
-                */
-
-                await checkPDFFile();
-
-
-                /*
-                    STEP 2:
-                    Load PDF.js dynamically.
-
-                    Using dynamic import means that
-                    a CDN/module error can be caught
-                    and displayed on the page.
-                */
-
-                const pdfjsLib =
-                    await import(PDFJS_URL);
+                const response =
+                    await fetch(
+                        PDF_URL,
+                        {
+                            cache: "no-store"
+                        }
+                    );
 
 
-                pdfjsLib.GlobalWorkerOptions.workerSrc =
-                    PDFJS_WORKER_URL;
+                if (!response.ok) {
 
+                    throw new Error(
+                        "PDF file could not be found. HTTP status: " +
+                        response.status +
+                        ". Checked path: " +
+                        PDF_URL
+                    );
 
-                /*
-                    STEP 3:
-                    Load the PDF.
-                */
+                }
+
 
                 const loadingTask =
-                    pdfjsLib.getDocument({
-                        url: PDF_URL
-                    });
+                    pdfjsLib.getDocument(PDF_URL);
 
 
                 const pdf =
@@ -291,12 +257,6 @@
                 viewer.hidden = false;
 
 
-                /*
-                    STEP 4:
-                    Render each PDF page onto
-                    its own canvas.
-                */
-
                 for (
                     let pageNumber = 1;
                     pageNumber <= pdf.numPages;
@@ -304,9 +264,7 @@
                 ) {
 
                     const page =
-                        await pdf.getPage(
-                            pageNumber
-                        );
+                        await pdf.getPage(pageNumber);
 
 
                     const baseViewport =
@@ -341,9 +299,7 @@
 
 
                     const canvas =
-                        document.createElement(
-                            "canvas"
-                        );
+                        document.createElement("canvas");
 
 
                     canvas.className =
@@ -365,22 +321,20 @@
 
 
                     canvas.style.width =
-                        `${viewport.width}px`;
+                        viewport.width + "px";
 
 
                     canvas.style.height =
-                        `${viewport.height}px`;
+                        viewport.height + "px";
 
 
                     canvas.setAttribute(
                         "aria-label",
-                        `Page ${pageNumber}`
+                        "Page " + pageNumber
                     );
 
 
-                    viewer.appendChild(
-                        canvas
-                    );
+                    viewer.appendChild(canvas);
 
 
                     const context =
@@ -428,10 +382,6 @@
         }
 
 
-        /*
-            Disable the normal right-click menu.
-        */
-
         document.addEventListener(
             "contextmenu",
             function (event) {
@@ -441,10 +391,6 @@
             }
         );
 
-
-        /*
-            Discourage common Save and Print shortcuts.
-        */
 
         document.addEventListener(
             "keydown",
